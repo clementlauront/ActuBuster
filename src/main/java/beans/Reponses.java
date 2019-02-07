@@ -5,19 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Tags {
-
+public class Reponses {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name="TAGS")
-	private String tags;
-	
-	
+	@Column (name="REPONSES")
+	private String reponses;
+
 	/*
 	 * =========
-	 * Getters et Setters
+	 * Getters et Setteurs
 	 * =========
 	 */
 	public int getId() {
@@ -26,23 +24,28 @@ public class Tags {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getTags() {
-		return tags;
+	public String getReponses() {
+		return reponses;
 	}
-	public void setTags(String tags) {
-		this.tags = tags;
+	public void setReponses(String reponses) {
+		this.reponses = reponses;
 	}
 
 	
 	/*
-	 * =========
+	 * =============
 	 * Constructeurs
-	 * ========
+	 * =============
 	 */
-	
-	public Tags(int id, String tags) {
+	public Reponses(int id, String reponses) {
 		super();
 		this.id = id;
-		this.tags = tags;
+		this.reponses = reponses;
 	}
+	
+	
+	
+	
 }
+
+

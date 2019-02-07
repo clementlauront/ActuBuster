@@ -1,8 +1,16 @@
 package beans;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Questions {
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+
+	@Column (name="QUESTION")
 	private String question;
 	
 	/*

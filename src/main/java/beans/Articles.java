@@ -1,72 +1,98 @@
 package beans;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import enumerations.Categories;
 import enumerations.Niveaux;
 
+@Entity
 public class Articles {
-
-	private String prenom;
-	private String nom;
-	private String pseudo;
-	private String password;
-	private String email;
-	private Niveaux niveaux;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
 	
+	@Column(name="TITRE")
+	private String titre;
+	
+	@OneToOne(cascade= {CascadeType.ALL})
+	@JoinColumn
+	private Categories categorie;
+	
+	@Column(name="CONTENUE")
+	private String contenue;
+	
+	@OneToMany
+	private Tags tag;
+	
+	@Column(name="NOMBREVUES")
+	private int nombreVues;
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getTitre() {
+		return titre;
+	}
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+	public Categories getCategorie() {
+		return categorie;
+	}
+	public void setCategorie(Categories categorie) {
+		this.categorie = categorie;
+	}
+	public String getContenue() {
+		return contenue;
+	}
+	public void setContenue(String contenue) {
+		this.contenue = contenue;
+	}
+	public Tags getTag() {
+		return tag;
+	}
+	public void setTag(Tags tag) {
+		this.tag = tag;
+	}
+	public int getNombreVues() {
+		return nombreVues;
+	}
+	public void setNombreVues(int nombreVues) {
+		this.nombreVues=nombreVues;
+	}
 	
 	/*
-	 *========== 
-	 * Getters et Setters
 	 * =========
+	 * Constructeur
+	 * ========
+	 * 
 	 */
-	public String getPrenom() {
-		return prenom;
-	}
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-	public String getNom() {
-		return nom;
-	}
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	public String getPseudo() {
-		return pseudo;
-	}
-	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public Niveaux getNiveaux() {
-		return niveaux;
-	}
-	public void setNiveaux(Niveaux niveaux) {
-		this.niveaux = niveaux;
-	}
-	
-	
-	/*
-	 * =========
-	 * Constructeurs
-	 * =========
-	 */
-	public Articles(String prenom, String nom, String pseudo, String password, String email, Niveaux niveaux) {
+	public Articles(int id, String titre, Categories categorie, String contenue, Tags tag,int nombreVues) {
 		super();
-		this.prenom = prenom;
-		this.nom = nom;
-		this.pseudo = pseudo;
-		this.password = password;
-		this.email = email;
-		this.niveaux = niveaux;
+		this.id = id;
+		this.titre = titre;
+		this.categorie = categorie;
+		this.contenue = contenue;
+		this.tag = tag;
+		this.nombreVues=nombreVues;
 	}
+	
+	
+	
 }

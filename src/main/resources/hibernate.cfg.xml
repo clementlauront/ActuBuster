@@ -13,11 +13,12 @@ name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 <property name="hibernate.connection.password">activ</property>
 <property name="hbm2ddl.auto">create</property>
 <!-- Seront indiqués ici les fichiers de mapping -->
-<mapping class="beans.membres"/>
-<mapping class="beans.articles"/>
-<mapping class="beans.quizz"/>
-<mapping class="beans.tags"/>
-<mapping class="beans.questions"/>
-
+<mapping class="beans.Membres"/>
+<mapping class="beans.Articles"/>
+<mapping class="beans.Quizz"/>
+<mapping class="beans.Tags"/>
+<mapping class="beans.Questions"/>
+<mapping class="enumerations.Categories"/>
+<mapping class="enumerations.Niveaux"/>
 </session-factory>
 </hibernate-configuration>

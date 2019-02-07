@@ -1,33 +1,42 @@
 package enumerations;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public enum Niveaux {
 	
 	ADMIN(0,"Admin"),
 	JOURNALISTE(1,"Journaliste"),
 	CLIENT(2,"Client");
 	
-	private int niveau;
-	private String nom;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+
+	@Column(name="DESCRIPTION")
+	private String description;
 	
 	/*
 	 * ==========
 	 * Getters et Setters
 	 * ==========
 	 */
-	public int getNiveau() {
-		return niveau;
+	public int getId() {
+		return id;
 	}
 
-	public void setNiveau(int niveau) {
-		this.niveau = niveau;
+	public void setNiveau(int id) {
+		this.id = id;
 	}
 
-	public String getNom() {
-		return nom;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setDescription(String description) {
+		this.description = description;
 	}	
 	
 	/*
@@ -35,9 +44,9 @@ public enum Niveaux {
 	 * Constructeur
 	 * ===========
 	 */
-	private Niveaux(int niveau, String nom) {
-		this.niveau = niveau;
-		this.nom = nom;
+	private Niveaux(int id, String description) {
+		this.id = id;
+		this.description = description;
 	}
 
 	
