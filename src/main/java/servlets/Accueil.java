@@ -25,7 +25,7 @@ public class Accueil extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Salut ça va ?").append(request.getContextPath());
+		response.getWriter().append("Salut ça va tu vas bien ?").append(request.getContextPath());
 	}
 
 	/**
