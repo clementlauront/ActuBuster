@@ -1,5 +1,10 @@
 package enumerations;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public enum Categories {
 
 	GENERALE(0,"Générale"),
@@ -14,7 +19,11 @@ public enum Categories {
 	JEUXVIDEO(9,"Jeux-video"),
 	ECOLOGIE(10,"Ecologie");
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(name="DESCRIPTION")
 	private String description;
 	
 	/*
