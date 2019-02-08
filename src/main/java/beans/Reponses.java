@@ -1,17 +1,19 @@
 package beans;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Reponses {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
 	@Column (name="REPONSES")
-	private String reponses;
+	private String reponse;
 
 	/*
 	 * =========
@@ -25,10 +27,10 @@ public class Reponses {
 		this.id = id;
 	}
 	public String getReponses() {
-		return reponses;
+		return reponse;
 	}
 	public void setReponses(String reponses) {
-		this.reponses = reponses;
+		this.reponse = reponses;
 	}
 
 	
@@ -40,7 +42,7 @@ public class Reponses {
 	public Reponses(int id, String reponses) {
 		super();
 		this.id = id;
-		this.reponses = reponses;
+		this.reponse = reponses;
 	}
 	
 	

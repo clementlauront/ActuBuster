@@ -10,10 +10,11 @@ import org.hibernate.cfg.Configuration;
 import beans.Articles;
 
 public class GestionnaireArticle {
-	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+	SessionFactory sessionFactory;
 	
 
 	public GestionnaireArticle() {
+		this.sessionFactory = new Configuration().configure().buildSessionFactory();
 	}
 
 	
