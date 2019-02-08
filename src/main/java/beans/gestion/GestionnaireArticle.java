@@ -14,7 +14,9 @@ public class GestionnaireArticle {
 	}
 
 	
-	public boolean ajouterArticle(Articles art) {
+	public boolean addArticle(Articles art) {
+		// TODO prévoir si l'ajout ne se fait pas
+		// TODO à vérifier
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		session.save(art);
@@ -23,7 +25,9 @@ public class GestionnaireArticle {
 		return true;
 	}
 	
-	public boolean retirerArticleAvecId(int id) {
+	public boolean deleteArticleById(int id) {
+		// TODO prévoir si id n'existe pas
+		// TODO à vérifier
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Articles art = (Articles) session.get(Articles.class, id);
@@ -35,7 +39,9 @@ public class GestionnaireArticle {
 		return true;
 	}
 	
-	public boolean modifierArticleAvecId(int id) {
+	public boolean updateArticle(int id) {
+		// TODO prévoir si id de l'article n'existe pas
+		// TODO à vérifier
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Articles art = (Articles) session.get(Articles.class, id);
@@ -45,6 +51,16 @@ public class GestionnaireArticle {
 		session.getTransaction().commit();
 		session.close();
 		return true;
+	}
+	
+	public Articles getArticleById(int id) {
+		// TODO à vérifier
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		Articles art = (Articles) session.get(Articles.class, id);
+		session.getTransaction().commit();
+		session.close();
+		return art;
 	}
 	
 	
