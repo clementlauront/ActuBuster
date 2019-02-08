@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.Articles;
+import beans.Membres;
 import beans.Tags;
 import beans.gestion.GestionnaireArticle;
 import enumerations.Categories;
+import enumerations.Niveaux;
 
 /**
  * Servlet implementation class Accueil
@@ -30,7 +32,7 @@ public class Accueil extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO TEST gestionnaire
-		Articles article = new Articles(1,"Yoyo",Categories.FINANCE,"Yo man je fais de la finance yo yo",new Tags(1,"yo"),0);
+		Articles article = new Articles(1,"Yoyo",new Membres("Bob", "Moran", "Bobby", "youhou", "loulou@gmail.com", Niveaux.JOURNALISTE), Categories.FINANCE,"Yo man je fais de la finance yo yo",new Tags(1,"yo"),0);
 		GestionnaireArticle gArt = new GestionnaireArticle();
 		gArt.addArticle(article);
 		Articles recupArticle = gArt.getArticleById(1);
