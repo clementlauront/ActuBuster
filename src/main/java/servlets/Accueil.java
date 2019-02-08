@@ -29,6 +29,7 @@ public class Accueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO TEST gestionnaire
 		Articles article = new Articles(1,"Yoyo",Categories.FINANCE,"Yo man je fais de la finance yo yo",new Tags(1,"yo"),0);
 		GestionnaireArticle gArt = new GestionnaireArticle();
 		gArt.addArticle(article);
@@ -40,7 +41,10 @@ public class Accueil extends HttpServlet {
 			System.out.println(gArt.getArticleById(1).getTitre());
 		}
 		
-		
+		gArt.deleteArticleById(1);
+		if (gArt.getArticleById(1)==null) {
+			System.out.println("c'est bien delete");
+		}
 		
 				
 				
