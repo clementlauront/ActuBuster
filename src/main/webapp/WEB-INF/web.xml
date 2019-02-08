@@ -59,10 +59,10 @@
   	<servlet-class>servlets.PageMembre</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>NousContacter</servlet-name>
-  	<display-name>NousContacter</display-name>
+  	<servlet-name>CreactionBDD</servlet-name>
+  	<display-name>CreactionBDD</display-name>
   	<description></description>
-  	<servlet-class>servlets.NousContacter</servlet-class>
+  	<servlet-class>servlets.CreactionBDD</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>Accueil</servlet-name>
@@ -101,8 +101,8 @@
   	<url-pattern>/PageMembre</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>NousContacter</servlet-name>
-  	<url-pattern>/NousContacter</url-pattern>
+  	<servlet-name>CreactionBDD</servlet-name>
+  	<url-pattern>/CreactionBDD</url-pattern>
   </servlet-mapping>
 
 </web-app>
