@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -26,6 +27,9 @@ public class Articles {
 	@Column(name="TITRE")
 	private String titre;
 	
+	@ManyToOne(cascade= {CascadeType.ALL})
+	private Membres auteur;
+
 	@OneToOne(cascade= {CascadeType.ALL})
 	@JoinColumn
 	private Categories categorie;
@@ -51,6 +55,12 @@ public class Articles {
 	}
 	public void setTitre(String titre) {
 		this.titre = titre;
+	}
+	public Membres getAuteur() {
+		return auteur;
+	}
+	public void setAuteur(Membres auteur) {
+		this.auteur = auteur;
 	}
 	public Categories getCategorie() {
 		return categorie;
@@ -83,7 +93,7 @@ public class Articles {
 	 * ========
 	 * 
 	 */
-	public Articles(int id, String titre, Categories categorie, String contenue, Tags tag,int nombreVues) {
+	public Articles(int id, String titre, Membres auteur, Categories categorie, String contenue, Tags tag,int nombreVues) {
 		super();
 		this.id = id;
 		this.titre = titre;
@@ -91,6 +101,7 @@ public class Articles {
 		this.contenue = contenue;
 		this.tag = tag;
 		this.nombreVues=nombreVues;
+		this.auteur=auteur;
 	}
 	
 	
