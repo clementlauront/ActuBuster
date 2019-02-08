@@ -1,6 +1,7 @@
 package beans.gestion;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -72,7 +73,7 @@ public class GestionnaireArticle {
 		session.getTransaction().commit();
 		session.close();
 		
-		return articles;
+		return (ArrayList<Articles>) articles;
 	}
 	
 	
