@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,10 +14,12 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.annotations.Target;
 import org.hibernate.cfg.Configuration;
 
 import enumerations.Niveaux;
 
+@Entity
 public class Membres {
 
 	
@@ -42,8 +45,7 @@ public class Membres {
 		@Column(name="EMAIL")
 		private String email;
 		
-		@OneToOne(cascade= {CascadeType.ALL})
-		@JoinColumn
+		@Column
 		private Niveaux niveaux;
 		
 		

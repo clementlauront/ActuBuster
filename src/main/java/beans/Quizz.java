@@ -1,7 +1,10 @@
 package beans;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +14,7 @@ import javax.persistence.OneToOne;
 
 import enumerations.Categories;
 
+@Entity
 public class Quizz {
 
 	@Id
@@ -23,18 +27,17 @@ public class Quizz {
 	@Column(name="TITRE")
 	private String titre;
 	
-	@OneToOne(cascade= {CascadeType.ALL})
-	@JoinColumn
+	@Column
 	private Categories categorie;
 	
-	@OneToMany
-	private Questions questions;
+	@OneToMany(cascade= {CascadeType.ALL})
+	private List<Questions> questions;
 	
 	@Column(name="CONTENUE")
 	private String contenue;
 	
-	@OneToMany
-	private Reponses reponse;
+	@OneToMany(cascade= {CascadeType.ALL})
+	private List<Reponses> reponse;
 	
 	/*
 	 * ============
@@ -66,10 +69,10 @@ public class Quizz {
 	public void setCategorie(Categories categorie) {
 		this.categorie = categorie;
 	}
-	public Questions getQuestions() {
+	public List<Questions> getQuestions() {
 		return questions;
 	}
-	public void setQuestions(Questions questions) {
+	public void setQuestions(List<Questions> questions) {
 		this.questions = questions;
 	}
 	public String getContenue() {
@@ -78,10 +81,10 @@ public class Quizz {
 	public void setContenue(String contenue) {
 		this.contenue = contenue;
 	}
-	public Reponses getReponse() {
+	public List<Reponses> getReponse() {
 		return reponse;
 	}
-	public void setReponse(Reponses reponse) {
+	public void setReponse(List<Reponses> reponse) {
 		this.reponse = reponse;
 	}
 	
@@ -90,8 +93,8 @@ public class Quizz {
 	 * Constructeurs
 	 * ============
 	 */
-	public Quizz(int id, int nombreVues, String titre, Categories categorie, Questions questions, String contenue,
-			Reponses reponse) {
+	public Quizz(int id, int nombreVues, String titre, Categories categorie, List<Questions> questions, String contenue,
+			List<Reponses> reponse) {
 		super();
 		this.id = id;
 		this.nombreVues = nombreVues;

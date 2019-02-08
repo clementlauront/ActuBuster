@@ -1,5 +1,7 @@
 package beans;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,15 +32,14 @@ public class Articles {
 	@ManyToOne(cascade= {CascadeType.ALL})
 	private Membres auteur;
 
-	@OneToOne(cascade= {CascadeType.ALL})
-	@JoinColumn
+	@Column
 	private Categories categorie;
 	
 	@Column(name="CONTENUE")
 	private String contenue;
 	
-	@OneToMany
-	private Tags tag;
+	@OneToMany(cascade= {CascadeType.ALL})
+	private List<Tags> tags;
 	
 	@Column(name="NOMBREVUES")
 	private int nombreVues;
@@ -74,11 +75,11 @@ public class Articles {
 	public void setContenue(String contenue) {
 		this.contenue = contenue;
 	}
-	public Tags getTag() {
-		return tag;
+	public List<Tags> getTag() {
+		return tags;
 	}
-	public void setTag(Tags tag) {
-		this.tag = tag;
+	public void setTag(List<Tags> tags) {
+		this.tags = tags;
 	}
 	public int getNombreVues() {
 		return nombreVues;
@@ -93,13 +94,13 @@ public class Articles {
 	 * ========
 	 * 
 	 */
-	public Articles(int id, String titre, Membres auteur, Categories categorie, String contenue, Tags tag,int nombreVues) {
+	public Articles(int id, String titre, Membres auteur, Categories categorie, String contenue, List<Tags> tags,int nombreVues) {
 		super();
 		this.id = id;
 		this.titre = titre;
 		this.categorie = categorie;
 		this.contenue = contenue;
-		this.tag = tag;
+		this.tags = tags;
 		this.nombreVues=nombreVues;
 		this.auteur=auteur;
 	}
