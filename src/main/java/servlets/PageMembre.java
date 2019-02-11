@@ -24,7 +24,9 @@ public class PageMembre extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		// récupérer les informations du loggé et les afficher
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageMembre/index.jsp").forward(request, response);
 	}
 
@@ -32,7 +34,10 @@ public class PageMembre extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		// récupérer le formulaire, comparer à la liste des membres, si email ou pseudo ou (prénom et nom) correspond à un autre membre, renvoyer erreur
+		// sinon, modifier les informations du loggé et le renvoyer vers espace membre
+		
 		doGet(request, response);
 	}
 

@@ -24,7 +24,7 @@ public class Inscription extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageInscription/index.jsp").forward(request, response);
 	}
 
@@ -32,7 +32,10 @@ public class Inscription extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		//récupérer les infos du formulaire, comparer à la liste des membres, si email ou pseudo ou (prénom et nom) correspond, on demande changement
+		//si le membre n'existe pas encore, on le créer et on le renvoie vers la page de connexion (ou on le connecte direct et on redirige vers la page d'accueil)
+		
 		doGet(request, response);
 	}
 

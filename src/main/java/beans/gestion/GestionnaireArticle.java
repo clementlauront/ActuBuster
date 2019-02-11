@@ -20,7 +20,6 @@ public class GestionnaireArticle {
 	
 	public boolean addArticle(Articles art) {
 		// TODO prévoir si l'ajout ne se fait pas
-		// TODO à vérifier
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		session.save(art);
@@ -31,7 +30,6 @@ public class GestionnaireArticle {
 	
 	public boolean deleteArticleById(int id) {
 		// TODO prévoir si id n'existe pas
-		// TODO à vérifier
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Articles art = (Articles) session.get(Articles.class, id);
@@ -45,7 +43,6 @@ public class GestionnaireArticle {
 	
 	public boolean updateArticle(int id) {
 		// TODO prévoir si id de l'article n'existe pas
-		// TODO à vérifier
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Articles art = (Articles) session.get(Articles.class, id);
@@ -58,7 +55,6 @@ public class GestionnaireArticle {
 	}
 	
 	public Articles getArticleById(int id) {
-		// TODO à vérifier
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Articles art = (Articles) session.get(Articles.class, id);
@@ -68,6 +64,7 @@ public class GestionnaireArticle {
 	}
 	
 	public ArrayList<Articles> getAllArticles(){
+		// TODO à vérifier
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		List<Articles> articles = session.createQuery("from Articles").list();

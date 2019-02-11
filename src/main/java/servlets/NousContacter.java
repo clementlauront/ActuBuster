@@ -24,7 +24,9 @@ public class NousContacter extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		// permettre d'envoyer un message vers le serveur en renseignant email, nom et prénom, remplir automatiquement si loggé
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageNousContacter/index.jsp").forward(request, response);
 	}
 
@@ -32,7 +34,7 @@ public class NousContacter extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 
