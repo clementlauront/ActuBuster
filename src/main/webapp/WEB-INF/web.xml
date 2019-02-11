@@ -64,6 +64,18 @@
   	<description></description>
   	<servlet-class>servlets.CreactionBDD</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AjouterArticle</servlet-name>
+  	<display-name>AjouterArticle</display-name>
+  	<description></description>
+  	<servlet-class>servlets.AjouterArticle</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AdministrationDuSite</servlet-name>
+  	<display-name>AdministrationDuSite</display-name>
+  	<description></description>
+  	<servlet-class>servlets.AdministrationDuSite</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Accueil</servlet-name>
   	<url-pattern>/Accueil</url-pattern>
@@ -103,6 +115,14 @@
   <servlet-mapping>
   	<servlet-name>CreactionBDD</servlet-name>
   	<url-pattern>/CreactionBDD</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AjouterArticle</servlet-name>
+  	<url-pattern>/AjouterArticle</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdministrationDuSite</servlet-name>
+  	<url-pattern>/AdministrationDuSite</url-pattern>
   </servlet-mapping>
 
 </web-app>

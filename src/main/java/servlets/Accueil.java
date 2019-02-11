@@ -32,7 +32,9 @@ public class Accueil extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				
-				
+		
+		//récupérer les infos de log et afficher les infos du loggé (si non loggé, afficher un truc du genre "invité").
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageAccueil/index.jsp").forward(request, response);
 	}
 

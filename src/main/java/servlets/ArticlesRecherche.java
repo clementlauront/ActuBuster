@@ -24,7 +24,10 @@ public class ArticlesRecherche extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		//récupérer les infos de log et afficher les infos du loggé (si non loggé, afficher un truc du genre "invité").
+		//récupérer la liste des articles et l'afficher
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageArticlesRecherche/index.jsp").forward(request, response);
 	}
 

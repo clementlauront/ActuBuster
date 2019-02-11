@@ -24,7 +24,7 @@ public class Connexion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageConnexion/index.jsp").forward(request, response);
 	}
 
@@ -32,7 +32,9 @@ public class Connexion extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		//récupérer les infos du formulaire, comparer à la liste des membres, si mdp et pseudo (ou email) correspond, on connecte et on renvoie vers accueil
+		
 		doGet(request, response);
 	}
 
