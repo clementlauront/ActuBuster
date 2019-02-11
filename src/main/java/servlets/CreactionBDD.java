@@ -12,6 +12,8 @@ import beans.Articles;
 import beans.Membres;
 import beans.Tags;
 import beans.gestion.GestionnaireArticle;
+import beans.gestion.GestionnaireMembres;
+import beans.gestion.GestionnaireTags;
 import enumerations.Categories;
 import enumerations.Niveaux;
 
@@ -34,26 +36,46 @@ public class CreactionBDD extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO TEST gestionnaire
+		
+		//Creation Tags
+		Tags giletsJaune = new Tags("Gilets Jaunes");
+		Tags france = new Tags("France");
+		Tags cinema = new Tags("cinéma");
 		List<Tags> tags = new ArrayList<Tags>();
-		Articles article = new Articles(1,"Yoyo",new Membres("Bob", "Moran", "Bobby", "youhou", "loulou@gmail.com", Niveaux.JOURNALISTE), Categories.FINANCE,"Yo man je fais de la finance yo yo",tags,0);
+		tags.add(cinema);
+		tags.add(france);
+		tags.add(giletsJaune);
+		
 
+		//Creation Membres 
+		Membres Bob = new Membres("Bob", "Moran", "Bobby", "youhou", "loulou@gmail.com", Niveaux.JOURNALISTE);
+		
+		Membres adminClement = new Membres("Clément", "LAURONT", "BobleBoss", "BobLeponge", "bobleponge@gmail.com", Niveaux.ADMIN);
+		Membres adminAlexandre = new Membres("Alexandre", "GRONDIN", "FatSushi", "oldot@ku974", "a.grondin@gmail.com", Niveaux.ADMIN);
+		Membres adminAndrea = new Membres("Andrea", "FONTENEAU", "LaDocDu44", "ILOVEMEDECINE", "andrea.fonteneau@gmail.com", Niveaux.ADMIN);
+
+		// Creation Articles
+		Articles article = new Articles("Yoyo",Bob, Categories.FINANCE,"Yo man je fais de la finance yo yo",tags,2);
+		
+		//Instanciation Gestionnaires
 		GestionnaireArticle gArt = new GestionnaireArticle();
+		GestionnaireMembres gMembre = new GestionnaireMembres();
+		GestionnaireTags gTags = new GestionnaireTags();
+		
+		// Ajout d'articles dans la BDD
 		gArt.addArticle(article);
-//		Articles recupArticle = gArt.getArticleById(1);
-//		if (article==recupArticle) {
-//			System.out.println("ça colle");
-//			recupArticle.setTitre("Walou");
-//			gArt.updateArticle(recupArticle.getId());
-//			System.out.println(gArt.getArticleById(1).getTitre());
-//		}
-//		
-//		gArt.deleteArticleById(1);
-//		if (gArt.getArticleById(1)==null) {
-//			System.out.println("c'est bien delete");
-//		}
 		
+		// Ajout de membres dans la BDD
+		gMembre.addMembre(adminAndrea);
+		gMembre.addMembre(adminClement);
+		gMembre.addMembre(adminAlexandre);
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		// Ajout de tags dans la BDD
+		gTags.addTag(cinema);
+		gTags.addTag(france);
+		gTags.addTag(giletsJaune);
+
+
 	}
 
 	/**

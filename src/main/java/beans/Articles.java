@@ -94,9 +94,8 @@ public class Articles {
 	 * ========
 	 * 
 	 */
-	public Articles(int id, String titre, Membres auteur, Categories categorie, String contenue, List<Tags> tags,int nombreVues) {
+	public Articles(String titre, Membres auteur, Categories categorie, String contenue, List<Tags> tags,int nombreVues) {
 		super();
-		this.id = id;
 		this.titre = titre;
 		this.categorie = categorie;
 		this.contenue = contenue;
