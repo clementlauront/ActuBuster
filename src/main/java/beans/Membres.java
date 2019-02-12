@@ -8,14 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.annotations.Target;
-import org.hibernate.cfg.Configuration;
 
 import enumerations.Niveaux;
 
@@ -97,6 +91,11 @@ public class Membres {
 		 * Constructeurs
 		 * =========
 		 */
+		
+		public Membres() {
+			
+		}
+		
 		public Membres(String prenom, String nom, String pseudo, String password, String email, Niveaux niveaux) {
 			super();
 			this.prenom = prenom;

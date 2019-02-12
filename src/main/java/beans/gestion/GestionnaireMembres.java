@@ -1,5 +1,8 @@
 package beans.gestion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -15,7 +18,7 @@ public class GestionnaireMembres {
 	}
 	
 	public boolean addMembre(Membres membre) {
-		// TODO prévoir si l'ajout ne se fait pas
+		// TODO prï¿½voir si l'ajout ne se fait pas
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		session.save(membre);
@@ -25,7 +28,7 @@ public class GestionnaireMembres {
 	}
 	
 	public boolean deleteMembreById(int id) {
-		// TODO prévoir si id n'existe pas
+		// TODO prï¿½voir si id n'existe pas
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Membres membre = (Membres) session.get(Membres.class, id);
@@ -38,7 +41,7 @@ public class GestionnaireMembres {
 	}
 	
 	public boolean updateMembre(int id) {
-		// TODO prévoir si id de l'article n'existe pas
+		// TODO prï¿½voir si id de l'article n'existe pas
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Membres membre = (Membres) session.get(Membres.class, id);
@@ -57,6 +60,17 @@ public class GestionnaireMembres {
 		session.getTransaction().commit();
 		session.close();
 		return membre;
+	}
+	
+	public ArrayList<Membres> getAllMembres(){
+		// TODO ï¿½ vï¿½rifier
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		List<Membres> membres = (List<Membres>) session.createQuery("from Membres").list();
+		session.getTransaction().commit();
+		session.close();
+		
+		return (ArrayList<Membres>) membres;
 	}
 
 }

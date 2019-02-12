@@ -44,7 +44,20 @@ public class Articles {
 	@Column(name="NOMBREVUES")
 	private int nombreVues;
 	
+	@Column(name="CHAPEAU")
+	private String chapeau;
 	
+	//getters et setters
+	
+	public String getChapeau() {
+		return chapeau;
+	}
+	public void setChapeau(String chapeau) {
+		this.chapeau = chapeau;
+	}
+	public List<Tags> getTags() {
+		return tags;
+	}
 	public int getId() {
 		return id;
 	}
@@ -94,11 +107,12 @@ public class Articles {
 	 * ========
 	 * 
 	 */
-	public Articles(String titre, Membres auteur, Categories categorie, String contenue, List<Tags> tags,int nombreVues) {
+	public Articles(String titre, Membres auteur, Categories categorie, String contenue, String chapeau, List<Tags> tags,int nombreVues) {
 		super();
 		this.titre = titre;
 		this.categorie = categorie;
 		this.contenue = contenue;
+		this.chapeau = chapeau;
 		this.tags = tags;
 		this.nombreVues=nombreVues;
 		this.auteur=auteur;

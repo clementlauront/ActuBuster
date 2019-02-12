@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page  isELIgnored ="false" %> --%>
 <html lang="fr">
 
 <head>
@@ -69,7 +71,7 @@
 
         <section class="connexion">
             <h2>Connexion</h2>
-            <form method="post" action="envoi.php">
+            <form method="post" action="/ActuBuster/Connexion">
                 <div class="container-connexion">
                     <fieldset>
 
@@ -84,7 +86,7 @@
 
                         <p>
                             <label for="mdp">Mot de passe :</label>
-                            <input type="text" id="mdp" name="mdp" placeholder="*********" required="required" />
+                            <input type="password" id="mdp" name="mdp" placeholder="*********" required="required" />
                         </p>
                     </fieldset>
                 </div>
@@ -93,12 +95,16 @@
                     <p>
                         <input type="submit" value="Connexion" id="bouton_envoi" />
                     </p>
+                <!-- Message d'erreur -->
+				<fieldset>
+					<p><%= request.getAttribute("messageErreurConnexion") %></p>
+				</fieldset>
                 </fieldset>
             </form>
         </section>
 
         <section class="inscription">
-            <form method="post" action="envoi.php">
+            <form method="post" action="/ActuBuster/Inscription">
                 <div class="container-inscription">
                     <fieldset>
 
@@ -108,7 +114,7 @@
                         </p>
 
                         <p>
-                            <label for="nom">Prénom :</label>
+                            <label for="prenom">Prénom :</label>
                             <input type="text" id="prenom" name="prenom" placeholder="Prénom" required="required" />
                         </p>
 
@@ -123,16 +129,17 @@
 
                         <p>
                             <label for="mdp">Mot de passe :</label>
-                            <input type="text" class="mdp" name="mdp" placeholder="*********" required="required" />
+                            <input type="password" class="mdp" name="mdp" placeholder="*********" required="required" />
                         </p>
 
                         <p>
                             <label for="mdp">Confirmation du mot de passe :</label>
-                            <input type="text" class="mdp" name="mdp2" placeholder="*********" required="required" />
+                            <input type="password" class="mdp" name="mdp2" placeholder="*********" required="required" />
                         </p>
 
                     </fieldset>
                 </div>
+					<p><%= request.getAttribute("messageErreurInscription") %></p>
 
                 <fieldset class="submit">
                     <p>
