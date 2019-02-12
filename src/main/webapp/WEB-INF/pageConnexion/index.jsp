@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page  isELIgnored ="false" %> --%>
 <html lang="fr">
 
 <head>
@@ -69,7 +71,7 @@
 
         <section class="connexion">
             <h2>Connexion</h2>
-            <form method="post" action="envoi.php">
+            <form method="post" action="/ActuBuster/Connexion">
                 <div class="container-connexion">
                     <fieldset>
 
@@ -93,12 +95,13 @@
                     <p>
                         <input type="submit" value="Connexion" id="bouton_envoi" />
                     </p>
-                </fieldset>
+<%--                     <p> <c:out value="${messageErreur}"/> </p>
+ --%>                </fieldset>
             </form>
         </section>
 
         <section class="inscription">
-            <form method="post" action="envoi.php">
+            <form method="post" action="/ActuBuster/Connexion">
                 <div class="container-inscription">
                     <fieldset>
 

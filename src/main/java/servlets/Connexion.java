@@ -34,6 +34,13 @@ public class Connexion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.getServletContext().getRequestDispatcher("/WEB-INF/pageConnexion/index.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String mdp = request.getParameter("mdp");
 		String messageErreur ="";
@@ -42,25 +49,17 @@ public class Connexion extends HttpServlet {
 		Session gestionnaire = usine.openSession();
 		
 		@SuppressWarnings("unchecked")
-		List<Membres> resultat = (List<Membres>) gestionnaire.createQuery("from Membres WHERE email = "+email+" & PASSWORD = "+mdp);
+		List<Membres> resultat = (List<Membres>) gestionnaire.createQuery("from Membres WHERE email = "+email+" AND PASSWORD = "+mdp).list();
 		if(resultat.size() == 0) {
 			messageErreur = "L'email ou le mot de passe que vous avez inscrit est incorrect.";
+			request.setAttribute("messageErreur", messageErreur);
 			//TODO Faire apparaitre message d'erreur
 		}else if(resultat.size()==1) {
 			HttpSession session = request.getSession(false) ;
+			
 			response.sendRedirect("/PageMembre");
 
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//récupérer les infos du formulaire, comparer à la liste des membres, si mdp et pseudo (ou email) correspond, on connecte et on renvoie vers accueil
-		
-		doGet(request, response);
 	}
 
 }
