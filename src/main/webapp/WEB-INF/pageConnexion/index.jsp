@@ -108,7 +108,7 @@
                         </p>
 
                         <p>
-                            <label for="nom">Prénom :</label>
+                            <label for="prenom">Prénom :</label>
                             <input type="text" id="prenom" name="prenom" placeholder="Prénom" required="required" />
                         </p>
 

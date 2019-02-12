@@ -10,10 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.Membres;
-import beans.gestion.GestionnaireArticle;
 import beans.gestion.GestionnaireMembres;
 import enumerations.Niveaux;
-import fr.agrondin.objects.LoginPostName;
 
 /**
  * Servlet implementation class Inscription
@@ -35,16 +33,16 @@ public class Inscription extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(false);
+		
 		if (session != null) {
-			if (session.getAttribute() != null) {
-				// Si une session existe, on redirige sur accueil
+			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
+			if (loggeur.getEmail() != null) { // Si une session existe, on redirige sur accueil
 				response.sendRedirect("/Accueil");
-			} else {
-				// Sinon, on affiche la page d'enregistrement.
-				this.getServletContext().getRequestDispatcher("/WEB-INF/pageInscription/index.jsp").forward(request, response);
+			} else { // Sinon, on affiche la page d'inscription.
+				this.getServletContext().getRequestDispatcher("/WEB-INF/pageConnexion/index.jsp").forward(request, response);
 			}
 		} else {
-			this.getServletContext().getRequestDispatcher("/WEB-INF/pageInscription/index.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/pageConnexion/index.jsp").forward(request, response);
 		}
 	}
 
@@ -64,7 +62,8 @@ public class Inscription extends HttpServlet {
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		String password = request.getParameter("mdp");
+		String passwordConf = request.getParameter("mdp2");
 		Niveaux niveau = Niveaux.valueOf(request.getParameter("niveau"));
 
 
@@ -80,27 +79,25 @@ public class Inscription extends HttpServlet {
 				messageErreur = "Il y a déjà un compte rattaché à cet E-mail.";
 				break;
 			}
-			if (m.getPrenom()==prenom && m.getNom()==nom) {
-				creationPossible = false;
-				messageErreur = "Il y a déjà un compte rattaché à ce nom et ce prénom.";
-				break;
-			}
 		}
 		
 
 		if (creationPossible) { // si il n'y a pas de problème, on créer le membre
 			Membres nouveauMembre = new Membres(prenom, nom, pseudo, password, email, niveau);
 			gestM.addMembre(nouveauMembre);
-		} else { // sinon envoyer le message d'erreur, renvoyer vers pageInscription et mettre fin au doPost
+			
+			//créer la session loggée
+			HttpSession session = request.getSession(true);
+			session.setAttribute("LOGGEUR", nouveauMembre);
+			
+		} else { // sinon envoyer le message d'erreur
 			request.setAttribute("messageErreur", messageErreur);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/pageInscription/index.jsp").forward(request, response);
 		}
 		
-		// connecter le nouveau membre et renvoyer vers la pageAccueil
-		//TODO créer la session loggée
-		this.getServletContext().getRequestDispatcher("/WEB-INF/pageAccueil/index.jsp").forward(request, response);
-		
+		// renvoyer vers la page adaptée
 		doGet(request, response);
+		
+
 	}
 
 }
