@@ -91,7 +91,6 @@ public class Inscription extends HttpServlet {
 			//créer la session loggée
 			HttpSession session = request.getSession(true);
 			session.setAttribute("LOGGEUR", nouveauMembre);
-			response.sendRedirect("/ActuBuster/Acceuil");
 			
 			
 		} else { // sinon envoyer le message d'erreur
