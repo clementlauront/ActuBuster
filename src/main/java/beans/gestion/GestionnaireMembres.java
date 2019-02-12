@@ -1,5 +1,8 @@
 package beans.gestion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -57,6 +60,17 @@ public class GestionnaireMembres {
 		session.getTransaction().commit();
 		session.close();
 		return membre;
+	}
+	
+	public ArrayList<Membres> getAllMembres(){
+		// TODO à vérifier
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		List<Membres> membres = session.createQuery("from Membres").list();
+		session.getTransaction().commit();
+		session.close();
+		
+		return (ArrayList<Membres>) membres;
 	}
 
 }
