@@ -1,9 +1,13 @@
 package beans.gestion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import beans.Articles;
 import beans.Tags;
 
 public class GestionnaireTags {
@@ -22,4 +26,25 @@ public class GestionnaireTags {
 		session.close();
 		return true;
 	}
+	public boolean addAllTags(List<Tags> tags){
+		// TODO à vérifier
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		session.save(tags);
+		session.getTransaction().commit();
+		session.close();
+		return true;
+	}
+	
+	public ArrayList<Tags> getAllTags(){
+		// TODO à vérifier
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		ArrayList<Tags> allTags = (ArrayList<Tags>) session.createQuery("from Tags").list();
+		session.getTransaction().commit();
+		session.close();
+		
+		return (ArrayList<Tags>) allTags;
+	}
+	
 }

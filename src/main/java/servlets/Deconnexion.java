@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Deconnexion
@@ -24,9 +25,8 @@ public class Deconnexion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//remettre à zéro les informations de log et renvoyé vers la page accueil
-		
+		HttpSession session = request.getSession(false);
+		session.invalidate();
 		response.sendRedirect("/Accueil");
 	}
 
