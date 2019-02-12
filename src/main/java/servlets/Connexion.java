@@ -47,7 +47,7 @@ public class Connexion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//instancier les variables temporaires
 				GestionnaireMembres gestM = new GestionnaireMembres();
-				String messageErreur = "";
+				String messageErreurConnexion = "";
 				ArrayList<Membres> membres = gestM.getAllMembres();
 				Iterator<Membres> itMembre = membres.iterator();
 				boolean isNotConnected = true;
@@ -56,29 +56,36 @@ public class Connexion extends HttpServlet {
 				//récupérer le forumulaire
 				String pseudo = request.getParameter("pseudo");
 				String email = request.getParameter("email");
-				String password = request.getParameter("password");
+				String password = request.getParameter("mdp");
 
 
 				// comparer à la liste des membres si email ou pseudo ou (prénom et nom) correspond à un membre déjà existant
 		while (itMembre.hasNext()) {
+			System.out.println("iterator : ok");
 			Membres m = itMembre.next();
-			if (m.getPseudo() == pseudo || m.getEmail() == email) {
-				if (m.getPassword() == password) {
+			if (m.getPseudo().equals(pseudo) || m.getEmail().equals(email)) {
+				System.out.println("Pseudo et email : ok");
+				if (m.getPassword().equals(password)) {
+					System.out.println("mdp : ok");
+
 					HttpSession session = request.getSession(true);
 					session.setAttribute("LOGGEUR", m);
-					response.sendRedirect("/Accueil");
+					response.sendRedirect("/ActuBuster/Accueil");
 					isNotConnected = false;
 					break;
 				} else {
-					messageErreur = "Mot de passe incorrect.";
+					System.out.println("mdp incorrect : ok");
+					messageErreurConnexion = "Mot de passe incorrect.";
 					break;
 				}
 			} else if (itMembre.hasNext() == false) {
-				messageErreur = "Pseudo ou Email incorrect";
+				System.out.println("pseudo incorrect : ok");
+				messageErreurConnexion = "Pseudo ou Email incorrect";
 			}
 		}
 		if(isNotConnected) {
-			request.setAttribute("messageErreur", messageErreur);
+			System.out.println("IsNotConnected : ok");
+			request.setAttribute("messageErreur", messageErreurConnexion);
 			doGet(request, response);
 		}
 		

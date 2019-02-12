@@ -86,7 +86,7 @@
 
                         <p>
                             <label for="mdp">Mot de passe :</label>
-                            <input type="text" id="mdp" name="mdp" placeholder="*********" required="required" />
+                            <input type="password" id="mdp" name="mdp" placeholder="*********" required="required" />
                         </p>
                     </fieldset>
                 </div>
@@ -97,7 +97,7 @@
                     </p>
                 <!-- Message d'erreur -->
 				<fieldset>
-					<p><%= request.getAttribute("messageErreur") %></p>
+					<p><%= request.getAttribute("messageErreurConnexion") %></p>
 				</fieldset>
                 </fieldset>
             </form>
@@ -129,17 +129,17 @@
 
                         <p>
                             <label for="mdp">Mot de passe :</label>
-                            <input type="text" class="mdp" name="mdp" placeholder="*********" required="required" />
+                            <input type="password" class="mdp" name="mdp" placeholder="*********" required="required" />
                         </p>
 
                         <p>
                             <label for="mdp">Confirmation du mot de passe :</label>
-                            <input type="text" class="mdp" name="mdp2" placeholder="*********" required="required" />
+                            <input type="password" class="mdp" name="mdp2" placeholder="*********" required="required" />
                         </p>
 
                     </fieldset>
                 </div>
-					<p><%= request.getAttribute("messageErreur") %></p>
+					<p><%= request.getAttribute("messageErreurInscription") %></p>
 
                 <fieldset class="submit">
                     <p>

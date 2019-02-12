@@ -66,19 +66,19 @@ public class Inscription extends HttpServlet {
 			//instancier les variables temporaires
 			GestionnaireMembres gestM = new GestionnaireMembres();
 			boolean creationPossible = true;
-			String messageErreur = "";
+			String messageErreurInscription = "";
 			ArrayList<Membres> membres = gestM.getAllMembres();		
 
 		// comparer à la liste des membres si email ou pseudo ou (prénom et nom) correspond à un membre déjà existant
 		for (Membres m : membres) {
-			if (m.getPseudo()==pseudo) {
+			if (m.getPseudo().equals(pseudo)) {
 				creationPossible = false;
-				messageErreur = "Ce pseudo est déjà utilisé par un autre compte, veuillez en choisir un autre.";
+				messageErreurInscription = "Ce pseudo est déjà utilisé par un autre compte, veuillez en choisir un autre.";
 				break;
 			}
-			if (m.getEmail()==email) {
+			if (m.getEmail().equals(email)) {
 				creationPossible = false;
-				messageErreur = "Il y a déjà un compte rattaché à cet E-mail.";
+				messageErreurInscription = "Il y a déjà un compte rattaché à cet E-mail.";
 				break;
 			}
 		}
@@ -91,9 +91,11 @@ public class Inscription extends HttpServlet {
 			//créer la session loggée
 			HttpSession session = request.getSession(true);
 			session.setAttribute("LOGGEUR", nouveauMembre);
+			response.sendRedirect("/ActuBuster/Acceuil");
+			
 			
 		} else { // sinon envoyer le message d'erreur
-			request.setAttribute("messageErreur", messageErreur);
+			request.setAttribute("messageErreur", messageErreurInscription);
 		}
 		
 		}
