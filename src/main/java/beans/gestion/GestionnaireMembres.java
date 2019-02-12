@@ -18,7 +18,7 @@ public class GestionnaireMembres {
 	}
 	
 	public boolean addMembre(Membres membre) {
-		// TODO prévoir si l'ajout ne se fait pas
+		// TODO prï¿½voir si l'ajout ne se fait pas
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		session.save(membre);
@@ -28,7 +28,7 @@ public class GestionnaireMembres {
 	}
 	
 	public boolean deleteMembreById(int id) {
-		// TODO prévoir si id n'existe pas
+		// TODO prï¿½voir si id n'existe pas
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Membres membre = (Membres) session.get(Membres.class, id);
@@ -41,7 +41,7 @@ public class GestionnaireMembres {
 	}
 	
 	public boolean updateMembre(int id) {
-		// TODO prévoir si id de l'article n'existe pas
+		// TODO prï¿½voir si id de l'article n'existe pas
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Membres membre = (Membres) session.get(Membres.class, id);
@@ -63,14 +63,10 @@ public class GestionnaireMembres {
 	}
 	
 	public ArrayList<Membres> getAllMembres(){
-		// TODO à vérifier
+		// TODO ï¿½ vï¿½rifier
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
-<<<<<<< HEAD
 		List<Membres> membres = (List<Membres>) session.createQuery("from Membres").list();
-=======
-		List<Membres> membres = (List<Membres>)session.createQuery("from Membres").list();
->>>>>>> a7a90ca90f4ac641bcd848da8885589b137991ac
 		session.getTransaction().commit();
 		session.close();
 		
