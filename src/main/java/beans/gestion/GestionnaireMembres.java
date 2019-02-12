@@ -66,7 +66,11 @@ public class GestionnaireMembres {
 		// TODO à vérifier
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
+<<<<<<< HEAD
 		List<Membres> membres = (List<Membres>) session.createQuery("from Membres").list();
+=======
+		List<Membres> membres = (List<Membres>)session.createQuery("from Membres").list();
+>>>>>>> a7a90ca90f4ac641bcd848da8885589b137991ac
 		session.getTransaction().commit();
 		session.close();
 		
