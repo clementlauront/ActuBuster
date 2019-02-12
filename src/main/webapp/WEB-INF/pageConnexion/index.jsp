@@ -33,12 +33,6 @@
                         <li><a href="#">Catégorie 2</a></li>
                         <li><a href="#">Catégorie 3</a></li>
                     </ul>
-                    <li><a href="#">Quizz</a></li>
-                    <ul>
-                        <li><a href="#">Catégorie 1</a></li>
-                        <li><a href="#">Catégorie 2</a></li>
-                        <li><a href="#">Catégorie 3</a></li>
-                    </ul>
                     <li><a href="#">Connexion</a></li>
 
                     <li><a href="#">Gestion admin</a></li>
@@ -61,7 +55,6 @@
                     <ul>
                         <li><a href="#">Mes infos</a></li>
                         <li><a href="#">Mes favoris</a></li>
-                        <li><a href="#">Mes quizz</a></li>
                         <li><a href="#">Déconnexion</a></li>
                     </ul>
                     <li><a href="#">Nous contacter</a></li>
@@ -93,13 +86,12 @@
 
                 <fieldset class="submit">
                     <p>
-                        <input type="submit" value="Connexion" id="bouton_envoi" />
+                        <input type="submit" value="Se connecter" id="bouton_envoi" />
                     </p>
-                <!-- Message d'erreur -->
-				<fieldset>
+                </fieldset>
+                <fieldset>
 					<p><%= request.getAttribute("messageErreurConnexion") %></p>
 				</fieldset>
-                </fieldset>
             </form>
         </section>
 
@@ -114,7 +106,7 @@
                         </p>
 
                         <p>
-                            <label for="prenom">Prénom :</label>
+                            <label for="nom">Prénom :</label>
                             <input type="text" id="prenom" name="prenom" placeholder="Prénom" required="required" />
                         </p>
 
@@ -139,13 +131,15 @@
 
                     </fieldset>
                 </div>
-					<p><%= request.getAttribute("messageErreurInscription") %></p>
 
                 <fieldset class="submit">
                     <p>
-                        <input type="submit" value="Inscription" id="bouton_envoi" />
+                        <input type="submit" value="S'inscrire" id="bouton_envoi" />
                     </p>
                 </fieldset>
+                <fieldset>
+					<p><%= request.getAttribute("messageErreurInscription") %></p>
+				</fieldset>
             </form>
         </section>
 
@@ -153,41 +147,32 @@
     </main>
 
     <footer>
-        <div class="row">
-            <h2>Meilleurs articles</h2>
-            <p><a class="posts" href="#">Best Article 1</a></p>
-            <p><a class="posts" href="#">Best Article 1</a></p>
-            <p><a class="posts" href="#">Best Article 1</a></p>
-            <p><a class="posts" href="#">Best Article 1</a></p>
-            <p><a class="posts" href="#">Best Article 1</a></p>
-        </div>
-
-        <div class="row">
-            <h2>Meilleurs quizz</h2>
-            <p><a class="posts" href="#">Best Quizz 1</a></p>
-            <p><a class="posts" href="#">Best Quizz 1</a></p>
-            <p><a class="posts" href="#">Best Quizz 1</a></p>
-            <p><a class="posts" href="#">Best Quizz 1</a></p>
-            <p><a class="posts" href="#">Best Quizz 1</a></p>
-        </div>
-
-        <div class="row">
-            <div class="column">
-                <h2>Tags les plus tilisés</h2>
-                <a class="tags" href="#">exclusive</a>
-                <a class="tags" href="#">headline</a>
-                <a class="tags" href="#">latest</a>
-                <a class="tags" href="#">popular</a>
-                <a class="tags" href="#">slider</a>
+            <div class="row">
+                <h2>Articles les plus lus</h2>
+                <p><a class="posts" href="#">Best Article 1</a></p>
+                <p><a class="posts" href="#">Best Article 2</a></p>
+                <p><a class="posts" href="#">Best Article 3</a></p>
+                <p><a class="posts" href="#">Best Article 4</a></p>
+                <p><a class="posts" href="#">Best Article 5</a></p>
             </div>
-            <div class="column">
-                <h2>Réseaux sociaux</h2>
-                <a href$="#"><img src="icon_linkedin.png" alt="LinkedIn"></a>
-                <a href$="#"><img src="icon_facebook.png" alt="Facebook"></a>
-                <a href$="#"><img src="icon_twitter.png" alt="Twitter"></a>
+    
+            <div class="row">
+                <div class="column">
+                    <h2>Tags les plus lus</h2>
+                    <a class="tags" href="#">Tag 1</a>
+                    <a class="tags" href="#">Tag 2</a>
+                    <a class="tags" href="#">Tag 3</a>
+                    <a class="tags" href="#">Tag 4</a>
+                    <a class="tags" href="#">Tag 5</a>
+                </div>
+                <div class="column">
+                    <h2>Réseaux sociaux</h2>
+                    <a href="#"><img src="icon_linkedin.png" alt="LinkedIn"></a>
+                    <a href="#"><img src="icon_facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="icon_twitter.png" alt="Twitter"></a>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
 
 </body>

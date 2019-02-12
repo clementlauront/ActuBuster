@@ -22,9 +22,9 @@
             </div>
             <div class="column">
                 <h2>Réseaux sociaux</h2>
-                <a href="#"><img src="icon_linkedin.png" alt="LinkedIn"></a>
-                <a href="#"><img src="icon_facebook.png" alt="Facebook"></a>
-                <a href="#"><img src="icon_twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="images/icon_linkedin.png" alt="LinkedIn"></a>
+                <a href="#"><img src="images/icon_facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="images/icon_twitter.png" alt="Twitter"></a>
             </div>
         </div>
 </html>
