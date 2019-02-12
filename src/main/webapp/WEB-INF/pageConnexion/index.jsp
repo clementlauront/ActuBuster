@@ -95,13 +95,16 @@
                     <p>
                         <input type="submit" value="Connexion" id="bouton_envoi" />
                     </p>
-<%--                     <p> <c:out value="${messageErreur}"/> </p>
- --%>                </fieldset>
+                <!-- Message d'erreur -->
+				<fieldset>
+					<p><%= request.getAttribute("messageErreur") %></p>
+				</fieldset>
+                </fieldset>
             </form>
         </section>
 
         <section class="inscription">
-            <form method="post" action="/ActuBuster/Connexion">
+            <form method="post" action="/ActuBuster/Inscription">
                 <div class="container-inscription">
                     <fieldset>
 
@@ -136,6 +139,7 @@
 
                     </fieldset>
                 </div>
+					<p><%= request.getAttribute("messageErreur") %></p>
 
                 <fieldset class="submit">
                     <p>

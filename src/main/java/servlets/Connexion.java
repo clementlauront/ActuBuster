@@ -1,7 +1,9 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +16,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import beans.Membres;
+import beans.gestion.GestionnaireMembres;
+import enumerations.Niveaux;
 
 /**
  * Servlet implementation class Connexion
@@ -41,25 +45,45 @@ public class Connexion extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String email = request.getParameter("email");
-		String mdp = request.getParameter("mdp");
-		String messageErreur ="";
-		
-		SessionFactory usine = new Configuration().configure().buildSessionFactory();
-		Session gestionnaire = usine.openSession();
-		
-		@SuppressWarnings("unchecked")
-		List<Membres> resultat = (List<Membres>) gestionnaire.createQuery("from Membres WHERE email = "+email+" AND PASSWORD = "+mdp).list();
-		if(resultat.size() == 0) {
-			messageErreur = "L'email ou le mot de passe que vous avez inscrit est incorrect.";
-			request.setAttribute("messageErreur", messageErreur);
-			//TODO Faire apparaitre message d'erreur
-		}else if(resultat.size()==1) {
-			HttpSession session = request.getSession(false) ;
-			
-			response.sendRedirect("/PageMembre");
+		//instancier les variables temporaires
+				GestionnaireMembres gestM = new GestionnaireMembres();
+				String messageErreur = "";
+				ArrayList<Membres> membres = gestM.getAllMembres();
+				Iterator<Membres> itMembre = membres.iterator();
+				boolean isNotConnected = true;
 
+						
+				//récupérer le forumulaire
+				String pseudo = request.getParameter("pseudo");
+				String nom = request.getParameter("nom");
+				String prenom = request.getParameter("prenom");
+				String email = request.getParameter("email");
+				String password = request.getParameter("password");
+				Niveaux niveau = Niveaux.valueOf(request.getParameter("niveau"));
+
+
+				// comparer à la liste des membres si email ou pseudo ou (prénom et nom) correspond à un membre déjà existant
+		while (itMembre.hasNext()) {
+			Membres m = itMembre.next();
+			if (m.getPseudo() == pseudo || m.getEmail() == email) {
+				if (m.getPassword() == password) {
+					HttpSession session = request.getSession(true);
+					session.setAttribute("LOGGEUR", m);
+					response.sendRedirect("/Accueil");
+					isNotConnected = false;
+					break;
+				} else {
+					messageErreur = "Mot de passe incorrect.";
+					break;
+				}
+			} else if (itMembre.hasNext() == false) {
+				messageErreur = "Pseudo ou Email incorrect";
+			}
 		}
+		if(isNotConnected) {
+			request.setAttribute("messageErreur", messageErreur);
+			doGet(request, response);
+		}
+		
 	}
-
 }
