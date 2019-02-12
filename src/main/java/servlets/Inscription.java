@@ -7,11 +7,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.Membres;
 import beans.gestion.GestionnaireArticle;
 import beans.gestion.GestionnaireMembres;
 import enumerations.Niveaux;
+import fr.agrondin.objects.LoginPostName;
 
 /**
  * Servlet implementation class Inscription
@@ -32,7 +34,18 @@ public class Inscription extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/pageInscription/index.jsp").forward(request, response);
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			if (session.getAttribute() != null) {
+				// Si une session existe, on redirige sur accueil
+				response.sendRedirect("/Accueil");
+			} else {
+				// Sinon, on affiche la page d'enregistrement.
+				this.getServletContext().getRequestDispatcher("/WEB-INF/pageInscription/index.jsp").forward(request, response);
+			}
+		} else {
+			this.getServletContext().getRequestDispatcher("/WEB-INF/pageInscription/index.jsp").forward(request, response);
+		}
 	}
 
 	/**
@@ -43,7 +56,7 @@ public class Inscription extends HttpServlet {
 		//instancier les variables temporaires
 		GestionnaireMembres gestM = new GestionnaireMembres();
 		boolean creationPossible = true;
-		String message = "";
+		String messageErreur = "";
 		ArrayList<Membres> membres = gestM.getAllMembres();
 		
 		//récupérer le forumulaire
@@ -59,17 +72,17 @@ public class Inscription extends HttpServlet {
 		for (Membres m : membres) {
 			if (m.getPseudo()==pseudo) {
 				creationPossible = false;
-				message = "Ce pseudo est déjà utilisé par un autre compte, veuillez en choisir un autre.";
+				messageErreur = "Ce pseudo est déjà utilisé par un autre compte, veuillez en choisir un autre.";
 				break;
 			}
 			if (m.getEmail()==email) {
 				creationPossible = false;
-				message = "Il y a déjà un compte rattaché à cet E-mail.";
+				messageErreur = "Il y a déjà un compte rattaché à cet E-mail.";
 				break;
 			}
 			if (m.getPrenom()==prenom && m.getNom()==nom) {
 				creationPossible = false;
-				message = "Il y a déjà un compte rattaché à ce nom et ce prénom.";
+				messageErreur = "Il y a déjà un compte rattaché à ce nom et ce prénom.";
 				break;
 			}
 		}
@@ -79,7 +92,7 @@ public class Inscription extends HttpServlet {
 			Membres nouveauMembre = new Membres(prenom, nom, pseudo, password, email, niveau);
 			gestM.addMembre(nouveauMembre);
 		} else { // sinon envoyer le message d'erreur, renvoyer vers pageInscription et mettre fin au doPost
-			request.setAttribute("messageErreur", message);
+			request.setAttribute("messageErreur", messageErreur);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/pageInscription/index.jsp").forward(request, response);
 		}
 		
