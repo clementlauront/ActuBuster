@@ -55,7 +55,7 @@ public class CreactionBDD extends HttpServlet {
 		Membres adminAndrea = new Membres("Andrea", "FONTENEAU", "LaDocDu44", "ILOVEMEDECINE", "andrea.fonteneau@gmail.com", Niveaux.ADMIN);
 
 		// Creation Articles
-		Articles article = new Articles("Yoyo",Bob, Categories.FINANCE,"Yo man je fais de la finance yo yo",tags,2);
+		Articles article = new Articles("Yoyo",Bob, Categories.FINANCE,"Yo man je fais de la finance yo yo", "Yo finance", tags,2);
 		
 		//Instanciation Gestionnaires
 		GestionnaireArticle gArt = new GestionnaireArticle();

@@ -11,8 +11,10 @@ import javax.servlet.http.HttpSession;
 
 import beans.Articles;
 import beans.Membres;
+import beans.Tags;
 import beans.gestion.GestionnaireArticle;
 import beans.gestion.GestionnaireMembres;
+import enumerations.Categories;
 import enumerations.Niveaux;
 
 /**
@@ -40,7 +42,7 @@ public class AjouterArticle extends HttpServlet {
 			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
 			if (loggeur.getNiveaux() == Niveaux.JOURNALISTE) { // Si une session journaliste existe, on donne accès à la page
 				this.getServletContext().getRequestDispatcher("/WEB-INF/pageAjouterArticle/index.jsp").forward(request, response);
-			} else { // Sinon, on affiche la page d'inscription.
+			} else { // Sinon, on affiche la page d'acceuil
 				response.sendRedirect("/Accueil");
 			}
 		} else {
@@ -61,45 +63,42 @@ public class AjouterArticle extends HttpServlet {
 		ArrayList<Articles> articles = gestA.getAllArticles();
 		
 		//récupérer le formulaire
-		String pseudo = request.getParameter("pseudo");
-		String nom = request.getParameter("nom");
-		String prenom = request.getParameter("prenom");
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-		Niveaux niveau = Niveaux.valueOf(request.getParameter("niveau"));
+		String titre = request.getParameter("titre");
+		String contenu = request.getParameter("contenu");
+		String chapeau = request.getParameter("chapeau");
+		Categories categorie = Categories.valueOf(request.getParameter("categorie"));
+		ArrayList<Tags> tags = new ArrayList<Tags>();
+		if (request.getParameter("tag1")!=null) {
+			tags.add(new Tags(request.getParameter("tag1")));			
+		}
+		if (request.getParameter("tag2")!=null) {
+			tags.add(new Tags(request.getParameter("tag2")));			
+		}
+		if (request.getParameter("tag3")!=null) {
+			tags.add(new Tags(request.getParameter("tag3")));			
+		}
+		
 
-
-		// comparer à la liste des membres si email ou pseudo ou (prénom et nom) correspond à un membre déjà existant
-		for (Membres m : membres) {
-			if (m.getPseudo()==pseudo) {
+		// comparer à la liste des articles si le titre est déjà utilisé
+		for (Articles a : articles) {
+			if (a.getTitre()==titre) {
 				creationPossible = false;
-				messageErreur = "Ce pseudo est déjà utilisé par un autre compte, veuillez en choisir un autre.";
-				break;
-			}
-			if (m.getEmail()==email) {
-				creationPossible = false;
-				messageErreur = "Il y a déjà un compte rattaché à cet E-mail.";
+				messageErreur = "Ce titre est déjà utilisé par un autre article, veuillez en choisir un autre.";
 				break;
 			}
 		}
 		
 
-		if (creationPossible) { // si il n'y a pas de problème, on créer le membre
-			Membres nouveauMembre = new Membres(prenom, nom, pseudo, password, email, niveau);
-			gestM.addMembre(nouveauMembre);
+		if (creationPossible) { // si il n'y a pas de problème, on créer l'article
+			HttpSession session = request.getSession(false);
+			Articles nouvelArticle = new Articles(titre, (Membres) session.getAttribute("LOGGEUR"), categorie, contenu, chapeau, tags, 0);
+			gestA.addArticle(nouvelArticle);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/pageAjouterArticle/articleAjoute.jsp").forward(request, response);
 			
-			//créer la session loggée et renvoyer vers la pageAccueil
-			HttpSession session = request.getSession(true);
-			session.setAttribute("LOGGEUR", nouveauMembre);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/pageAccueil/index.jsp").forward(request, response);
-			
-		} else { // sinon envoyer le message d'erreur, renvoyer vers pageConnexion
+		} else { // sinon envoyer le message d'erreur
 			request.setAttribute("messageErreur", messageErreur);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/pageConnexion/index.jsp").forward(request, response);
+			doGet(request, response);
 		}
-		// récupérer les informations du nouvel article par formulaire et créer le nouvel article (faire vérif de titre pour pas que deux articles eaient le même titre ?)
-		
-		doGet(request, response);
 	}
 
 }

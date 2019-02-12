@@ -51,11 +51,6 @@ public class Inscription extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//instancier les variables temporaires
-		GestionnaireMembres gestM = new GestionnaireMembres();
-		boolean creationPossible = true;
-		String messageErreur = "";
-		ArrayList<Membres> membres = gestM.getAllMembres();
 		
 		//récupérer le forumulaire
 		String pseudo = request.getParameter("pseudo");
@@ -65,7 +60,14 @@ public class Inscription extends HttpServlet {
 		String password = request.getParameter("mdp");
 		String passwordConf = request.getParameter("mdp2");
 		Niveaux niveau = Niveaux.valueOf(request.getParameter("niveau"));
-
+		
+		if (password.equals(passwordConf)) { // vérifier que les deux mots de passe correspondent
+			
+			//instancier les variables temporaires
+			GestionnaireMembres gestM = new GestionnaireMembres();
+			boolean creationPossible = true;
+			String messageErreur = "";
+			ArrayList<Membres> membres = gestM.getAllMembres();		
 
 		// comparer à la liste des membres si email ou pseudo ou (prénom et nom) correspond à un membre déjà existant
 		for (Membres m : membres) {
@@ -94,6 +96,7 @@ public class Inscription extends HttpServlet {
 			request.setAttribute("messageErreur", messageErreur);
 		}
 		
+		}
 		// renvoyer vers la page adaptée
 		doGet(request, response);
 		

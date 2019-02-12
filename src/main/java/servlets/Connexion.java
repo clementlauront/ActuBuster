@@ -55,11 +55,8 @@ public class Connexion extends HttpServlet {
 						
 				//récupérer le forumulaire
 				String pseudo = request.getParameter("pseudo");
-				String nom = request.getParameter("nom");
-				String prenom = request.getParameter("prenom");
 				String email = request.getParameter("email");
 				String password = request.getParameter("password");
-				Niveaux niveau = Niveaux.valueOf(request.getParameter("niveau"));
 
 
 				// comparer à la liste des membres si email ou pseudo ou (prénom et nom) correspond à un membre déjà existant
