@@ -66,7 +66,7 @@ public class GestionnaireMembres {
 		// TODO � v�rifier
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
-		List<Membres> membres = (List<Membres>) session.createQuery("from Membres").list();
+		List<Membres> membres = session.createQuery("from Membres").list();
 		session.getTransaction().commit();
 		session.close();
 		
