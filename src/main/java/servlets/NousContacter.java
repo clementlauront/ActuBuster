@@ -25,8 +25,6 @@ public class NousContacter extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// permettre d'envoyer un message vers le serveur en renseignant email, nom et prénom, remplir automatiquement si loggé
-		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageNousContacter/index.jsp").forward(request, response);
 	}
 
@@ -34,6 +32,14 @@ public class NousContacter extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.getParameter("nom");
+		request.getParameter("prenom");
+		request.getParameter("email");
+		request.getParameter("objet");
+		request.getParameter("commentaire");
+		
+		// créer un message en mémoire (ajouter messages à beans)
 		
 		doGet(request, response);
 	}

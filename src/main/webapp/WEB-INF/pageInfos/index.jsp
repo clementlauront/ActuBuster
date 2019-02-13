@@ -24,9 +24,8 @@
 		<h2>Mes infos</h2>
 
 		<p>
-			Nom : Nomdulogin <br /> Prénom : Prénomdulogin <br /> Pseudo :
-			Pseudodulogin <br /> E-mail : Emaildulogin <br /> Mot de passe :
-			*********
+			Nom : <c:out value="${sessionScope.LOGGEUR.nom}"/> <br /> Prénom : <c:out value="${sessionScope.LOGGEUR.prenom}"/> <br /> Pseudo :
+			<c:out value="${sessionScope.LOGGEUR.pseudo}"/> <br /> E-mail : <c:out value="${sessionScope.LOGGEUR.email}"/>
 		</p>
 
 	</section>
@@ -40,21 +39,21 @@
 
 					<p>
 						<label for="nom">Nom :</label> <input type="text" id="nom"
-							name="nom" placeholder="Nomdulogin" />
+							name="nom" required placeholder="Nomdulogin" value=<c:out value="${sessionScope.LOGGEUR.nom}"/>/>
 					</p>
 
 					<p>
-						<label for="nom">Prénom :</label> <input type="text" id="prenom"
-							name="prenom" placeholder="Prénomdulogin" />
+						<label for="prenom">Prénom :</label> <input type="text" id="prenom"
+							name="prenom" required placeholder="Prénomdulogin" value=<c:out value="${sessionScope.LOGGEUR.prenom}"/> />
 					</p>
 
 					<p>
 						<label for="pseudo">Pseudo :</label> <input type="text"
-							id="pseudo" name="pseudo" placeholder="Pseudodulogin" />
+							id="pseudo" name="pseudo" required placeholder="Pseudodulogin" value=<c:out value="${sessionScope.LOGGEUR.pseudo}"/> />
 					</p>
 					<p>
 						<label for="email">E-mail :</label> <input type="email" id="email"
-							name="email" placeholder="Emaildulogin" />
+							name="email" required placeholder="Emaildulogin" value=<c:out value="${sessionScope.LOGGEUR.email}"/> />
 					</p>
 
 					<p>

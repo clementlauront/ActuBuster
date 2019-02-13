@@ -4,7 +4,7 @@
 <html lang="fr">
 
 <head>
-	<%@include file="../jsptoinclude/Head.jsp"%>
+<%@include file="../jsptoinclude/Head.jsp"%>
 </head>
 
 <body>
@@ -14,16 +14,16 @@
 
 	<main>
 
-	 <aside>
-            <nav>
-               <%@include file="../jsptoinclude/Menu.jsp" %>
-            </nav>
-        </aside>
+	<aside>
+		<nav>
+			<%@include file="../jsptoinclude/Menu.jsp"%>
+		</nav>
+	</aside>
 
 
 	<section class="connexion">
 		<h2>Rédiger un article</h2>
-		<form method="post" action="envoi.php">
+		<form method="post" action="/ActuBuster/AjouterArticle">
 			<div class="container-redaction">
 				<fieldset>
 
@@ -33,32 +33,28 @@
 					</p>
 
 					<p>
-						<label for="categorie">Catégories :</label> <SELECT
+						<label for="categorie">Catégorie :</label> <SELECT
 							name="categorie" size="1">
 							<OPTION selected>Choisir une catégorie
-							<OPTION>Catégorie 1
-							<OPTION>Catégorie 2
-							<OPTION>Catégorie 3
+							<OPTION value="GENERALE"> GENERALE
+							<OPTION value="CULTURE"> CULTURE
+							<OPTION value="SCIENCE"> SCIENCE
+							<OPTION value="TECHNOLOGIE"> TECHNOLOGIE
+							<OPTION value="SANTE"> SANTE
+							<OPTION value="SOCIETE"> SOCIETE
+							<OPTION value="POLITIQUE"> POLITIQUE
+							<OPTION value="HISTOIRE"> HISTOIRE
+							<OPTION value="FINANCE"> FINANCE
+							<OPTION value="JEUXVIDEO"> JEUXVIDEO
+							<OPTION value="ECOLOGIE"> ECOLOGIE
 						</SELECT>
 					</p>
 
-					<p>
-						<label for="tag">Tags :</label> <SELECT name="tag" size="1">
-							<OPTION selected>Choisir une catégorie
-							<OPTION>Tag 1
-							<OPTION>Tag 2
-							<OPTION>Tag 3
-						</SELECT> <SELECT name="tag" size="1">
-							<OPTION selected>Choisir une catégorie
-							<OPTION>Tag 1
-							<OPTION>Tag 2
-							<OPTION>Tag 3
-						</SELECT> <SELECT name="tag" size="1">
-							<OPTION selected>Choisir une catégorie
-							<OPTION>Tag 1
-							<OPTION>Tag 2
-							<OPTION>Tag 3
-						</SELECT>
+					<p id="tags">
+						<label> Tags :</label>
+						<input type="text" name="tag1">
+						<input type="text" name="tag2">	
+						<input type="text" name="tag3">	
 					</p>
 
 					<p>
@@ -70,11 +66,11 @@
 				<fieldset>
 					<p>
 						<label for="chapeau">Chapeau de l'article :</label>
-						<textarea id="chapeau" row="3"></textarea>
+						<textarea id="chapeau" name="chapeau" rows="3"></textarea>
 					</p>
 					<p>
 						<label for="contenu">Contenu de l'article :</label>
-						<textarea id="contenu" row="20"></textarea>
+						<textarea id="contenu" name="contenu" rows="20"></textarea>
 					</p>
 				</fieldset>
 			</div>
