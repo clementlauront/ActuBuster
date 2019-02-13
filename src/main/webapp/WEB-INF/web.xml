@@ -77,10 +77,41 @@
   	<servlet-class>servlets.AdministrationDuSite</servlet-class>
   </servlet>
   <servlet>
+<<<<<<< HEAD
   	<servlet-name>Menu</servlet-name>
   	<display-name>Menu</display-name>
   	<description></description>
   	<servlet-class>servlets.Menu</servlet-class>
+=======
+  	<servlet-name>ArticlesFavoris</servlet-name>
+  	<display-name>ArticlesFavoris</display-name>
+  	<description></description>
+  	<servlet-class>servlets.ArticlesFavoris</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ArticlesJournalistes</servlet-name>
+  	<display-name>ArticlesJournalistes</display-name>
+  	<description></description>
+  	<servlet-class>servlets.ArticlesJournalistes</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ArticlesJournaliste</servlet-name>
+  	<display-name>ArticlesJournaliste</display-name>
+  	<description></description>
+  	<servlet-class>servlets.ArticlesJournaliste</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Infos</servlet-name>
+  	<display-name>Infos</display-name>
+  	<description></description>
+  	<servlet-class>servlets.Infos</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Messages</servlet-name>
+  	<display-name>Messages</display-name>
+  	<description></description>
+  	<servlet-class>servlets.Messages</servlet-class>
+>>>>>>> 0718c5a5e05ff96da85c573cb13cb82390e7dcac
   </servlet>
   <servlet-mapping>
   	<servlet-name>Accueil</servlet-name>
@@ -131,8 +162,29 @@
   	<url-pattern>/AdministrationDuSite</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+<<<<<<< HEAD
   	<servlet-name>Menu</servlet-name>
   	<url-pattern>/Menu</url-pattern>
+=======
+  	<servlet-name>ArticlesFavoris</servlet-name>
+  	<url-pattern>/ArticlesFavoris</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ArticlesJournalistes</servlet-name>
+  	<url-pattern>/ArticlesJournalistes</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ArticlesJournaliste</servlet-name>
+  	<url-pattern>/ArticlesJournaliste</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Infos</servlet-name>
+  	<url-pattern>/Infos</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Messages</servlet-name>
+  	<url-pattern>/Messages</url-pattern>
+>>>>>>> 0718c5a5e05ff96da85c573cb13cb82390e7dcac
   </servlet-mapping>
 
 </web-app>
