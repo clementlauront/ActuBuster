@@ -67,7 +67,7 @@ public class GestionnaireArticle {
 		// TODO à vérifier
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
-		List<Articles> articles = session.createQuery("from Articles").list();
+		List<Articles> articles = (List<Articles>) session.createQuery("from Articles").list();
 		session.getTransaction().commit();
 		session.close();
 		
