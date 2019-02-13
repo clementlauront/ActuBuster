@@ -1,178 +1,154 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page  isELIgnored ="false" %> --%>
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <link rel="icon" href="actu_busters.ico">
-    <title>Connexion</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="Accueil.css">
+<%@include file="../jsptoinclude/Head.jsp"%>
 </head>
 
 <body>
-    <header>
-        <div id="img_banniere"><a href="#"><img src="banniere.jpg" alt="Bannière"></a></div>
-    </header>
+	<header>
+		<%@include file="../jsptoinclude/Header.jsp"%>
+	</header>
 
-    <main>
+	<main>
 
-        <aside>
-            <nav>
-                <div class="espace_login">
-                    <img src="img_login.jpg" alt="img_login">
-                    <p>Pseudo du login</p>
-                </div>
-                <ul>
-                    <li><a href="#">Articles</a></li>
-                    <ul>
-                        <li><a href="#">Catégorie 1</a></li>
-                        <li><a href="#">Catégorie 2</a></li>
-                        <li><a href="#">Catégorie 3</a></li>
-                    </ul>
-                    <li><a href="#">Connexion</a></li>
+	<aside>
+		<nav>
+			<div class="espace_login">
+				<img src="img_login.jpg" alt="img_login">
+				<p>Pseudo du login</p>
+			</div>
+			<ul>
+				<li><a href="#">Articles</a></li>
+				<ul>
+					<li><a href="#">Catégorie 1</a></li>
+					<li><a href="#">Catégorie 2</a></li>
+					<li><a href="#">Catégorie 3</a></li>
+				</ul>
+				<li><a href="#">Connexion</a></li>
 
-                    <li><a href="#">Gestion admin</a></li>
-                    <ul>
-                        <li><a href="#">Mes infos</a></li>
-                        <li><a href="#">Liste des journalistes</a></li>
-                        <li><a href="#">Liste des membres</a></li>
-                        <li><a href="#">Messages reçus</a></li>
-                        <li><a href="#">Déconnexion</a></li>
-                    </ul>
+				<li><a href="#">Gestion admin</a></li>
+				<ul>
+					<li><a href="#">Mes infos</a></li>
+					<li><a href="#">Liste des journalistes</a></li>
+					<li><a href="#">Liste des membres</a></li>
+					<li><a href="#">Messages reçus</a></li>
+					<li><a href="#">Déconnexion</a></li>
+				</ul>
 
-                    <li><a href="#">Gestion journaliste</a></li>
-                    <ul>
-                        <li><a href="#">Mes infos</a></li>
-                        <li><a href="#">Mes articles</a></li>
-                        <li><a href="#">Déconnexion</a></li>
-                    </ul>
+				<li><a href="#">Gestion journaliste</a></li>
+				<ul>
+					<li><a href="#">Mes infos</a></li>
+					<li><a href="#">Mes articles</a></li>
+					<li><a href="#">Déconnexion</a></li>
+				</ul>
 
-                    <li><a href="#">Gestion membre</a></li>
-                    <ul>
-                        <li><a href="#">Mes infos</a></li>
-                        <li><a href="#">Mes favoris</a></li>
-                        <li><a href="#">Déconnexion</a></li>
-                    </ul>
-                    <li><a href="#">Nous contacter</a></li>
-                </ul>
-            </nav>
-        </aside>
+				<li><a href="#">Gestion membre</a></li>
+				<ul>
+					<li><a href="#">Mes infos</a></li>
+					<li><a href="#">Mes favoris</a></li>
+					<li><a href="#">Déconnexion</a></li>
+				</ul>
+				<li><a href="#">Nous contacter</a></li>
+			</ul>
+		</nav>
+	</aside>
 
-        <section class="connexion">
-            <h2>Connexion</h2>
-            <form method="post" action="/ActuBuster/Connexion">
-                <div class="container-connexion">
-                    <fieldset>
+	<section class="connexion">
+		<h2>Connexion</h2>
+		<form method="post" action="/ActuBuster/Connexion">
+			<div class="container-connexion">
+				<fieldset>
 
-                        <p>
-                            <label for="pseudo">Pseudo :</label>
-                            <input type="text" id="pseudo" name="pseudo" placeholder="pseudo" required="required" />
-                        </p>
-                        <p>
-                            <label for="email">E-mail :</label>
-                            <input type="email" id="email" name="email" placeholder="e-mail" required="required" />
-                        </p>
+					<p>
+						<label for="pseudo">Pseudo :</label> <input type="text"
+							id="pseudo" name="pseudo" placeholder="pseudo"
+							required="required" />
+					</p>
+					<p>
+						<label for="email">E-mail :</label> <input type="email" id="email"
+							name="email" placeholder="e-mail" required="required" />
+					</p>
 
-                        <p>
-                            <label for="mdp">Mot de passe :</label>
-                            <input type="password" id="mdp" name="mdp" placeholder="*********" required="required" />
-                        </p>
-                    </fieldset>
-                </div>
-
-                <fieldset class="submit">
-                    <p>
-                        <input type="submit" value="Se connecter" id="bouton_envoi" />
-                    </p>
-                </fieldset>
-                <fieldset>
-					<p><%= request.getAttribute("messageErreurConnexion") %></p>
+					<p>
+						<label for="mdp">Mot de passe :</label> <input type="password"
+							id="mdp" name="mdp" placeholder="*********" required="required" />
+					</p>
 				</fieldset>
-            </form>
-        </section>
+			</div>
 
-        <section class="inscription">
-            <form method="post" action="/ActuBuster/Inscription">
-                <div class="container-inscription">
-                    <fieldset>
+			<fieldset class="submit">
+				<p>
+					<input type="submit" value="Se connecter" id="bouton_envoi" />
+				</p>
+			</fieldset>
+			<fieldset>
+				<p><%=request.getAttribute("messageErreurConnexion")%></p>
+			</fieldset>
+		</form>
+	</section>
 
-                        <p>
-                            <label for="nom">Nom :</label>
-                            <input type="text" id="nom" name="nom" placeholder="Nom" required="required" />
-                        </p>
+	<section class="inscription">
+		<form method="post" action="/ActuBuster/Inscription">
+			<div class="container-inscription">
+				<fieldset>
 
-                        <p>
-                            <label for="nom">Prénom :</label>
-                            <input type="text" id="prenom" name="prenom" placeholder="Prénom" required="required" />
-                        </p>
+					<p>
+						<label for="nom">Nom :</label> <input type="text" id="nom"
+							name="nom" placeholder="Nom" required="required" />
+					</p>
 
-                        <p>
-                            <label for="pseudo">Pseudo :</label>
-                            <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" required="required" />
-                        </p>
-                        <p>
-                            <label for="email">E-mail :</label>
-                            <input type="email" id="email" name="email" placeholder="e-mail" required="required" />
-                        </p>
+					<p>
+						<label for="nom">Prénom :</label> <input type="text" id="prenom"
+							name="prenom" placeholder="Prénom" required="required" />
+					</p>
 
-                        <p>
-                            <label for="mdp">Mot de passe :</label>
-                            <input type="password" class="mdp" name="mdp" placeholder="*********" required="required" />
-                        </p>
+					<p>
+						<label for="pseudo">Pseudo :</label> <input type="text"
+							id="pseudo" name="pseudo" placeholder="Pseudo"
+							required="required" />
+					</p>
+					<p>
+						<label for="email">E-mail :</label> <input type="email" id="email"
+							name="email" placeholder="e-mail" required="required" />
+					</p>
 
-                        <p>
-                            <label for="mdp">Confirmation du mot de passe :</label>
-                            <input type="password" class="mdp" name="mdp2" placeholder="*********" required="required" />
-                        </p>
+					<p>
+						<label for="mdp">Mot de passe :</label> <input type="password"
+							class="mdp" name="mdp" placeholder="*********"
+							required="required" />
+					</p>
 
-                    </fieldset>
-                </div>
+					<p>
+						<label for="mdp">Confirmation du mot de passe :</label> <input
+							type="password" class="mdp" name="mdp2" placeholder="*********"
+							required="required" />
+					</p>
 
-                <fieldset class="submit">
-                    <p>
-                        <input type="submit" value="S'inscrire" id="bouton_envoi" />
-                    </p>
-                </fieldset>
-                <fieldset>
-					<p><%= request.getAttribute("messageErreurInscription") %></p>
 				</fieldset>
-            </form>
-        </section>
+			</div>
+
+			<fieldset class="submit">
+				<p>
+					<input type="submit" value="S'inscrire" id="bouton_envoi" />
+				</p>
+			</fieldset>
+			<fieldset>
+				<p><%=request.getAttribute("messageErreurInscription")%></p>
+			</fieldset>
+		</form>
+	</section>
 
 
-    </main>
+	</main>
 
-    <footer>
-            <div class="row">
-                <h2>Articles les plus lus</h2>
-                <p><a class="posts" href="#">Best Article 1</a></p>
-                <p><a class="posts" href="#">Best Article 2</a></p>
-                <p><a class="posts" href="#">Best Article 3</a></p>
-                <p><a class="posts" href="#">Best Article 4</a></p>
-                <p><a class="posts" href="#">Best Article 5</a></p>
-            </div>
-    
-            <div class="row">
-                <div class="column">
-                    <h2>Tags les plus lus</h2>
-                    <a class="tags" href="#">Tag 1</a>
-                    <a class="tags" href="#">Tag 2</a>
-                    <a class="tags" href="#">Tag 3</a>
-                    <a class="tags" href="#">Tag 4</a>
-                    <a class="tags" href="#">Tag 5</a>
-                </div>
-                <div class="column">
-                    <h2>Réseaux sociaux</h2>
-                    <a href="#"><img src="icon_linkedin.png" alt="LinkedIn"></a>
-                    <a href="#"><img src="icon_facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="icon_twitter.png" alt="Twitter"></a>
-                </div>
-            </div>
-        </footer>
+	<footer>
+		<%@include file="../jsptoinclude/Footer.jsp"%>
+	</footer>
 
 
 </body>
