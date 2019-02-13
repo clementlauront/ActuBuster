@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page  isELIgnored ="false" %>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -20,7 +22,7 @@
                         <li><a href="#">Catégorie 2</a></li>
                         <li><a href="#">Catégorie 3</a></li>
                     </ul>
-                    <li><a href="#">Connexion</a></li>
+                    <li id="connexion"><a href="#">Connexion</a></li>
 
                     <li id="gestionAdmin"><a href="#">Gestion admin</a>
                     <ul>
@@ -36,7 +38,7 @@
                     <ul>
                         <li><a href="#">Mes infos</a></li>
                         <li><a href="#">Mes articles</a></li>
-                        <li><a href="#">Déconnexion</a></li>
+                        <li id="deconnexion"><a href="#">Déconnexion</a></li>
                     </ul>
                     </li>
 
@@ -52,30 +54,43 @@
             </nav>
         </aside>
 
-</body>
 <script>
-	var niveau =<% request.getAttribute("niveau");%>;
-	if(niveau == null){
-		niveau=2;
-	}else if(niveau != null){
-		
-	if(niveau==0){
-		document.getElementById('gestionMembre').style.display = "none"; 
-		document.getElementById('gestionJournaliste').style.display = "none";
-		
-		
-	}else if(niveau==1){
-		document.getElementById('gestionAdmin').style.display = "none";
-		document.getElementById('gestionMembre').style.display = "none";
-		
-		
-	}else if(niveau==2){
-		document.getElementById('gestionAdmin').style.display = "none";
-		document.getElementById('gestionJournaliste').style.display = "none";
-		
-	}
-	}
+
+	var niveau = "<c:out value= "${sessionScope.LOGGEUR.niveaux}"/>";
 	
+	
+	
+	if (niveau == "") {
+		document.getElementById('gestionMembre').style.display = "none";
+		document.getElementById('gestionJournaliste').style.display = "none";
+		document.getElementById('gestionAdmin').style.display = "none";
+		document.getElementById('deconnexion').style.display = "none";
+
+		} else if (niveau != "") {
+
+			if (niveau == "ADMIN") {
+				document.getElementById('gestionMembre').style.display = "none";
+				document.getElementById('gestionJournaliste').style.display = "none";
+				document.getElementById('connexion').style.display = "none";
+
+
+			} else if (niveau == "JOURNALISTE") {
+				document.getElementById('gestionAdmin').style.display = "none";
+				document.getElementById('gestionMembre').style.display = "none";
+				document.getElementById('connexion').style.display = "none";
+
+
+			} else if (niveau == "CLIENT") {
+				document.getElementById('gestionAdmin').style.display = "none";
+				document.getElementById('gestionJournaliste').style.display = "none";
+				document.getElementById('connexion').style.display = "none";
+
+
+			}
+		}
 
 </script>
+
+</body>
+
 </html>

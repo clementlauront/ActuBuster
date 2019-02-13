@@ -35,7 +35,7 @@ public class Accueil extends HttpServlet {
 //		System.out.println(niveau);
 //		request.setAttribute("niveau", niveau);
 		//récupérer les infos de log et afficher les infos du loggé (si non loggé, afficher un truc du genre "invité").
-		
+		request.setAttribute("test", "test");
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageAccueil/index.jsp").forward(request, response);
 	}
 

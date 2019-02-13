@@ -76,6 +76,12 @@
   	<description></description>
   	<servlet-class>servlets.AdministrationDuSite</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Menu</servlet-name>
+  	<display-name>Menu</display-name>
+  	<description></description>
+  	<servlet-class>servlets.Menu</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Accueil</servlet-name>
   	<url-pattern>/Accueil</url-pattern>
@@ -123,6 +129,10 @@
   <servlet-mapping>
   	<servlet-name>AdministrationDuSite</servlet-name>
   	<url-pattern>/AdministrationDuSite</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Menu</servlet-name>
+  	<url-pattern>/Menu</url-pattern>
   </servlet-mapping>
 
 </web-app>

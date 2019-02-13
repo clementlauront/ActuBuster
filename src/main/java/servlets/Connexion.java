@@ -67,13 +67,14 @@ public class Connexion extends HttpServlet {
 				System.out.println("Pseudo et email : ok");
 				if (m.getPassword().equals(password)) {
 					System.out.println("mdp : ok");
-
 					HttpSession session = request.getSession(true);
 					session.setAttribute("LOGGEUR", m);
+					System.out.println(m.getNiveaux());
 					response.sendRedirect("/ActuBuster/Accueil");
 					isNotConnected = false;
 					break;
 				} else {
+					System.out.println(m.getNiveaux());
 					System.out.println("mdp incorrect : ok");
 					messageErreurConnexion = "Mot de passe incorrect.";
 					break;
