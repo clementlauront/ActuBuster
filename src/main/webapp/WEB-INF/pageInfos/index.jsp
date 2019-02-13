@@ -15,48 +15,12 @@
 	</header>
 
 	<main>
+ <aside>
+            <nav>
+               <%@include file="../jsptoinclude/Menu.jsp" %>
+            </nav>
+        </aside>
 
-	<aside>
-		<nav>
-			<div class="espace_login">
-				<img src="img_login.jpg" alt="img_login">
-				<p>Pseudo du login</p>
-			</div>
-			<ul>
-				<li><a href="#">Articles</a></li>
-				<ul>
-					<li><a href="#">Catégorie 1</a></li>
-					<li><a href="#">Catégorie 2</a></li>
-					<li><a href="#">Catégorie 3</a></li>
-				</ul>
-				<li><a href="#">Connexion</a></li>
-
-				<li><a href="#">Gestion admin</a></li>
-				<ul>
-					<li><a href="#">Mes infos</a></li>
-					<li><a href="#">Liste des journalistes</a></li>
-					<li><a href="#">Liste des membres</a></li>
-					<li><a href="#">Messages reçus</a></li>
-					<li><a href="#">Déconnexion</a></li>
-				</ul>
-
-				<li><a href="#">Gestion journaliste</a></li>
-				<ul>
-					<li><a href="#">Mes infos</a></li>
-					<li><a href="#">Mes articles</a></li>
-					<li><a href="#">Déconnexion</a></li>
-				</ul>
-
-				<li><a href="#">Gestion membre</a></li>
-				<ul>
-					<li><a href="#">Mes infos</a></li>
-					<li><a href="#">Mes favoris</a></li>
-					<li><a href="#">Déconnexion</a></li>
-				</ul>
-				<li><a href="#">Nous contacter</a></li>
-			</ul>
-		</nav>
-	</aside>
 
 	<section class="infos">
 		<h2>Mes infos</h2>

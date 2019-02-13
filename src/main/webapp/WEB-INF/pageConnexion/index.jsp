@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page  isELIgnored ="false" %> --%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page  isELIgnored ="false" %>
 <html lang="fr">
 
 <head>
@@ -17,51 +17,18 @@
 	<main>
 
 	<aside>
-		<nav>
-			<div class="espace_login">
-				<img src="img_login.jpg" alt="img_login">
-				<p>Pseudo du login</p>
-			</div>
-			<ul>
-				<li><a href="#">Articles</a></li>
-				<ul>
-					<li><a href="#">Catégorie 1</a></li>
-					<li><a href="#">Catégorie 2</a></li>
-					<li><a href="#">Catégorie 3</a></li>
-				</ul>
-				<li><a href="#">Connexion</a></li>
-
-				<li><a href="#">Gestion admin</a></li>
-				<ul>
-					<li><a href="#">Mes infos</a></li>
-					<li><a href="#">Liste des journalistes</a></li>
-					<li><a href="#">Liste des membres</a></li>
-					<li><a href="#">Messages reçus</a></li>
-					<li><a href="#">Déconnexion</a></li>
-				</ul>
-
-				<li><a href="#">Gestion journaliste</a></li>
-				<ul>
-					<li><a href="#">Mes infos</a></li>
-					<li><a href="#">Mes articles</a></li>
-					<li><a href="#">Déconnexion</a></li>
-				</ul>
-
-				<li><a href="#">Gestion membre</a></li>
-				<ul>
-					<li><a href="#">Mes infos</a></li>
-					<li><a href="#">Mes favoris</a></li>
-					<li><a href="#">Déconnexion</a></li>
-				</ul>
-				<li><a href="#">Nous contacter</a></li>
-			</ul>
-		</nav>
+		    <nav>
+               <%@include file="../jsptoinclude/Menu.jsp" %>
+            </nav>
 	</aside>
 
 	<section class="connexion">
 		<h2>Connexion</h2>
 		<form method="post" action="/ActuBuster/Connexion">
 			<div class="container-connexion">
+			<fieldset>
+				<p><c:out value="${messageErreurConnexion}"/></p>
+			</fieldset>
 				<fieldset>
 
 					<p>
@@ -86,15 +53,16 @@
 					<input type="submit" value="Se connecter" id="bouton_envoi" />
 				</p>
 			</fieldset>
-			<fieldset>
-				<p><%=request.getAttribute("messageErreurConnexion")%></p>
-			</fieldset>
+			
 		</form>
 	</section>
 
 	<section class="inscription">
 		<form method="post" action="/ActuBuster/Inscription">
 			<div class="container-inscription">
+			<fieldset>
+				<p><c:out value="${messageErreurInscription}"/></p>
+			</fieldset>
 				<fieldset>
 
 					<p>
@@ -137,9 +105,7 @@
 					<input type="submit" value="S'inscrire" id="bouton_envoi" />
 				</p>
 			</fieldset>
-			<fieldset>
-				<p><%=request.getAttribute("messageErreurInscription")%></p>
-			</fieldset>
+			
 		</form>
 	</section>
 
