@@ -2,6 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="fr">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page  isELIgnored ="false" %>
 
 <head>
 	<%@include file="../jsptoinclude/Head.jsp"%>
@@ -60,9 +62,9 @@
 		<h2>Mes infos</h2>
 
 		<p>
-			Nom : Nomdulogin <br /> Prénom : Prénomdulogin <br /> Pseudo :
-			Pseudodulogin <br /> E-mail : Emaildulogin <br /> Mot de passe :
-			*********
+			Nom : <c:out value="${nom}"/> <br /> Prénom : <c:out value="${prenom}"/> <br /> Pseudo :
+			<c:out value="${pseudo}"/> <br /> E-mail : <c:out value="${email}"/> <br /> Mot de passe :
+			<c:out value="${motdepasse}"/>
 		</p>
 
 	</section>
@@ -76,21 +78,21 @@
 
 					<p>
 						<label for="nom">Nom :</label> <input type="text" id="nom"
-							name="nom" placeholder="Nomdulogin" />
+							name="nom" placeholder=<c:out placeholder="${nom}"/> />
 					</p>
 
 					<p>
 						<label for="nom">Prénom :</label> <input type="text" id="prenom"
-							name="prenom" placeholder="Prénomdulogin" />
+							name="prenom" placeholder=<c:out value="${prenom}"/> />
 					</p>
 
 					<p>
 						<label for="pseudo">Pseudo :</label> <input type="text"
-							id="pseudo" name="pseudo" placeholder="Pseudodulogin" />
+							id="pseudo" name="pseudo" placeholder=<c:out value="${pseudo}"/> />
 					</p>
 					<p>
 						<label for="email">E-mail :</label> <input type="email" id="email"
-							name="email" placeholder="Emaildulogin" />
+							name="email" placeholder=<c:out value="${email}"/> />
 					</p>
 
 					<p>
