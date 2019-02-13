@@ -13,7 +13,6 @@
     </header>
 
     <main>
-
         <aside>
             <nav>
                <%@include file="../jsptoinclude/Menu.jsp" %>

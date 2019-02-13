@@ -4,10 +4,18 @@
 <%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
-<head>
+ <header>
+        <%@include file="../jsptoinclude/Header.jsp" %>
+    </header>
 
-</head>
-<body>
+    <main>
+
+        <aside>
+            <nav>
+               <%@include file="../jsptoinclude/Menu.jsp" %>
+            </nav>
+        </aside>
+
 	<h1>Administration du site</h1>
 
 	<section id="lesMembres">

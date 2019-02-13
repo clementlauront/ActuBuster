@@ -13,7 +13,7 @@
             <nav>
                 <div class="espace_login">
                     <img src="img_login.jpg" alt="img_login">
-                    <p><c:out value =$"{sessionScope.LOGGEUR.pseudo}"/></p>
+                    <p id="IconePseudo"></p>
                 </div>
                 <ul>
                     <li><a href="/ActuBuster/ArticleDetail">Articles</a></li>
@@ -54,12 +54,14 @@
         </aside>
 
 <script>
-
-	var niveau = "<c:out value= "${sessionScope.LOGGEUR.niveaux}"/>";
+	//Instanciation de deux variables récupérées à partir de la session
+	var niveau = "<c:out value= "${sessionScope.LOGGEUR.niveaux}"/>"; // Si pas de session, cela retourne "" et pas null
+	var pseudo = "<c:out value= "${sessionScope.LOGGEUR.pseudo}"/>"
 	
-	
-	
+	//Menu dynamique en javascript
+	// Apparition du menu en fonction du niveau de l'utilisateur
 	if (niveau == "") {
+		//Commandes pour cacher les élèments HTML ayant les ID ci-dessous
 		document.getElementById('gestionMembre').style.display = "none";
 		document.getElementById('gestionJournaliste').style.display = "none";
 		document.getElementById('gestionAdmin').style.display = "none";
@@ -87,6 +89,13 @@
 
 			}
 		}
+	//Apparation du pseudo de l'utilisateur ou "visiteur"
+	if (pseudo ==""){
+		//Mettre le texte ci-dessous à l'emplacement HTML indiqué par l'Id
+		document.getElementById('IconePseudo').innerHTML ="Visiteur";
+	}else {
+		document.getElementById('IconePseudo').innerHTML = "<c:out value="${sessionScope.LOGGEUR.pseudo}"/>";
+	}
 
 </script>
 
