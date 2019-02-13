@@ -4,7 +4,7 @@
 <html lang="fr">
 
 <head>
-<%@include file="../jsptoinclude/Head.jsp"%>
+	<%@include file="../jsptoinclude/Head.jsp"%>
 </head>
 
 <body>

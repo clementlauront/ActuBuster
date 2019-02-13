@@ -6,23 +6,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Articles;
-import beans.Membres;
-import beans.Tags;
-import beans.gestion.GestionnaireArticle;
-import enumerations.Categories;
-import enumerations.Niveaux;
-
 /**
- * Servlet implementation class Accueil
+ * Servlet implementation class Messages
  */
-public class Accueil extends HttpServlet {
+public class Messages extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Accueil() {
+    public Messages() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,12 +24,12 @@ public class Accueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//TODO Chercher une session et un membre + son niveau et le faire intéragir avec le html
-//		System.out.println(niveau);
-//		request.setAttribute("niveau", niveau);
-		//récupérer les infos de log et afficher les infos du loggé (si non loggé, afficher un truc du genre "invité").
-		request.setAttribute("test", "test");
-		this.getServletContext().getRequestDispatcher("/WEB-INF/pageAccueil/index.jsp").forward(request, response);
+		// récupérer les infos de log et afficher les infos du loggé (si non loggé,
+				// afficher un truc du genre "invité").
+				// récupérer les infos de l'article et les afficher.
+
+				this.getServletContext().getRequestDispatcher("/WEB-INF/pageMessages/index.jsp").forward(request,
+						response);
 	}
 
 	/**

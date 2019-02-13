@@ -4,16 +4,12 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <link rel="icon" href="actu_busters.ico">
-    <title>Nous contacter</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="Accueil.css">
+    <%@include file="../jsptoinclude/Head.jsp"%>
 </head>
 
 <body>
     <header>
-        <div id="img_banniere"><a href="#"><img src="banniere.jpg" alt="Bannière"></a></div>
+        <%@include file="../jsptoinclude/Header.jsp"%>
     </header>
 
     <main>
@@ -129,31 +125,7 @@
     </main>
 
     <footer>
-            <div class="row">
-                <h2>Articles les plus lus</h2>
-                <p><a class="posts" href="#">Best Article 1</a></p>
-                <p><a class="posts" href="#">Best Article 2</a></p>
-                <p><a class="posts" href="#">Best Article 3</a></p>
-                <p><a class="posts" href="#">Best Article 4</a></p>
-                <p><a class="posts" href="#">Best Article 5</a></p>
-            </div>
-    
-            <div class="row">
-                <div class="column">
-                    <h2>Tags les plus lus</h2>
-                    <a class="tags" href="#">Tag 1</a>
-                    <a class="tags" href="#">Tag 2</a>
-                    <a class="tags" href="#">Tag 3</a>
-                    <a class="tags" href="#">Tag 4</a>
-                    <a class="tags" href="#">Tag 5</a>
-                </div>
-                <div class="column">
-                    <h2>Réseaux sociaux</h2>
-                    <a href="#"><img src="icon_linkedin.png" alt="LinkedIn"></a>
-                    <a href="#"><img src="icon_facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="icon_twitter.png" alt="Twitter"></a>
-                </div>
-            </div>
+            <%@include file="../jsptoinclude/Footer.jsp"%>
         </footer>
 
 
