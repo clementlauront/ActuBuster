@@ -155,10 +155,7 @@
   	<url-pattern>/AdministrationDuSite</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-<<<<<<< HEAD
-  	<servlet-name>Menu</servlet-name>
-  	<url-pattern>/Menu</url-pattern>
-=======
+
   	<servlet-name>ArticlesFavoris</servlet-name>
   	<url-pattern>/ArticlesFavoris</url-pattern>
   </servlet-mapping>
@@ -177,7 +174,7 @@
   <servlet-mapping>
   	<servlet-name>Messages</servlet-name>
   	<url-pattern>/Messages</url-pattern>
->>>>>>> 0718c5a5e05ff96da85c573cb13cb82390e7dcac
+
   </servlet-mapping>
 
 </web-app>

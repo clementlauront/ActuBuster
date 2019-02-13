@@ -13,7 +13,7 @@
             <nav>
                 <div class="espace_login">
                     <img src="img_login.jpg" alt="img_login">
-                    <p>Pseudo du login</p>
+                    <p><c:out value =$"{sessionScope.LOGGEUR.pseudo}"/></p>
                 </div>
                 <ul>
                     <li><a href="/ActuBuster/ArticleDetail">Articles</a></li>
