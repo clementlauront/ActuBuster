@@ -7,14 +7,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import beans.Articles;
 import beans.Membres;
-import beans.Tags;
 import beans.gestion.GestionnaireArticle;
 import beans.gestion.GestionnaireMembres;
-import enumerations.Categories;
+
 import enumerations.Niveaux;
 
 /**
@@ -49,20 +47,22 @@ public class AdministrationDuSite extends HttpServlet {
 				GestionnaireMembres gestM = new GestionnaireMembres();
 				ArrayList<Membres> membres = gestM.getAllMembres();
 				ArrayList<Membres> admins = new ArrayList<Membres>();
+				ArrayList<Articles> articles = gestA.getAllArticles();
+				
+				// remplir la liste des admins
 				for (Membres m : membres) {
 					if (m.getNiveaux().equals(Niveaux.ADMIN)) {
 						admins.add(m);
-						//membres.remove(m);
 					}
 				}
-				ArrayList<Articles> articles = gestA.getAllArticles();
+
+				// enelever les admins de la liste de membres
+				membres.removeAll(admins);
 				
 				// on transmet les listes de membres, d'admins et d'articles
 				request.setAttribute("listeMembres", membres);
 				request.setAttribute("listeAdmins", admins);
 				request.setAttribute("listeArticles", articles);
-				System.out.println(membres.size());
-				System.out.println(membres);
 
 				this.getServletContext().getRequestDispatcher("/WEB-INF/pageAdministrationDuSite/index.jsp")
 						.forward(request, response);
@@ -82,23 +82,35 @@ public class AdministrationDuSite extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// instancier les variables temporaires
-		GestionnaireArticle gestA = new GestionnaireArticle();
-		GestionnaireMembres gestM = new GestionnaireMembres();
+		if (request.getParameter("supprimer").equals("supprimerMembres")) { // si form supprimer membre a été cliqué
+			
+			// instancier les variables temporaires
+			GestionnaireMembres gestM = new GestionnaireMembres();
+			
+			// récupérer le formulaire
+			String[] idMembresASupprimer = request.getParameterValues("membresASupprimer");
+			
+			// supprimer les membres à supprimer
+			for (int i = 0; i < idMembresASupprimer.length; i++) {
+				gestM.deleteMembreById(Integer.parseInt(idMembresASupprimer[i]));
+			}
+			
+		} else if (request.getParameter("supprimer").equals("supprimerArticles")) { // si form supprimer articles a été cliqué
+			
+			GestionnaireArticle gestA = new GestionnaireArticle();
 
-		// récupérer le formulaire
-		String[] idArticlesASupprimer = request.getParameterValues("ArticlesASupprimer");
-		String[] idMembresASupprimer = request.getParameterValues("membresASupprimer");
 
-		// supprimer les articles à supprimer
-		for (int i = 0; i < idArticlesASupprimer.length; i++) {
-			gestA.deleteArticleById(Integer.parseInt(idArticlesASupprimer[i]));
+
+			String[] idArticlesASupprimer = request.getParameterValues("articlesASupprimer");
+
+
+			// supprimer les articles à supprimer
+			for (int i = 0; i < idArticlesASupprimer.length; i++) {
+				gestA.deleteArticleById(Integer.parseInt(idArticlesASupprimer[i]));
+			}
+			
 		}
 
-		// supprimer les membres à supprimer
-		for (int i = 0; i < idMembresASupprimer.length; i++) {
-			gestM.deleteMembreById(Integer.parseInt(idMembresASupprimer[i]));
-		}
 
 		doGet(request, response);
 	}
