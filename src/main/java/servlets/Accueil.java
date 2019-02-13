@@ -31,8 +31,9 @@ public class Accueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
-		
+//TODO Chercher une session et un membre + son niveau et le faire intéragir avec le html
+//		System.out.println(niveau);
+//		request.setAttribute("niveau", niveau);
 		//récupérer les infos de log et afficher les infos du loggé (si non loggé, afficher un truc du genre "invité").
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageAccueil/index.jsp").forward(request, response);
