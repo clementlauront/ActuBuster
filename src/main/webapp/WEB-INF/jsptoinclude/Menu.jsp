@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="style_menu.css">
 
 </head>
 <body>
@@ -18,9 +19,9 @@
                 <ul>
                     <li><a href="/ActuBuster/ArticleDetail">Articles</a></li>
                     <ul>
-                        <li><a href="#">Catégorie 1</a></li>
-                        <li><a href="#">Catégorie 2</a></li>
-                        <li><a href="#">Catégorie 3</a></li>
+                        <li><a href="#">Catï¿½gorie 1</a></li>
+                        <li><a href="#">Catï¿½gorie 2</a></li>
+                        <li><a href="#">Catï¿½gorie 3</a></li>
                     </ul>
                     <li id="connexion"><a href="/ActuBuster/Connexion">Connexion</a></li>
 
@@ -28,8 +29,8 @@
                     <ul>
                         <li><a href="/ActuBuster/Infos">Mes infos</a></li>
                         <li><a href="/ActuBuster/AdministrationDuSite">Liste des membres</a></li>
-                        <li><a href="#">Messages reçus</a></li>
-                        <li><a href="#">Déconnexion</a></li>
+                        <li><a href="#">Messages reï¿½us</a></li>
+                        <li><a href="#">Dï¿½connexion</a></li>
                     </ul>
                     </li>
 
@@ -37,7 +38,7 @@
                     <ul>
                         <li><a href="/ActuBuster/Infos">Mes infos</a></li>
                         <li><a href="#">Mes articles</a></li>
-                        <li id="deconnexion"><a href="/ActuBuster/Deconnexion">Déconnexion</a></li>
+                        <li id="deconnexion"><a href="/ActuBuster/Deconnexion">Dï¿½connexion</a></li>
                     </ul>
                     </li>
 
@@ -45,7 +46,7 @@
                     <ul>
                         <li><a href="/ActuBuster/Infos">Mes infos</a></li>
                         <li><a href="#">Mes favoris</a></li>
-                        <li><a href="/ActuBuster/Deconnexion">Déconnexion</a></li>
+                        <li><a href="/ActuBuster/Deconnexion">Dï¿½connexion</a></li>
                     </ul>
                     </li>
                     <li><a href="/ActuBuster/NousContacter">Nous contacter</a></li>
@@ -54,14 +55,14 @@
         </aside>
 
 <script>
-	//Instanciation de deux variables récupérées à partir de la session
+	//Instanciation de deux variables rï¿½cupï¿½rï¿½es ï¿½ partir de la session
 	var niveau = "<c:out value= "${sessionScope.LOGGEUR.niveaux}"/>"; // Si pas de session, cela retourne "" et pas null
 	var pseudo = "<c:out value= "${sessionScope.LOGGEUR.pseudo}"/>"
 	
 	//Menu dynamique en javascript
 	// Apparition du menu en fonction du niveau de l'utilisateur
 	if (niveau == "") {
-		//Commandes pour cacher les élèments HTML ayant les ID ci-dessous
+		//Commandes pour cacher les ï¿½lï¿½ments HTML ayant les ID ci-dessous
 		document.getElementById('gestionMembre').style.display = "none";
 		document.getElementById('gestionJournaliste').style.display = "none";
 		document.getElementById('gestionAdmin').style.display = "none";
@@ -91,7 +92,7 @@
 		}
 	//Apparation du pseudo de l'utilisateur ou "visiteur"
 	if (pseudo ==""){
-		//Mettre le texte ci-dessous à l'emplacement HTML indiqué par l'Id
+		//Mettre le texte ci-dessous ï¿½ l'emplacement HTML indiquï¿½ par l'Id
 		document.getElementById('IconePseudo').innerHTML ="Visiteur";
 	}else {
 		document.getElementById('IconePseudo').innerHTML = "<c:out value="${sessionScope.LOGGEUR.pseudo}"/>";
