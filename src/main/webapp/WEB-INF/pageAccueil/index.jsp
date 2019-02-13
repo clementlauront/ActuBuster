@@ -4,16 +4,12 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <link rel="icon" href="actu_busters.ico">
-    <title>Actu Busters</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="Accueil.css">
+     <%@include file="../jsptoinclude/Head.jsp" %>
 </head>
 
 <body>
     <header>
-        <%@include file="Header.jsp" %>
+        <%@include file="../jsptoinclude/Header.jsp" %>
     </header>
 
     <main>
@@ -119,7 +115,7 @@
     </main>
 
     <footer>
-        <%@include file="Footer.jsp" %>
+        <%@include file="../jsptoinclude/Footer.jsp" %>
     </footer>
 
 
