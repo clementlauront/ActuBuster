@@ -38,29 +38,41 @@ public class AdministrationDuSite extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		HttpSession session = request.getSession(false);
+//		HttpSession session = request.getSession(false);
+//
+//		if (session != null) {
+//			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
+//			if (loggeur.getNiveaux() == Niveaux.ADMIN) { // Si une session admin existe, on donne accès à la page
 
-		if (session != null) {
-			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
-			if (loggeur.getNiveaux() == Niveaux.ADMIN) { // Si une session admin existe, on donne accès à la page
-
-				// on transmet les listes de membres et d'articles
+				
 				GestionnaireArticle gestA = new GestionnaireArticle();
 				GestionnaireMembres gestM = new GestionnaireMembres();
 				ArrayList<Membres> membres = gestM.getAllMembres();
+				ArrayList<Membres> admins = new ArrayList<Membres>();
+				for (Membres m : membres) {
+					if (m.getNiveaux().equals(Niveaux.ADMIN)) {
+						admins.add(m);
+						//membres.remove(m);
+					}
+				}
 				ArrayList<Articles> articles = gestA.getAllArticles();
+				
+				// on transmet les listes de membres, d'admins et d'articles
 				request.setAttribute("listeMembres", membres);
+				request.setAttribute("listeAdmins", admins);
 				request.setAttribute("listeArticles", articles);
+				System.out.println(membres.size());
+				System.out.println(membres);
 
 				this.getServletContext().getRequestDispatcher("/WEB-INF/pageAdministrationDuSite/index.jsp")
 						.forward(request, response);
 
-			} else { // Sinon, on affiche la page d'acceuil
-				response.sendRedirect("/ActuBuster/Accueil");
-			}
-		} else {
-			response.sendRedirect("/ActuBuster/Accueil");
-		}
+//			} else { // Sinon, on affiche la page d'acceuil
+//				response.sendRedirect("/ActuBuster/Accueil");
+//			}
+//		} else {
+//			response.sendRedirect("/ActuBuster/Accueil");
+//		}
 	}
 
 	/**

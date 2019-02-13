@@ -11,7 +11,7 @@ name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 <property name="hibernate.connection.url">jdbc:mysql://localhost/actu_buster</property>
 <property name="hibernate.connection.username">root</property>
 <property name="hibernate.connection.password">activ</property>
-<!-- property name="hbm2ddl.auto">create</property --> 
+<!-- <property name="hbm2ddl.auto">create</property> -->
 <!-- Seront indiqués ici les fichiers de mapping -->
 <mapping class="beans.Membres"/>
 <mapping class="beans.Articles"/>

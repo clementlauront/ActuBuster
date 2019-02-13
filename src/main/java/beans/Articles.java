@@ -107,6 +107,10 @@ public class Articles {
 	 * ========
 	 * 
 	 */
+	public Articles() {
+		
+	}
+	
 	public Articles(String titre, Membres auteur, Categories categorie, String contenue, String chapeau, List<Tags> tags,int nombreVues) {
 		super();
 		this.titre = titre;

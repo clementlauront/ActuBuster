@@ -29,7 +29,7 @@ public class Membres {
 		
 		@Column(name="NOM")
 		private String nom;
-		
+
 		@Column(name="PSEUDO")
 		private String pseudo;
 		
@@ -48,6 +48,18 @@ public class Membres {
 		 * Getters et Setters
 		 * =========
 		 */
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+		public List<Articles> getArticles() {
+			return articles;
+		}
+		public void setArticles(List<Articles> articles) {
+			this.articles = articles;
+		}
 		public String getPrenom() {
 			return prenom;
 		}
