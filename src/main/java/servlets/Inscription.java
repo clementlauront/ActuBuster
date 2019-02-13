@@ -94,7 +94,7 @@ public class Inscription extends HttpServlet {
 			
 			
 		} else { // sinon envoyer le message d'erreur
-			request.setAttribute("messageErreur", messageErreurInscription);
+			request.setAttribute("messageErreurInscription", messageErreurInscription);
 		}
 		
 		}

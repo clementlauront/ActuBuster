@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page  isELIgnored ="false" %> --%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page  isELIgnored ="false" %>
 <html lang="fr">
 
 <head>
@@ -62,6 +62,9 @@
 		<h2>Connexion</h2>
 		<form method="post" action="/ActuBuster/Connexion">
 			<div class="container-connexion">
+			<fieldset>
+				<p><c:out value="${messageErreurConnexion}"/></p>
+			</fieldset>
 				<fieldset>
 
 					<p>
@@ -86,15 +89,16 @@
 					<input type="submit" value="Se connecter" id="bouton_envoi" />
 				</p>
 			</fieldset>
-			<fieldset>
-				<p><%=request.getAttribute("messageErreurConnexion")%></p>
-			</fieldset>
+			
 		</form>
 	</section>
 
 	<section class="inscription">
 		<form method="post" action="/ActuBuster/Inscription">
 			<div class="container-inscription">
+			<fieldset>
+				<p><c:out value="${messageErreurInscription}"/></p>
+			</fieldset>
 				<fieldset>
 
 					<p>
@@ -137,9 +141,7 @@
 					<input type="submit" value="S'inscrire" id="bouton_envoi" />
 				</p>
 			</fieldset>
-			<fieldset>
-				<p><%=request.getAttribute("messageErreurInscription")%></p>
-			</fieldset>
+			
 		</form>
 	</section>
 

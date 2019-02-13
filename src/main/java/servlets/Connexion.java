@@ -85,7 +85,7 @@ public class Connexion extends HttpServlet {
 		}
 		if(isNotConnected) {
 			System.out.println("IsNotConnected : ok");
-			request.setAttribute("messageErreur", messageErreurConnexion);
+			request.setAttribute("messageErreurConnexion", messageErreurConnexion);
 			doGet(request, response);
 		}
 		
