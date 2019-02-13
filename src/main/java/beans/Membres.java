@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
 import enumerations.Niveaux;
 
 @Entity
@@ -24,7 +23,8 @@ public class Membres {
 		@Column(name="PRENOM")
 		private String prenom;
 		
-		@OneToMany(cascade= {CascadeType.ALL})
+		// CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE
+		@OneToMany(cascade= {CascadeType.ALL}, mappedBy="auteur", orphanRemoval=false)
 		private List<Articles> articles;
 		
 		@Column(name="NOM")

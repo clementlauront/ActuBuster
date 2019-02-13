@@ -42,6 +42,10 @@ public class Tags {
 	 * ========
 	 */
 	
+	public Tags() {
+		
+	}
+	
 	public Tags( String tags) {
 		super();
 		this.tags = tags;

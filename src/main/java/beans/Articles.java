@@ -5,20 +5,15 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import enumerations.Categories;
-import enumerations.Niveaux;
 
 @Entity
 public class Articles {
@@ -29,7 +24,7 @@ public class Articles {
 	@Column(name="TITRE")
 	private String titre;
 	
-	@ManyToOne(cascade= {CascadeType.ALL})
+	@ManyToOne
 	private Membres auteur;
 
 	@Column
@@ -38,7 +33,7 @@ public class Articles {
 	@Column(name="CONTENUE")
 	private String contenue;
 	
-	@OneToMany(cascade= {CascadeType.ALL})
+	@OneToMany(cascade= {CascadeType.ALL}, orphanRemoval=true)
 	private List<Tags> tags;
 	
 	@Column(name="NOMBREVUES")
