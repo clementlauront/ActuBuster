@@ -77,12 +77,6 @@
   	<servlet-class>servlets.AdministrationDuSite</servlet-class>
   </servlet>
   <servlet>
-<<<<<<< HEAD
-  	<servlet-name>Menu</servlet-name>
-  	<display-name>Menu</display-name>
-  	<description></description>
-  	<servlet-class>servlets.Menu</servlet-class>
-=======
   	<servlet-name>ArticlesFavoris</servlet-name>
   	<display-name>ArticlesFavoris</display-name>
   	<description></description>
@@ -111,7 +105,6 @@
   	<display-name>Messages</display-name>
   	<description></description>
   	<servlet-class>servlets.Messages</servlet-class>
->>>>>>> 0718c5a5e05ff96da85c573cb13cb82390e7dcac
   </servlet>
   <servlet-mapping>
   	<servlet-name>Accueil</servlet-name>
