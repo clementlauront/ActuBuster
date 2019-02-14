@@ -68,7 +68,7 @@ public class ArticlesRecherche extends HttpServlet {
 			
 			System.out.println(articleRecherche.getTitre());
 			System.out.println(articleRecherche.getChapeau());
-			System.out.println(articleRecherche.getContenue());
+			System.out.println(articleRecherche.getContenu());
 			System.out.println(articleRecherche.getAuteur().getPseudo());
 			System.out.println(text);
 
@@ -86,7 +86,7 @@ public class ArticlesRecherche extends HttpServlet {
 				research = true;
 				
 				//Rechercher par le contenu
-			}else if (articleRecherche.getContenue().contains(text)) {
+			}else if (articleRecherche.getContenu().contains(text)) {
 				List<Articles> article = gArt.getArticlesByContenu(text);
 				request.setAttribute("listeArticle", article);
 				research = true;

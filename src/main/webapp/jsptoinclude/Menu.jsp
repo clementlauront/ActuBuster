@@ -15,35 +15,30 @@
                     <p id="IconePseudo"></p>
                 </div>
                 <ul>
-                    <li><a href="/ActuBuster/ArticleDetail">Articles</a></li>
-                    <ul>
-                        <li><a href="#">Catégorie 1</a></li>
-                        <li><a href="#">Catégorie 2</a></li>
-                        <li><a href="#">Catégorie 3</a></li>
-                    </ul>
+                    <li><a href="/ActuBuster/ArticlesRecherche">Articles</a></li>
+                    
                     <li id="connexion"><a href="/ActuBuster/Connexion">Connexion</a></li>
 
-                    <li id="gestionAdmin"><a href="#">Gestion admin</a>
+                    <li id="gestionAdmin">Gestion admin
                     <ul>
                         <li><a href="/ActuBuster/Infos">Mes infos</a></li>
-                        <li><a href="/ActuBuster/AdministrationDuSite">Liste des membres</a></li>
-                        <li><a href="#">Messages reçus</a></li>
-                        <li><a href="#">Déconnexion</a></li>
+                        <li><a href="/ActuBuster/AdministrationDuSite">Gérer les membres et les articles</a></li>
+                        <li><a href="/ActuBuster/AfficherMessages">Gérer les messages</a></li>
+                        <li><a href="/ActuBuster/Deconnexion">Déconnexion</a></li>
                     </ul>
                     </li>
 
-                    <li id="gestionJournaliste"><a href="#">Gestion journaliste</a>
+                    <li id="gestionJournaliste">Gestion journaliste
                     <ul>
                         <li><a href="/ActuBuster/Infos">Mes infos</a></li>
-                        <li><a href="#">Mes articles</a></li>
-                        <li id="deconnexion"><a href="/ActuBuster/Deconnexion">Dï¿½connexion</a></li>
+                        <li><a href="/ActuBuster/ArticlesJournaliste">Mes articles</a></li>
+                        <li id="deconnexion"><a href="/ActuBuster/Deconnexion">Déconnexion</a></li>
                     </ul>
                     </li>
 
-                    <li id="gestionMembre"><a href="#">Gestion membre</a>
+                    <li id="gestionMembre">Gestion membre
                     <ul>
                         <li><a href="/ActuBuster/Infos">Mes infos</a></li>
-                        <li><a href="#">Mes favoris</a></li>
                         <li><a href="/ActuBuster/Deconnexion">Déconnexion</a></li>
                     </ul>
                     </li>
