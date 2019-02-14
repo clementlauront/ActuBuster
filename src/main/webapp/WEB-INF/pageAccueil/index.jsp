@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page  isELIgnored ="false" %>
 <html lang="fr">
 
 <head>
@@ -29,19 +31,21 @@
                 </div>
 
                 <div class="texte">
-                    <h1>Titre du tout dernier article publié</h1>
-                    <p>Catégorie : <a href="#">Catégorie</a></p>
-                    <p>Tags : <a href="#">Tag 1</a><a href="#">Tag 2</a><a href="#">Tag 3</a></p>
-                    <p>(Chapeau) Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                        laudantium,
-                        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                        beatae vitae
-                        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                        aut
-                        fugit.
+                    <h1><c:out value="${TitreArticle1.titre}"/></h1>
+                    <p>Catégorie : <a href="#"><c:out value="${TitreArticle1.categorie}"/></a></p>
+		<%-- 		<p>Tags :
+				
+			<c:forEach items="${Liste1}" var="blabla">
+						<ul>
+							<c:out value="${blabla}" />
+						</ul>
+					</c:forEach>
+				
+				</p> --%>
+				<p><c:out value="${TitreArticle1.chapeau}" />
                     </p>
                     <div class="signature">
-                        <p>Par <a href="#">Journaliste</a> le 23 février, 2017.</p>
+                        <p>Par <a href="#"><c:out value="${TitreArticle1.auteur}" /></a> le 23 février, 2017.</p>
                         <p><button><a href="#">Ajouter</a></button><a href="#">Lire</a></p>
 
                     </div>
@@ -56,19 +60,21 @@
                 </div>
 
                 <div class="texte">
-                    <h1>Titre du deuxième dernier article publié</h1>
-                    <p>Catégorie : <a href="#">Catégorie</a></p>
-                    <p>Tags : <a href="#">Tag 1</a><a href="#">Tag 2</a><a href="#">Tag 3</a></p>
-                    <p>(Chapeau) Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                        laudantium,
-                        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-                        beatae vitae
-                        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                        aut
-                        fugit.
+                    <h1><c:out value="${TitreArticle2.titre}" /></h1>
+                    <p>Catégorie : <a href="#"><c:out value="${TitreArticle2.categorie}" /></a></p>
+               
+                  <%--  <p>Tags :
+				<c:forEach items="${Liste2}" var="blabla">
+						<ul>
+							<c:out value="${blabla}" />
+						</ul>
+					</c:forEach>
+				
+				</p> --%>
+                    <p><c:out value="${TitreArticle2.chapeau}" />
                     </p>
                     <div class="signature">
-                        <p>Par <a href="#">Journaliste</a> le 23 février, 2017.</p>
+                        <p>Par <a href="#"><c:out value="${TitreArticle2.auteur}" /></a> le 23 février, 2017.</p>
                         <p><button><a href="#">Ajouter</a></button><a href="#">Lire</a></p>
                     </div>
                 </div>

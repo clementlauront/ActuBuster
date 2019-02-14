@@ -51,6 +51,9 @@ public class Articles {
 	public List<Tags> getTags() {
 		return tags;
 	}
+	public void setTags(List<Tags> tags) {
+		this.tags = tags;
+	}
 	public int getId() {
 		return id;
 	}
@@ -81,12 +84,7 @@ public class Articles {
 	public void setContenue(String contenue) {
 		this.contenue = contenue;
 	}
-	public List<Tags> getTag() {
-		return tags;
-	}
-	public void setTag(List<Tags> tags) {
-		this.tags = tags;
-	}
+
 	public int getNombreVues() {
 		return nombreVues;
 	}
