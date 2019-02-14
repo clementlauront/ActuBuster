@@ -8,6 +8,6 @@
 </head>
 <body>
 <p> Votre article a bien été crée ! </p>
-<a href="#">Revenir à l'accueil</a>
+<a href="/ActuBuster/Accueil">Revenir à l'accueil</a>
 </body>
 </html>

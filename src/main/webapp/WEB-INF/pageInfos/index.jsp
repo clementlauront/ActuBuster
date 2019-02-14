@@ -26,9 +26,8 @@
 		<h2>Mes infos</h2>
 
 		<p>
-			Nom : <c:out value="${sessionScope.LOGGEUR.nom}"/> <br /> Prénom : <c:out value="${sessionScope.LOGGEUR.prenom}"/> <br /> Pseudo :
-			<c:out value="${sessionScope.LOGGEUR.pseudo}"/> <br /> E-mail : <c:out value="${sessionScope.LOGGEUR.email}"/> <br /> Mot de passe :
-			<c:out value="${sessionScope.LOGGEUR.password}"/>
+			Nom : <c:out value="${sessionScope.LOGGEUR.nom}"/> <br /> Prï¿½nom : <c:out value="${sessionScope.LOGGEUR.prenom}"/> <br /> Pseudo :
+			<c:out value="${sessionScope.LOGGEUR.pseudo}"/> <br /> E-mail : <c:out value="${sessionScope.LOGGEUR.email}"/>
 		</p>
 
 	</section>
@@ -48,7 +47,7 @@
 					</p>
 
 					<p>
-						<label for="nom">Prénom :</label> <input type="text" id="prenom"
+						<label for="nom">Prï¿½nom :</label> <input type="text" id="prenom"
 							name="prenom" placeholder=<c:out value="${sessionScope.LOGGEUR.prenom}"/> />
 					</p>
 
@@ -63,12 +62,20 @@
 
 					<p>
 						<label for="mdp">Nouveau mot de passe :</label> <input
+<<<<<<< HEAD
 							type="password" id="mdp" name="mdp" placeholder="*********" />
+=======
+							type="password" class="mdp" name="mdp" placeholder="password"/>
+>>>>>>> d4fe105af6d3a32e99885e4cb988ad1582ea68eb
 					</p>
 
 					<p>
 						<label for="mdp">Confirmation du mot de passe :</label> <input
+<<<<<<< HEAD
 							type="password" id="mdp2" name="mdp2" placeholder="*********" />
+=======
+							type="password" class="mdp" name="mdp2" placeholder="password"/>
+>>>>>>> d4fe105af6d3a32e99885e4cb988ad1582ea68eb
 					</p>
 				</fieldset>
 				<fieldset class="submit">
@@ -83,7 +90,7 @@
 
 	<script language="Javascript">
 		function bascule(elem) {
-			// Quel est l'état actuel ? 
+			// Quel est l'ï¿½tat actuel ? 
 			etat = document.getElementById(elem).style.visibility;
 			if (etat == "hidden") {
 				document.getElementById(elem).style.visibility = "visible";

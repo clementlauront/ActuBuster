@@ -31,20 +31,20 @@ public class Infos extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// récupérer les infos de log et afficher les infos du loggé (si non loggé,
-		// afficher un truc du genre "invité").
-		// récupérer les infos de l'article et les afficher.
+		// rï¿½cupï¿½rer les infos de log et afficher les infos du loggï¿½ (si non loggï¿½,
+		// afficher un truc du genre "invitï¿½").
+		// rï¿½cupï¿½rer les infos de l'article et les afficher.
 
 		HttpSession session = request.getSession(false);
 		// ici, si pas de session active, session devient == null
-		// si getSession(true), si pas de session active, session est crée et donc !=
+		// si getSession(true), si pas de session active, session est crï¿½e et donc !=
 		// null
 
 		if (session != null) {
 			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
 			if (loggeur.getNiveaux() == Niveaux.ADMIN || loggeur.getNiveaux() == Niveaux.JOURNALISTE
 					|| loggeur.getNiveaux() == Niveaux.CLIENT) {
-				// Si une session admin/journaliste/client existe, on donne accès à la page
+				// Si une session admin/journaliste/client existe, on donne accï¿½s ï¿½ la page
 
 				this.getServletContext().getRequestDispatcher("/WEB-INF/pageInfos/index.jsp").forward(request,
 						response);
@@ -73,7 +73,12 @@ public class Infos extends HttpServlet {
 		// instancier les variables temporaires
 		GestionnaireMembres gestM = new GestionnaireMembres();
 
+<<<<<<< HEAD
 		// récupérer le forumulaire
+=======
+		// rï¿½cupï¿½rer le forumulaire
+		String pseudo = request.getParameter("pseudo");
+>>>>>>> d4fe105af6d3a32e99885e4cb988ad1582ea68eb
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String pseudo = request.getParameter("pseudo");

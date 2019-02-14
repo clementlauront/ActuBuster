@@ -43,6 +43,7 @@ public class AjouterArticle extends HttpServlet {
 		if (session != null) {
 			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
 			if (loggeur.getNiveaux() == Niveaux.JOURNALISTE) { // Si une session journaliste existe, on donne accès à la page
+				
 				this.getServletContext().getRequestDispatcher("/WEB-INF/pageAjouterArticle/index.jsp").forward(request, response);
 			} else { // Sinon, on affiche la page d'acceuil
 				response.sendRedirect("/Accueil");
@@ -68,6 +69,7 @@ public class AjouterArticle extends HttpServlet {
 		String titre = request.getParameter("titre");// ici, "titre" correspond au name="titre" dans le formulaire jsp
 		String contenu = request.getParameter("contenu");
 		String chapeau = request.getParameter("chapeau");
+		//TODO récupérer l'image de l'article
 		Categories categorie = Categories.valueOf(request.getParameter("categorie"));
 		ArrayList<Tags> tags = new ArrayList<Tags>();
 		if (request.getParameter("tag1")!=null) {
