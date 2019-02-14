@@ -62,6 +62,8 @@ public class ArticlesRecherche extends HttpServlet {
 		Iterator<Articles> itArticle = listArticles.iterator();
 		Iterator<Tags> itTags = listTags.iterator();
  
+		ArrayList<Articles> articleResultat = new ArrayList<Articles>();
+		
 		while(itArticle.hasNext()) {
 			
 			Articles articleRecherche= itArticle.next();
@@ -75,26 +77,24 @@ public class ArticlesRecherche extends HttpServlet {
 
 			//Rechercher par le titre
 			if(articleRecherche.getTitre().contains(text)) {
-				List<Articles> article = gArt.getArticlesByTitre(text);
-				request.setAttribute("listeArticle", article);
+				articleResultat.add(articleRecherche);
 				research = true;
 				
 				//Rechercher par le chapeau	
 			}else if (articleRecherche.getChapeau().contains(text)) {
-				List<Articles> article = gArt.getArticlesByChapeau(text);
-				request.setAttribute("listeArticle", article);
+				articleResultat.add(articleRecherche);
 				research = true;
 				
 				//Rechercher par le contenu
 			}else if (articleRecherche.getContenue().contains(text)) {
-				List<Articles> article = gArt.getArticlesByContenu(text);
-				request.setAttribute("listeArticle", article);
+				articleResultat.add(articleRecherche);
 				research = true;
 			
 				//Rechercher par auteur
-			}else if (text.equals(articleRecherche.getAuteur().getPseudo())) {
-				List<Articles> article = gArt.getArticlesByAuteur(text);
-				request.setAttribute("listeArticle", article);
+			}else if (text.equalsIgnoreCase(articleRecherche.getAuteur().getPseudo())
+					||text.equalsIgnoreCase(articleRecherche.getAuteur().getNom())
+					||text.equalsIgnoreCase(articleRecherche.getAuteur().getPrenom()))  {
+				articleResultat.add(articleRecherche);
 				research = true;
 
 				//Rechercher par tags
@@ -108,6 +108,7 @@ public class ArticlesRecherche extends HttpServlet {
 		if(research) {
 			messageRecherche="";
 		}
+		request.setAttribute("listeArticle", articleResultat);
 		request.setAttribute("noFound", messageRecherche);
 		doGet(request, response);
 	}

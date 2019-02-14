@@ -15,7 +15,7 @@
                     <p id="IconePseudo"></p>
                 </div>
                 <ul>
-                    <li><a href="/ActuBuster/ArticleDetail">Articles</a></li>
+                    <li><a href="/ActuBuster/ArticlesRecherche">Articles</a></li>
                     <ul>
                         <li><a href="#">Catégorie 1</a></li>
                         <li><a href="#">Catégorie 2</a></li>
@@ -36,7 +36,7 @@
                     <ul>
                         <li><a href="/ActuBuster/Infos">Mes infos</a></li>
                         <li><a href="#">Mes articles</a></li>
-                        <li id="deconnexion"><a href="/ActuBuster/Deconnexion">Dï¿½connexion</a></li>
+                        <li id="deconnexion"><a href="/ActuBuster/Deconnexion">Déconnexion</a></li>
                     </ul>
                     </li>
 
