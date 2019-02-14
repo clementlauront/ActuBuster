@@ -47,4 +47,14 @@ public class GestionnaireTags {
 		return (ArrayList<Tags>) allTags;
 	}
 	
+	public ArrayList<Tags> getTagsByTag(String tag){
+		// TODO à vérifier
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		List<Tags> tags = (List<Tags>) session.createQuery("from Tags WHERE Tags.tag = '"+tag+"'").list();
+		session.getTransaction().commit();
+		session.close();
+		
+		return (ArrayList<Tags>) tags;
+	}
 }

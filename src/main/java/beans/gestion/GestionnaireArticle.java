@@ -74,5 +74,57 @@ public class GestionnaireArticle {
 		return (ArrayList<Articles>) articles;
 	}
 	
+	public ArrayList<Articles> getArticlesByTitre(String titre){
+		// TODO à vérifier
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		List<Articles> articles = (List<Articles>) session.createQuery("from Articles WHERE titre = '"+titre+"'").list();
+		session.getTransaction().commit();
+		session.close();
+		
+		return (ArrayList<Articles>) articles;
+	}
 	
+	public ArrayList<Articles> getArticlesByAuteur(String auteur){
+		// TODO à vérifier
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		List<Articles> articles = (List<Articles>) session.createQuery("from Articles WHERE membres = '"+auteur+"'").list();
+		session.getTransaction().commit();
+		session.close();
+		
+		return (ArrayList<Articles>) articles;
+	}
+	
+
+	public ArrayList<Articles> getArticlesByContenu(String contenu){
+		// TODO à vérifier
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		List<Articles> articles = (List<Articles>) session.createQuery("from Articles WHERE contenue = '"+contenu+"'").list();
+		session.getTransaction().commit();
+		session.close();
+		
+		return (ArrayList<Articles>) articles;
+	}
+	public ArrayList<Articles> getArticlesByChapeau(String chapeau){
+		// TODO à vérifier
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
+		List<Articles> articles = (List<Articles>) session.createQuery("from Articles WHERE chapeau = '"+chapeau+"'").list();
+		session.getTransaction().commit();
+		session.close();
+		
+		return (ArrayList<Articles>) articles;
+	}
+//	public ArrayList<Articles> getArticlesByTag(String tag){
+//		// TODO à vérifier
+//		Session session = this.sessionFactory.openSession();
+//		session.beginTransaction();
+//		List<Articles> articles = (List<Articles>) session.createQuery("from Tags WHERE Tags.tags = '"+tag+"'").list();
+//		session.getTransaction().commit();
+//		session.close();
+//		
+//		return (ArrayList<Articles>) articles;
+//	}
 }

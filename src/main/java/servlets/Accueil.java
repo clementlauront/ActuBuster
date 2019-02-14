@@ -10,7 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.Articles;
+<<<<<<< HEAD
 import beans.Membres;
+=======
+import beans.Tags;
+>>>>>>> db4865bc86bdf2952dfb7461b7ca34ebcb481d88
 import beans.gestion.GestionnaireArticle;
 
 /**
@@ -31,7 +35,8 @@ public class Accueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//instancier les variables temporaires
+
 		GestionnaireArticle gArt = new GestionnaireArticle();
 		List<Articles> listArticles = gArt.getAllArticles();
 		int rand =  (int) Math.floor(Math.random() * listArticles.size());
@@ -39,8 +44,11 @@ public class Accueil extends HttpServlet {
 		
 		Articles article1 = listArticles.get(rand);
 		Articles article2 = listArticles.get(rand2);
+		List<Tags> liste1 = article1.getTags();
+		List<Tags> liste2 = article2.getTags();
 		
 		request.setAttribute("TitreArticle1", article1);
+<<<<<<< HEAD
 		request.setAttribute("Liste1", article1.getTags());
 		request.setAttribute("id1", article1.getId());
 		
@@ -49,6 +57,11 @@ public class Accueil extends HttpServlet {
 		request.setAttribute("Liste2", article2.getTags());
 
 		
+=======
+		request.setAttribute("Liste1", liste1);
+		request.setAttribute("TitreArticle2", article2);
+		request.setAttribute("Liste2", liste2);
+>>>>>>> db4865bc86bdf2952dfb7461b7ca34ebcb481d88
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageAccueil/index.jsp").forward(request, response);
 	}

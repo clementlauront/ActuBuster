@@ -82,7 +82,7 @@
 
 	<script language="Javascript">
 		function bascule(elem) {
-			// Quel est l'ï¿½tat actuel ? 
+			// Quel est l'état actuel ? 
 			etat = document.getElementById(elem).style.visibility;
 			if (etat == "hidden") {
 				document.getElementById(elem).style.visibility = "visible";
