@@ -3,11 +3,10 @@
 <!DOCTYPE html>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page  isELIgnored ="false" %>
-<html>
-<head>
-<meta charset="ISO-8859-1">
 
-</head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="style_menu.css">
+
 <body>
   <aside>
             <nav>
@@ -37,7 +36,7 @@
                     <ul>
                         <li><a href="/ActuBuster/Infos">Mes infos</a></li>
                         <li><a href="#">Mes articles</a></li>
-                        <li id="deconnexion"><a href="/ActuBuster/Deconnexion">Déconnexion</a></li>
+                        <li id="deconnexion"><a href="/ActuBuster/Deconnexion">Dï¿½connexion</a></li>
                     </ul>
                     </li>
 
@@ -54,7 +53,7 @@
         </aside>
 
 <script>
-	//Instanciation de deux variables récupérées à partir de la session
+	//Instanciation de deux variables récupérées partir de la session
 	var niveau = "<c:out value= "${sessionScope.LOGGEUR.niveaux}"/>"; // Si pas de session, cela retourne "" et pas null
 	var pseudo = "<c:out value= "${sessionScope.LOGGEUR.pseudo}"/>"
 	
@@ -91,7 +90,7 @@
 		}
 	//Apparation du pseudo de l'utilisateur ou "visiteur"
 	if (pseudo ==""){
-		//Mettre le texte ci-dessous à l'emplacement HTML indiqué par l'Id
+		//Mettre le texte ci-dessous a l'emplacement HTML indiquée par l'Id
 		document.getElementById('IconePseudo').innerHTML ="Visiteur";
 	}else {
 		document.getElementById('IconePseudo').innerHTML = "<c:out value="${sessionScope.LOGGEUR.pseudo}"/>";
@@ -101,4 +100,3 @@
 
 </body>
 
-</html>

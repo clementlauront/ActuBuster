@@ -9,7 +9,7 @@
 
 <body>
 	<header>
-		<%@include file="../jsptoinclude/Header.jsp"%>
+		<%@include file="../../jsptoinclude/Header.jsp"%>
 	</header>
 
 	<main>
@@ -22,7 +22,7 @@
 
 
 	<section class="connexion">
-		<h2>Rédiger un article</h2>
+		<h2>Rï¿½diger un article</h2>
 		<form method="post" action="/ActuBuster/AjouterArticle">
 			<div class="container-redaction">
 				<fieldset>
@@ -33,9 +33,9 @@
 					</p>
 
 					<p>
-						<label for="categorie">Catégorie :</label> <SELECT
+						<label for="categorie">Catï¿½gorie :</label> <SELECT
 							name="categorie" size="1">
-							<OPTION selected>Choisir une catégorie
+							<OPTION selected>Choisir une catï¿½gorie
 							<OPTION value="GENERALE"> GENERALE
 							<OPTION value="CULTURE"> CULTURE
 							<OPTION value="SCIENCE"> SCIENCE
@@ -87,7 +87,7 @@
 	</main>
 
 	<footer>
-		<%@include file="../jsptoinclude/Footer.jsp"%>
+		<%@include file="../../jsptoinclude/Footer.jsp"%>
 	</footer>
 
 

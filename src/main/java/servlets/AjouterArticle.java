@@ -37,6 +37,8 @@ public class AjouterArticle extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(false);
+		// ici, si pas de session active, session devient == null
+		// si getSession(true), si pas de session active, session est crée et donc != null
 		
 		if (session != null) {
 			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
@@ -64,7 +66,7 @@ public class AjouterArticle extends HttpServlet {
 		ArrayList<Articles> articles = gestA.getAllArticles();
 		
 		//récupérer le formulaire
-		String titre = request.getParameter("titre");
+		String titre = request.getParameter("titre");// ici, "titre" correspond au name="titre" dans le formulaire jsp
 		String contenu = request.getParameter("contenu");
 		String chapeau = request.getParameter("chapeau");
 		//TODO récupérer l'image de l'article
@@ -98,7 +100,7 @@ public class AjouterArticle extends HttpServlet {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/pageAjouterArticle/articleAjoute.jsp").forward(request, response);
 			
 		} else { // sinon envoyer le message d'erreur
-			request.setAttribute("messageErreur", messageErreur);
+			request.setAttribute("messageErreur", messageErreur); // ici, "messageErreur" est crée et aura pour contenu messageErreur
 			doGet(request, response);
 		}
 	}
