@@ -39,31 +39,31 @@
 
 					<p>
 						<label for="nom">Nom :</label> <input type="text" id="nom"
-							name="nom" required placeholder="Nomdulogin" value=<c:out value="${sessionScope.LOGGEUR.nom}"/>/>
+							name="nom" placeholder="Nomdulogin" value=<c:out value="${sessionScope.LOGGEUR.nom}"/>/>
 					</p>
 
 					<p>
 						<label for="prenom">Prénom :</label> <input type="text" id="prenom"
-							name="prenom" required placeholder="Prénomdulogin" value=<c:out value="${sessionScope.LOGGEUR.prenom}"/> />
+							name="prenom" placeholder="Prénomdulogin" value=<c:out value="${sessionScope.LOGGEUR.prenom}"/> />
 					</p>
 
 					<p>
 						<label for="pseudo">Pseudo :</label> <input type="text"
-							id="pseudo" name="pseudo" required placeholder="Pseudodulogin" value=<c:out value="${sessionScope.LOGGEUR.pseudo}"/> />
+							id="pseudo" name="pseudo" placeholder="Pseudodulogin" value=<c:out value="${sessionScope.LOGGEUR.pseudo}"/> />
 					</p>
 					<p>
 						<label for="email">E-mail :</label> <input type="email" id="email"
-							name="email" required placeholder="Emaildulogin" value=<c:out value="${sessionScope.LOGGEUR.email}"/> />
+							name="email" placeholder="Emaildulogin" value=<c:out value="${sessionScope.LOGGEUR.email}"/> />
 					</p>
 
 					<p>
 						<label for="mdp">Nouveau mot de passe :</label> <input
-							type="password" class="mdp" name="mdp" placeholder="*********" />
+							type="password" class="mdp" name="mdp" placeholder="password" value=<c:out value="${sessionScope.LOGGEUR.password}"/>/>
 					</p>
 
 					<p>
 						<label for="mdp">Confirmation du mot de passe :</label> <input
-							type="password" class="mdp" name="mdp2" placeholder="*********" />
+							type="password" class="mdp" name="mdp2" placeholder="password" value=<c:out value="${sessionScope.LOGGEUR.password}"/>/>
 					</p>
 				</fieldset>
 				<fieldset class="submit">
