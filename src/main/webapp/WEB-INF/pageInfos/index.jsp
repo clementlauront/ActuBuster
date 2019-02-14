@@ -62,20 +62,12 @@
 
 					<p>
 						<label for="mdp">Nouveau mot de passe :</label> <input
-<<<<<<< HEAD
 							type="password" id="mdp" name="mdp" placeholder="*********" />
-=======
-							type="password" class="mdp" name="mdp" placeholder="password"/>
->>>>>>> d4fe105af6d3a32e99885e4cb988ad1582ea68eb
 					</p>
 
 					<p>
 						<label for="mdp">Confirmation du mot de passe :</label> <input
-<<<<<<< HEAD
 							type="password" id="mdp2" name="mdp2" placeholder="*********" />
-=======
-							type="password" class="mdp" name="mdp2" placeholder="password"/>
->>>>>>> d4fe105af6d3a32e99885e4cb988ad1582ea68eb
 					</p>
 				</fieldset>
 				<fieldset class="submit">

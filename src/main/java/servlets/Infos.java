@@ -73,12 +73,7 @@ public class Infos extends HttpServlet {
 		// instancier les variables temporaires
 		GestionnaireMembres gestM = new GestionnaireMembres();
 
-<<<<<<< HEAD
-		// récupérer le forumulaire
-=======
 		// rï¿½cupï¿½rer le forumulaire
-		String pseudo = request.getParameter("pseudo");
->>>>>>> d4fe105af6d3a32e99885e4cb988ad1582ea68eb
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String pseudo = request.getParameter("pseudo");
@@ -142,7 +137,7 @@ public class Infos extends HttpServlet {
 					gestM.updateMembre(loggeur);
 					response.sendRedirect("Infos");
 				} else {
-					System.out.println("passwords différents");
+					System.out.println("passwords diffï¿½rents");
 				}
 			} else {
 				System.out.println("password vide");
