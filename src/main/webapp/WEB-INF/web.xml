@@ -59,8 +59,8 @@
   	<servlet-class>servlets.PageMembre</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>CreactionBDD</servlet-name>
-  	<display-name>CreactionBDD</display-name>
+  	<servlet-name>CreationBDD</servlet-name>
+  	<display-name>CreationBDD</display-name>
   	<description></description>
   	<servlet-class>servlets.CreactionBDD</servlet-class>
   </servlet>
@@ -143,8 +143,8 @@
   	<url-pattern>/PageMembre</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>CreactionBDD</servlet-name>
-  	<url-pattern>/CreactionBDD</url-pattern>
+  	<servlet-name>CreationBDD</servlet-name>
+  	<url-pattern>/CreationBDD</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>AjouterArticle</servlet-name>
