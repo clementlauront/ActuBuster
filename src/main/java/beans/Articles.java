@@ -29,8 +29,8 @@ public class Articles {
 	@Column
 	private Categories categorie;
 	
-	@Column(name="CONTENUE", columnDefinition="TEXT")
-	private String contenue;
+	@Column(name="CONTENU", columnDefinition="TEXT")
+	private String contenu;
 	
 	@ManyToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
 	private List<Tags> tags;
@@ -41,6 +41,9 @@ public class Articles {
 	@Column(name="CHAPEAU")
 	private String chapeau;
 	
+	@Column(name="DATE")
+	private String date;
+	
 	//getters et setters
 	
 	public String getChapeau() {
@@ -48,6 +51,12 @@ public class Articles {
 	}
 	public void setChapeau(String chapeau) {
 		this.chapeau = chapeau;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 	public List<Tags> getTags() {
 		return tags;
@@ -79,11 +88,11 @@ public class Articles {
 	public void setCategorie(Categories categorie) {
 		this.categorie = categorie;
 	}
-	public String getContenue() {
-		return contenue;
+	public String getContenu() {
+		return contenu;
 	}
-	public void setContenue(String contenue) {
-		this.contenue = contenue;
+	public void setContenu(String contenu) {
+		this.contenu = contenu;
 	}
 
 	public int getNombreVues() {
@@ -103,15 +112,20 @@ public class Articles {
 		
 	}
 	
-	public Articles(String titre, Membres auteur, Categories categorie, String contenue, String chapeau, List<Tags> tags,int nombreVues) {
+	public Articles(String titre, Membres auteur, Categories categorie, String contenu, String chapeau, List<Tags> tags,int nombreVues) {
 		super();
 		this.titre = titre;
 		this.categorie = categorie;
-		this.contenue = contenue;
+		this.contenu = contenu;
 		this.chapeau = chapeau;
 		this.tags = tags;
 		this.nombreVues=nombreVues;
 		this.auteur=auteur;
+		
+		String format = "dd/MM/yy H:mm:ss";
+		java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( format );
+		java.util.Date dateActuelle = new java.util.Date();
+		this.date = formater.format( dateActuelle ); 
 	}
 	
 	

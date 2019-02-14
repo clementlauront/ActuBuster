@@ -7,8 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.Articles;
+import beans.Membres;
 import beans.Tags;
 import beans.gestion.GestionnaireArticle;
 
@@ -43,10 +45,14 @@ public class Accueil extends HttpServlet {
 		List<Tags> liste2 = article2.getTags();
 		
 		request.setAttribute("TitreArticle1", article1);
-		request.setAttribute("Liste1", liste1);
-		request.setAttribute("TitreArticle2", article2);
-		request.setAttribute("Liste2", liste2);
+		request.setAttribute("Liste1", article1.getTags());
+		request.setAttribute("id1", article1.getId());
 		
+		
+		request.setAttribute("TitreArticle2", article2);
+		request.setAttribute("Liste2", article2.getTags());
+		request.setAttribute("id2", article1.getId());
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageAccueil/index.jsp").forward(request, response);
 	}
 
@@ -54,8 +60,14 @@ public class Accueil extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		GestionnaireArticle gArt = new GestionnaireArticle();
+		int id = Integer.parseInt(request.getParameter("id"));
+		System.out.println(id);
+		HttpSession session = request.getSession(true);
+		Articles articleEnCours = gArt.getArticleById(id);
+		session.setAttribute("ARTICLE", articleEnCours);
+		response.sendRedirect("/ActuBuster/ArticleDetail");
+		
 	}
 
 }

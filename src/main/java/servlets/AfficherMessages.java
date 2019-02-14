@@ -36,11 +36,11 @@ public class AfficherMessages extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-//		HttpSession session = request.getSession(false);
-//
-//		if (session != null) {
-//			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
-//			if (loggeur.getNiveaux() == Niveaux.ADMIN) { // Si une session admin existe, on donne accès à la page
+		HttpSession session = request.getSession(false);
+
+		if (session != null) {
+			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
+			if (loggeur.getNiveaux() == Niveaux.ADMIN) { // Si une session admin existe, on donne accès à la page
 
 				// on  récupère la liste de messages
 				GestionnaireMessages gestMes = new GestionnaireMessages();
@@ -53,12 +53,12 @@ public class AfficherMessages extends HttpServlet {
 				this.getServletContext().getRequestDispatcher("/WEB-INF/pageMessages/index.jsp")
 						.forward(request, response);
 
-//			} else { // Sinon, on affiche la page d'acceuil
-//				response.sendRedirect("/ActuBuster/Accueil");
-//			}
-//		} else {
-//			response.sendRedirect("/ActuBuster/Accueil");
-//		}
+			} else { // Sinon, on affiche la page d'acceuil
+				response.sendRedirect("/ActuBuster/Accueil");
+			}
+		} else {
+			response.sendRedirect("/ActuBuster/Accueil");
+		}
 	}
 
 	/**
