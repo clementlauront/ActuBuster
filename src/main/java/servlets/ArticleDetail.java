@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import beans.Articles;
 import beans.Membres;
+import beans.gestion.GestionnaireArticle;
 
 /**
  * Servlet implementation class ArticleDetail
@@ -33,10 +34,9 @@ public class ArticleDetail extends HttpServlet {
 		
 		
 		// récupérer les infos de l'article et les afficher.
+		
 		HttpSession session = request.getSession(false);
 		Articles articleEnCours = (Articles) session.getAttribute("ARTICLE");
-		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/pageArticleDetail/index.jsp").forward(request, response);
 		
 		request.setAttribute("titre", articleEnCours.getTitre());
 		request.setAttribute("categorie", articleEnCours.getCategorie());
@@ -44,6 +44,8 @@ public class ArticleDetail extends HttpServlet {
 		request.setAttribute("chapeau", articleEnCours.getChapeau());
 		request.setAttribute("contenu", articleEnCours.getContenue());
 		request.setAttribute("auteur", articleEnCours.getAuteur().getPseudo());
+		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/pageArticleDetail/index.jsp").forward(request, response);
 		
 
 	}

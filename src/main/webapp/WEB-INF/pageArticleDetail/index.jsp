@@ -51,7 +51,7 @@
 			</div>
 
 			<div class="contenu">
-				<p><c:out value="${sessionScope.ARTICLE.contenu}"/></p>
+				<p><c:out value="${sessionScope.ARTICLE.contenue}"/></p>
 			</div>
 			
 			<div class="signature">

@@ -46,7 +46,12 @@
                     </p>
                     <div class="signature">
                         <p>Par <a href="#"><c:out value="${TitreArticle1.auteur}" /></a> le 23 février, 2017.</p>
-                        <p><button><a href="#">Ajouter</a></button><a href="#">Lire</a></p>
+                        <p><button><a href="#">Ajouter</a></button>
+                        <form method="post">
+                        <input type="hidden" id="id" name="id" value=<c:out value="${id1}"/> />
+                        <input type="submit" value="Lire"
+							id="bouton_envoi" />
+                        </form>
 
                     </div>
                 </div>
