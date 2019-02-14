@@ -40,11 +40,19 @@ public class GestionnaireMembres {
 		return true;
 	}
 	
-	public boolean updateMembre(int id) {
+	public boolean updateMembre(Membres membre) {
 		// TODO pr�voir si id de l'article n'existe pas
-		Session session = this.sessionFactory.openSession();
+		/*Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
 		Membres membre = (Membres) session.get(Membres.class, id);
+		session.getTransaction().commit();
+		session.beginTransaction();
+		session.update(membre);
+		session.getTransaction().commit();
+		session.close();
+		return true;*/
+		Session session = this.sessionFactory.openSession();
+		session.beginTransaction();
 		session.getTransaction().commit();
 		session.beginTransaction();
 		session.update(membre);

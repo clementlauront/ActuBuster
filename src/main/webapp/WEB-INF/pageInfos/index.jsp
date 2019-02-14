@@ -2,6 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="fr">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page  isELIgnored ="false" %>
 
 <head>
 	<%@include file="../../jsptoinclude/Head.jsp"%>
@@ -24,9 +26,8 @@
 		<h2>Mes infos</h2>
 
 		<p>
-			Nom : Nomdulogin <br /> Prénom : Prénomdulogin <br /> Pseudo :
-			Pseudodulogin <br /> E-mail : Emaildulogin <br /> Mot de passe :
-			*********
+			Nom : <c:out value="${sessionScope.LOGGEUR.nom}"/> <br /> Prénom : <c:out value="${sessionScope.LOGGEUR.prenom}"/> <br /> Pseudo :
+			<c:out value="${sessionScope.LOGGEUR.pseudo}"/> <br /> E-mail : <c:out value="${sessionScope.LOGGEUR.email}"/>
 		</p>
 
 	</section>
@@ -34,37 +35,39 @@
 	<input type="button" onClick="bascule('boite');"
 		value="Modifier les infos">
 	<div name="boite" id="boite" style="visibility: hidden">
-		<form>
+		<form method="post">
 			<div class="container-modification">
 				<fieldset>
+				
+		<input type="hidden" id="id" name="id" value=<c:out value="${sessionScope.LOGGEUR.id}"/> />
 
 					<p>
 						<label for="nom">Nom :</label> <input type="text" id="nom"
-							name="nom" placeholder="Nomdulogin" />
+							name="nom" placeholder=<c:out value="${sessionScope.LOGGEUR.nom}"/> />
 					</p>
 
 					<p>
 						<label for="nom">Prénom :</label> <input type="text" id="prenom"
-							name="prenom" placeholder="Prénomdulogin" />
+							name="prenom" placeholder=<c:out value="${sessionScope.LOGGEUR.prenom}"/> />
 					</p>
 
 					<p>
 						<label for="pseudo">Pseudo :</label> <input type="text"
-							id="pseudo" name="pseudo" placeholder="Pseudodulogin" />
+							id="pseudo" name="pseudo" placeholder=<c:out value="${sessionScope.LOGGEUR.pseudo}"/> />
 					</p>
 					<p>
 						<label for="email">E-mail :</label> <input type="email" id="email"
-							name="email" placeholder="Emaildulogin" />
+							name="email" placeholder=<c:out value="${sessionScope.LOGGEUR.email}"/> />
 					</p>
 
 					<p>
 						<label for="mdp">Nouveau mot de passe :</label> <input
-							type="password" class="mdp" name="mdp" placeholder="*********" />
+							type="password" id="mdp" name="mdp" placeholder="*********" />
 					</p>
 
 					<p>
 						<label for="mdp">Confirmation du mot de passe :</label> <input
-							type="password" class="mdp" name="mdp2" placeholder="*********" />
+							type="password" id="mdp2" name="mdp2" placeholder="*********" />
 					</p>
 				</fieldset>
 				<fieldset class="submit">
@@ -79,7 +82,7 @@
 
 	<script language="Javascript">
 		function bascule(elem) {
-			// Quel est l'état actuel ? 
+			// Quel est l'ï¿½tat actuel ? 
 			etat = document.getElementById(elem).style.visibility;
 			if (etat == "hidden") {
 				document.getElementById(elem).style.visibility = "visible";

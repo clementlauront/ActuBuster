@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.Articles;
 import beans.Membres;
@@ -36,11 +37,11 @@ public class AdministrationDuSite extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-//		HttpSession session = request.getSession(false);
-//
-//		if (session != null) {
-//			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
-//			if (loggeur.getNiveaux() == Niveaux.ADMIN) { // Si une session admin existe, on donne accès à la page
+		HttpSession session = request.getSession(false);
+
+		if (session != null) {
+			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
+			if (loggeur.getNiveaux() == Niveaux.ADMIN) { // Si une session admin existe, on donne accès à la page
 
 				
 				GestionnaireArticle gestA = new GestionnaireArticle();
@@ -67,12 +68,12 @@ public class AdministrationDuSite extends HttpServlet {
 				this.getServletContext().getRequestDispatcher("/WEB-INF/pageAdministrationDuSite/index.jsp")
 						.forward(request, response);
 
-//			} else { // Sinon, on affiche la page d'acceuil
-//				response.sendRedirect("/ActuBuster/Accueil");
-//			}
-//		} else {
-//			response.sendRedirect("/ActuBuster/Accueil");
-//		}
+			} else { // Sinon, on affiche la page d'acceuil
+				response.sendRedirect("/ActuBuster/Accueil");
+			}
+		} else {
+			response.sendRedirect("/ActuBuster/Accueil");
+		}
 	}
 
 	/**
