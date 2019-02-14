@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 *{
     margin: 0;
     padding: 0;
@@ -27,7 +29,7 @@ li {
 }
 
 ul li a {
-    background:  red;
+    background: red;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
     box-shadow: 2px 2px 4x #888;

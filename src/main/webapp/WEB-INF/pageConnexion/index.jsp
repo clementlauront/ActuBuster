@@ -6,19 +6,19 @@
 <html lang="fr">
 
 <head>
-<%@include file="../jsptoinclude/Head.jsp"%>
+<%@include file="../../jsptoinclude/Head.jsp"%>
 </head>
 
 <body>
 	<header>
-		<%@include file="../jsptoinclude/Header.jsp"%>
+		<%@include file="../../jsptoinclude/Header.jsp"%>
 	</header>
 
 	<main>
 
 	<aside>
 		    <nav>
-               <%@include file="../jsptoinclude/Menu.jsp" %>
+               <%@include file="../../jsptoinclude/Menu.jsp" %>
             </nav>
 	</aside>
 
@@ -34,11 +34,11 @@
 					<p>
 						<label for="pseudo">Pseudo :</label> <input type="text"
 							id="pseudo" name="pseudo" placeholder="pseudo"
-							required="required" />
+							/>
 					</p>
 					<p>
 						<label for="email">E-mail :</label> <input type="email" id="email"
-							name="email" placeholder="e-mail" required="required" />
+							name="email" placeholder="e-mail"  />
 					</p>
 
 					<p>
@@ -113,7 +113,7 @@
 	</main>
 
 	<footer>
-		<%@include file="../jsptoinclude/Footer.jsp"%>
+		<%@include file="../../jsptoinclude/Footer.jsp"%>
 	</footer>
 
 

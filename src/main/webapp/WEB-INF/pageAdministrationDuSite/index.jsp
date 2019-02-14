@@ -5,14 +5,14 @@
 <!DOCTYPE html>
 <html>
  <header>
-        <%@include file="../jsptoinclude/Header.jsp" %>
+        <%@include file="../../jsptoinclude/Header.jsp" %>
     </header>
 
     <main>
 
         <aside>
             <nav>
-               <%@include file="../jsptoinclude/Menu.jsp" %>
+               <%@include file="../../jsptoinclude/Menu.jsp" %>
             </nav>
         </aside>
 
