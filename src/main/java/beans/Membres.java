@@ -117,6 +117,12 @@ public class Membres {
 			this.email = email;
 			this.niveaux = niveaux;
 		}
+		@Override
+		public String toString() {
+			return pseudo;
+		}
+		
+		
 			
 
 		/*

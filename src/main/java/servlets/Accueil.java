@@ -1,17 +1,16 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.Articles;
-import beans.Membres;
 import beans.Tags;
 import beans.gestion.GestionnaireArticle;
-import enumerations.Categories;
-import enumerations.Niveaux;
 
 /**
  * Servlet implementation class Accueil
@@ -31,11 +30,22 @@ public class Accueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//TODO Chercher une session et un membre + son niveau et le faire intéragir avec le html
-//		System.out.println(niveau);
-//		request.setAttribute("niveau", niveau);
-		//récupérer les infos de log et afficher les infos du loggé (si non loggé, afficher un truc du genre "invité").
-		request.setAttribute("test", "test");
+		
+		GestionnaireArticle gArt = new GestionnaireArticle();
+		List<Articles> listArticles = gArt.getAllArticles();
+		int rand =  (int) Math.floor(Math.random() * listArticles.size());
+		int rand2 =  (int) Math.floor(Math.random() * listArticles.size());
+		
+		Articles article1 = listArticles.get(rand);
+		Articles article2 = listArticles.get(rand2);
+		List<Tags> liste1 = article1.getTags();
+		List<Tags> liste2 = article2.getTags();
+		
+		request.setAttribute("TitreArticle1", article1);
+		request.setAttribute("Liste1", liste1);
+		request.setAttribute("TitreArticle2", article2);
+		request.setAttribute("Liste2", liste2);
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageAccueil/index.jsp").forward(request, response);
 	}
 

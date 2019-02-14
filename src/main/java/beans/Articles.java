@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +32,7 @@ public class Articles {
 	@Column(name="CONTENUE", columnDefinition="TEXT")
 	private String contenue;
 	
-	@ManyToMany(cascade= {CascadeType.ALL})
+	@ManyToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
 	private List<Tags> tags;
 	
 	@Column(name="NOMBREVUES")
@@ -50,6 +51,9 @@ public class Articles {
 	}
 	public List<Tags> getTags() {
 		return tags;
+	}
+	public void setTags(List<Tags> tags) {
+		this.tags = tags;
 	}
 	public int getId() {
 		return id;
@@ -81,12 +85,7 @@ public class Articles {
 	public void setContenue(String contenue) {
 		this.contenue = contenue;
 	}
-	public List<Tags> getTag() {
-		return tags;
-	}
-	public void setTag(List<Tags> tags) {
-		this.tags = tags;
-	}
+
 	public int getNombreVues() {
 		return nombreVues;
 	}
