@@ -31,7 +31,7 @@ public class Messages {
 	private String objet;
 	
 	@Column(name="DATE")
-	private Date date;
+	private String date;
 	
 	//getters et setters
 	
@@ -43,11 +43,11 @@ public class Messages {
 		this.id = id;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
@@ -93,9 +93,8 @@ public class Messages {
 	
 	// constructeurs
 	
-	public Messages(int id, String prenom, String contenu, String email, String nom, String objet, Date date) {
+	public Messages(String prenom, String contenu, String email, String nom, String objet, String date) {
 		super();
-		this.id = id;
 		this.prenom = prenom;
 		this.contenu = contenu;
 		this.email = email;
