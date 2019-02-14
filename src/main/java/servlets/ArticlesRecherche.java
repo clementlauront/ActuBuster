@@ -35,8 +35,8 @@ public class ArticlesRecherche extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//récupérer les infos de log et afficher les infos du loggé (si non loggé, afficher un truc du genre "invité").
-		//récupérer la liste des articles et l'afficher
+		//rï¿½cupï¿½rer les infos de log et afficher les infos du loggï¿½ (si non loggï¿½, afficher un truc du genre "invitï¿½").
+		//rï¿½cupï¿½rer la liste des articles et l'afficher
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageArticlesRecherche/index.jsp").forward(request, response);
 	}
@@ -52,7 +52,7 @@ public class ArticlesRecherche extends HttpServlet {
 		String messageRecherche ="";
 		boolean research = false;
 		
-		//récupérer le forumulaire
+		//rï¿½cupï¿½rer le forumulaire
 		String text = (String) request.getParameter("search");
 		System.out.println(text);
 		//Instanciation des iterators pour lire les listes
@@ -62,6 +62,8 @@ public class ArticlesRecherche extends HttpServlet {
 		Iterator<Articles> itArticle = listArticles.iterator();
 		Iterator<Tags> itTags = listTags.iterator();
  
+		ArrayList<Articles> articleResultat = new ArrayList<Articles>();
+		
 		while(itArticle.hasNext()) {
 			
 			Articles articleRecherche= itArticle.next();
@@ -75,14 +77,12 @@ public class ArticlesRecherche extends HttpServlet {
 
 			//Rechercher par le titre
 			if(articleRecherche.getTitre().contains(text)) {
-				List<Articles> article = gArt.getArticlesByTitre(text);
-				request.setAttribute("listeArticle", article);
+				articleResultat.add(articleRecherche);
 				research = true;
 				
 				//Rechercher par le chapeau	
 			}else if (articleRecherche.getChapeau().contains(text)) {
-				List<Articles> article = gArt.getArticlesByChapeau(text);
-				request.setAttribute("listeArticle", article);
+				articleResultat.add(articleRecherche);
 				research = true;
 				
 				//Rechercher par le contenu
@@ -92,22 +92,24 @@ public class ArticlesRecherche extends HttpServlet {
 				research = true;
 			
 				//Rechercher par auteur
-			}else if (text.equals(articleRecherche.getAuteur().getPseudo())) {
-				List<Articles> article = gArt.getArticlesByAuteur(text);
-				request.setAttribute("listeArticle", article);
+			}else if (text.equalsIgnoreCase(articleRecherche.getAuteur().getPseudo())
+					||text.equalsIgnoreCase(articleRecherche.getAuteur().getNom())
+					||text.equalsIgnoreCase(articleRecherche.getAuteur().getPrenom()))  {
+				articleResultat.add(articleRecherche);
 				research = true;
 
 				//Rechercher par tags
 //			}else if (text.equals(tagRecherche.getTags())) {
 //				
 			}else {
-				messageRecherche = "Aucun résultat correspond à votre recherche";
+				messageRecherche = "Aucun rï¿½sultat correspond ï¿½ votre recherche";
 			}
 		}
 
 		if(research) {
 			messageRecherche="";
 		}
+		request.setAttribute("listeArticle", articleResultat);
 		request.setAttribute("noFound", messageRecherche);
 		doGet(request, response);
 	}
