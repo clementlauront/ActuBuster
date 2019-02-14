@@ -26,7 +26,7 @@
 		<h2>Mes infos</h2>
 
 		<p>
-			Nom : <c:out value="${sessionScope.LOGGEUR.nom}"/> <br /> Prï¿½nom : <c:out value="${sessionScope.LOGGEUR.prenom}"/> <br /> Pseudo :
+			Nom : <c:out value="${sessionScope.LOGGEUR.nom}"/> <br /> Prénom : <c:out value="${sessionScope.LOGGEUR.prenom}"/> <br /> Pseudo :
 			<c:out value="${sessionScope.LOGGEUR.pseudo}"/> <br /> E-mail : <c:out value="${sessionScope.LOGGEUR.email}"/>
 		</p>
 
@@ -47,7 +47,7 @@
 					</p>
 
 					<p>
-						<label for="nom">Prï¿½nom :</label> <input type="text" id="prenom"
+						<label for="nom">Prénom :</label> <input type="text" id="prenom"
 							name="prenom" placeholder=<c:out value="${sessionScope.LOGGEUR.prenom}"/> />
 					</p>
 
