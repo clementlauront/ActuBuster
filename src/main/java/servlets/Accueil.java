@@ -10,11 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.Articles;
-<<<<<<< HEAD
 import beans.Membres;
-=======
-import beans.Tags;
->>>>>>> db4865bc86bdf2952dfb7461b7ca34ebcb481d88
 import beans.gestion.GestionnaireArticle;
 
 /**
