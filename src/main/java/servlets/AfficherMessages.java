@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Messages
  */
-public class Messages extends HttpServlet {
+public class AfficherMessages extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Messages() {
+    public AfficherMessages() {
         super();
         // TODO Auto-generated constructor stub
     }

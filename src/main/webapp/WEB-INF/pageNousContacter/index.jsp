@@ -45,7 +45,7 @@
 
         <section id="box_message" class="contact">
             <h2>Nous envoyer un message</h2>
-            <form method="post" action="envoi.php">
+            <form method="post" action="/ActuBuster/AfficherMessages">
                 <div id="container-message">
                     <fieldset>
                         <p>
@@ -80,12 +80,16 @@
 
                 <fieldset class="submit">
                     <p>
-                        <input type="submit" value="Envoyer" id="bouton_envoi" />
+                        <input type="submit" id="messageEnvoye" value="Envoyer" id="bouton_envoi"/>
                     </p>
                 </fieldset>
             </form>
         </section>
     </main>
+
+	<script>
+	
+	</script>
 
     <footer>
             <%@include file="../../jsptoinclude/Footer.jsp"%>
