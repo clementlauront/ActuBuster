@@ -42,7 +42,7 @@ public class ArticleDetail extends HttpServlet {
 		request.setAttribute("categorie", articleEnCours.getCategorie());
 		request.setAttribute("tags", articleEnCours.getTags());
 		request.setAttribute("chapeau", articleEnCours.getChapeau());
-		request.setAttribute("contenu", articleEnCours.getContenue());
+		request.setAttribute("contenu", articleEnCours.getContenu());
 		request.setAttribute("auteur", articleEnCours.getAuteur().getPseudo());
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageArticleDetail/index.jsp").forward(request, response);

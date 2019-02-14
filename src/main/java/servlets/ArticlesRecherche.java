@@ -35,8 +35,7 @@ public class ArticlesRecherche extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//récupérer les infos de log et afficher les infos du loggé (si non loggé, afficher un truc du genre "invité").
-		//récupérer la liste des articles et l'afficher
+
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageArticlesRecherche/index.jsp").forward(request, response);
 	}
@@ -51,6 +50,7 @@ public class ArticlesRecherche extends HttpServlet {
 		GestionnaireTags gTags= new GestionnaireTags();
 		String messageRecherche ="";
 		boolean research = false;
+		boolean defaut = true;
 		
 		//récupérer le forumulaire
 		String text = (String) request.getParameter("search");
@@ -70,7 +70,7 @@ public class ArticlesRecherche extends HttpServlet {
 			
 			System.out.println(articleRecherche.getTitre());
 			System.out.println(articleRecherche.getChapeau());
-			System.out.println(articleRecherche.getContenue());
+			System.out.println(articleRecherche.getContenu());
 			System.out.println(articleRecherche.getAuteur().getPseudo());
 			System.out.println(text);
 
@@ -79,16 +79,19 @@ public class ArticlesRecherche extends HttpServlet {
 			if(articleRecherche.getTitre().contains(text)) {
 				articleResultat.add(articleRecherche);
 				research = true;
+				defaut = false;
 				
 				//Rechercher par le chapeau	
 			}else if (articleRecherche.getChapeau().contains(text)) {
 				articleResultat.add(articleRecherche);
 				research = true;
+				defaut = false;
 				
 				//Rechercher par le contenu
-			}else if (articleRecherche.getContenue().contains(text)) {
+			}else if (articleRecherche.getContenu().contains(text)) {
 				articleResultat.add(articleRecherche);
 				research = true;
+				defaut = false;
 			
 				//Rechercher par auteur
 			}else if (text.equalsIgnoreCase(articleRecherche.getAuteur().getPseudo())
@@ -96,17 +99,25 @@ public class ArticlesRecherche extends HttpServlet {
 					||text.equalsIgnoreCase(articleRecherche.getAuteur().getPrenom()))  {
 				articleResultat.add(articleRecherche);
 				research = true;
+				defaut = false;
 
 				//Rechercher par tags
 //			}else if (text.equals(tagRecherche.getTags())) {
 //				
 			}else {
 				messageRecherche = "Aucun résultat correspond à votre recherche";
+				defaut = false;
 			}
 		}
 
-		if(research) {
+		if(research == true && defaut ==false) {
 			messageRecherche="";
+			request.setAttribute("listeArticle", articleResultat);
+
+		}
+		if(research == false && defaut == true) {
+			messageRecherche="";
+			request.setAttribute("listeArticle", listArticles);
 		}
 		request.setAttribute("listeArticle", articleResultat);
 		request.setAttribute("noFound", messageRecherche);
