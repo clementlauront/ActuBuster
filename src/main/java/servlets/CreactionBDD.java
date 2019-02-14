@@ -67,14 +67,14 @@ public class CreactionBDD extends HttpServlet {
 		GestionnaireTags gTags = new GestionnaireTags();
 		
 		// Ajout de membres dans la BDD
-//		gMembre.addMembre(adminAndrea);
-//		gMembre.addMembre(adminClement);
-//		gMembre.addMembre(adminAlexandre);
+		gMembre.addMembre(adminAndrea);
+		gMembre.addMembre(adminClement);
+		gMembre.addMembre(adminAlexandre);
 		gMembre.addMembre(bob);
-//		gMembre.addMembre(boc);
-//		gMembre.addMembre(boa);
-//		gMembre.addMembre(bod);
-//		gMembre.addMembre(boe);
+		gMembre.addMembre(boc);
+		gMembre.addMembre(boa);
+		gMembre.addMembre(bod);
+		gMembre.addMembre(boe);
 		
 		// Ajout d'articles dans la BDD
 		gArt.addArticle(article);

@@ -3,10 +3,12 @@ package beans;
 import java.sql.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Messages {
 
 	// attributs
@@ -18,7 +20,7 @@ public class Messages {
 	@Column(name="PRENOM")
 	private String prenom;
 	
-	@Column(name="CONTENU")
+	@Column(name="CONTENU", columnDefinition="TEXT")
 	private String contenu;
 	
 	@Column(name="EMAIL")

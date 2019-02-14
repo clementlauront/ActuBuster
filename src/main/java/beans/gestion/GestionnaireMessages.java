@@ -28,7 +28,7 @@ public class GestionnaireMessages {
 			return true;
 		}
 		
-		public boolean deleteArticleById(int id) {
+		public boolean deleteMessageById(int id) {
 			// TODO prévoir si id n'existe pas
 			Session session = this.sessionFactory.openSession();
 			session.beginTransaction();

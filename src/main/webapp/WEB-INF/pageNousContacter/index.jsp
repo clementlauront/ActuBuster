@@ -87,10 +87,6 @@
         </section>
     </main>
 
-	<script>
-	
-	</script>
-
     <footer>
             <%@include file="../../jsptoinclude/Footer.jsp"%>
         </footer>

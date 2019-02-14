@@ -26,7 +26,7 @@
 		<h2>Mes infos</h2>
 
 		<p>
-			Nom : <c:out value="${sessionScope.LOGGEUR.nom}"/> <br /> Prï¿½nom : <c:out value="${sessionScope.LOGGEUR.prenom}"/> <br /> Pseudo :
+			Nom : <c:out value="${sessionScope.LOGGEUR.nom}"/> <br /> Prénom : <c:out value="${sessionScope.LOGGEUR.prenom}"/> <br /> Pseudo :
 			<c:out value="${sessionScope.LOGGEUR.pseudo}"/> <br /> E-mail : <c:out value="${sessionScope.LOGGEUR.email}"/>
 		</p>
 
@@ -82,7 +82,7 @@
 
 	<script language="Javascript">
 		function bascule(elem) {
-			// Quel est l'ï¿½tat actuel ? 
+			// Quel est l'état actuel ? 
 			etat = document.getElementById(elem).style.visibility;
 			if (etat == "hidden") {
 				document.getElementById(elem).style.visibility = "visible";
