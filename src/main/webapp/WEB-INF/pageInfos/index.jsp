@@ -62,12 +62,12 @@
 
 					<p>
 						<label for="mdp">Nouveau mot de passe :</label> <input
-							type="password" class="mdp" name="mdp" placeholder="password"/>
+							type="password" id="mdp" name="mdp" placeholder="*********" />
 					</p>
 
 					<p>
 						<label for="mdp">Confirmation du mot de passe :</label> <input
-							type="password" class="mdp" name="mdp2" placeholder="password"/>
+							type="password" id="mdp2" name="mdp2" placeholder="*********" />
 					</p>
 				</fieldset>
 				<fieldset class="submit">

@@ -69,34 +69,82 @@ public class Infos extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		//instancier les variables temporaires
+
+		// instancier les variables temporaires
 		GestionnaireMembres gestM = new GestionnaireMembres();
 
 		// r�cup�rer le forumulaire
-		String pseudo = request.getParameter("pseudo");
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
+		String pseudo = request.getParameter("pseudo");
 		String email = request.getParameter("email");
 		String password = request.getParameter("mdp");
 		String passwordConf = request.getParameter("mdp2");
 		int id = Integer.parseInt(request.getParameter("id"));
 
-		
-		if (!pseudo.equals("")) {
-			System.out.println("pseudo rempli");
-			
+		if (!nom.equals("")) {
+			System.out.println("nom rempli");
 			HttpSession session = request.getSession(false);
 			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
-			
+			loggeur.setNom(nom);
+			gestM.updateMembre(loggeur);
+			response.sendRedirect("Infos");
+		} else {
+			System.out.println("nom vide");
+		}
 
+		if (!prenom.equals("")) {
+			System.out.println("prenom rempli");
+			HttpSession session = request.getSession(false);
+			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
+			loggeur.setPrenom(prenom);
+			gestM.updateMembre(loggeur);
+			response.sendRedirect("Infos");
+		} else {
+			System.out.println("prenom vide");
+		}
+
+		if (!pseudo.equals("")) {
+			System.out.println("pseudo rempli");
+			HttpSession session = request.getSession(false);
+			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
 			loggeur.setPseudo(pseudo);
 			gestM.updateMembre(loggeur);
-			
+			response.sendRedirect("Infos");
 		} else {
 			System.out.println("pseudo vide");
 		}
-		
+
+		if (!email.equals("")) {
+			System.out.println("email rempli");
+			HttpSession session = request.getSession(false);
+			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
+			loggeur.setEmail(email);
+			gestM.updateMembre(loggeur);
+			response.sendRedirect("Infos");
+		} else {
+			System.out.println("email vide");
+		}
+
+		if (!password.equals("")) {
+			if (!passwordConf.equals("")) {
+				System.out.println("passwords remplis");
+
+				if (password.equals(passwordConf)) {
+					HttpSession session = request.getSession(false);
+					Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
+					loggeur.setPassword(password);
+					gestM.updateMembre(loggeur);
+					response.sendRedirect("Infos");
+				} else {
+					System.out.println("passwords diff�rents");
+				}
+			} else {
+				System.out.println("password vide");
+			}
+
+		}
+
 	}
 
 }
