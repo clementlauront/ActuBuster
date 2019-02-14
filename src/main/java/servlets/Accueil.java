@@ -30,7 +30,8 @@ public class Accueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//instancier les variables temporaires
+
 		GestionnaireArticle gArt = new GestionnaireArticle();
 		List<Articles> listArticles = gArt.getAllArticles();
 		int rand =  (int) Math.floor(Math.random() * listArticles.size());

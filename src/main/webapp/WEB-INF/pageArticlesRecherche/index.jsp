@@ -2,6 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="fr">
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page  isELIgnored ="false" %>
 
 <head>
 <%@include file="../../jsptoinclude/Head.jsp"%>
@@ -23,85 +25,56 @@
 	<section id="lesarticles">
 		<h2>Les articles</h2>
 		<form id="barreRercherche" action="" class="formulaire" method="POST">
-			Barre de recherche : <input class="champ" type="text" name="text"
-				value="Search..." /><input class="bouton" type="button" value="OK" />
+			Barre de recherche : 
+			<input class="champ" type="text" name="search" placeholder="Search..." />
+			<input type="submit" class="bouton"  value="OK" />
 		</form>
 		
-		<article id="articles" class="article">
+		<p id="Nofound"><c:out value="${noFound}"/>
+		<article id="articles" >
+			<c:forEach items="${listeArticle}" var="article">
 			<div class="img_box">
 				<a href="#"> <img src="article1.jpg" alt="???">
 				</a>
 			</div>
+				<div class="texte">
+					<h1>
+						<c:out value="${article.titre}" />
+					</h1>
+					<p>
+					Catégorie : <a href="#"><c:out
+								value="${article.categorie}" /></a>
+					</p>
+					<p>
+					Tags : <c:forEach items="${article.tags}" var="tag">
+							<p>
+								<c:out value="${tag.tags}" />
+							</p>
+						</c:forEach>
+					</p>
+				
+					<p>
+						<c:out value="${article.chapeau}" />
+					</p>
+				
+					<div class="signature">
+						<p>
+							Par <a href="#"><c:out value="${article.auteur}" /></a> le
+							23 février, 2017.
+						</p>
+						<p>
+							<button>
+								<a href="#">Ajouter</a>
+							</button>
+							<a href="/ActuBuster/ArticleDetail">Lire</a>
+						</p>
 
-			<div class="texte">
-				<h1>Titre du tout dernier article publié</h1>
-				<p>
-					Catégorie : <a href="#">Catégorie</a>
-				</p>
-				<p>
-					Tags : <a href="#">Tag 1</a><a href="#">Tag 2</a><a href="#">Tag
-						3</a>
-				</p>
-				<p>(Chapeau) Sed ut perspiciatis unde omnis iste natus error sit
-					voluptatem accusantium doloremque laudantium, totam rem aperiam,
-					eaque ipsa quae ab illo inventore veritatis et quasi architecto
-					beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-					voluptas sit aspernatur aut odit aut fugit.</p>
-				<div class="signature">
-					<p>
-						Par <a href="#">Journaliste</a> le 23 février, 2017.
-					</p>
-					<p>
-						<button>
-							<a href="#">Ajouter</a>
-						</button>
-						<button>
-							<a href="#">Supprimer</a>
-						</button>
-						<a href="#">Lire</a>
-					</p>
+					</div>
 
 				</div>
-			</div>
-		</article>
-
-		<article class="article">
-			<div class="img_box">
-				<a href="#"> <img src="article2.jpg" alt="???">
-				</a>
-			</div>
-
-			<div class="texte">
-				<h1>Titre du deuxième dernier article publié</h1>
-				<p>
-					Catégorie : <a href="#">Catégorie</a>
-				</p>
-				<p>
-					Tags : <a href="#">Tag 1</a><a href="#">Tag 2</a><a href="#">Tag
-						3</a>
-				</p>
-				</p>
-				<p>(Chapeau) Sed ut perspiciatis unde omnis iste natus error sit
-					voluptatem accusantium doloremque laudantium, totam rem aperiam,
-					eaque ipsa quae ab illo inventore veritatis et quasi architecto
-					beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-					voluptas sit aspernatur aut odit aut fugit.</p>
-				<div class="signature">
-					<p>
-						Par <a href="#">Journaliste</a> le 23 février, 2017.
-					</p>
-					<p>
-						<button>
-							<a href="#">Ajouter</a>
-						</button>
-						<button>
-							<a href="#">Supprimer</a>
-						</button>
-						<a href="#">Lire</a>
-					</p>
-				</div>
-			</div>
-		</article>
+				</c:forEach>
+				</article>
+			
 
 	</section>
 
@@ -111,5 +84,19 @@
 		<%@include file="../../jsptoinclude/Footer.jsp"%>
 	</footer>
 
+<script>
+var recherche = "<c:out value= "${noFound}"/>";
+
+if(recherche==""){
+	document.getElementById('Nofound').style.display = "none";
+
+}else{
+	document.getElementById('articles').style.display = "none";
+
+
+}
+
+
+</script>
 
 </body>
