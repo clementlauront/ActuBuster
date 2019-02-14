@@ -20,7 +20,7 @@
 	</aside>
 
 
-<p> Votre article a bien été crée ! </p>
+<p> Votre article n'a pas pu être modifié, le nouveau titre est déjà utilisé par un autre article. </p>
 
 <a href="/ActuBuster/Accueil">Revenir à l'accueil</a>
 

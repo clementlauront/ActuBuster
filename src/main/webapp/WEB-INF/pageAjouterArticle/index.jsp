@@ -34,7 +34,7 @@
 
 					<p>
 						<label for="categorie">Catégorie :</label> <SELECT
-							name="categorie" size="1">
+							name="categorie" size="1" required="required">
 							<OPTION selected>Choisir une catégorie
 							<OPTION value="GENERALE"> GENERALE
 							<OPTION value="CULTURE"> CULTURE
@@ -58,19 +58,19 @@
 					</p>
 
 					<p>
-						<label for="image">Image :</label> <input type="file" id="avatar"
-							name="avatar" accept="image/png, image/jpeg, image/gif">
+						<label for="image">Image :</label> <input type="file" id="illustration"
+							name="illustration" accept="image/png, image/jpeg, image/gif">
 					</p>
 				</fieldset>
 
 				<fieldset>
 					<p>
 						<label for="chapeau">Chapeau de l'article :</label>
-						<textarea id="chapeau" name="chapeau" rows="3"></textarea>
+						<textarea id="chapeau" name="chapeau" rows="3" required="required"></textarea>
 					</p>
 					<p>
 						<label for="contenu">Contenu de l'article :</label>
-						<textarea id="contenu" name="contenu" rows="20"></textarea>
+						<textarea id="contenu" name="contenu" rows="20" required="required"></textarea>
 					</p>
 				</fieldset>
 			</div>

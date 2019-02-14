@@ -95,14 +95,17 @@ public class Messages {
 	
 	// constructeurs
 	
-	public Messages(String prenom, String contenu, String email, String nom, String objet, String date) {
+	public Messages(String prenom, String contenu, String email, String nom, String objet) {
 		super();
 		this.prenom = prenom;
 		this.contenu = contenu;
 		this.email = email;
 		this.nom = nom;
 		this.objet = objet;
-		this.date = date;
+		String format = "dd/MM/yy H:mm:ss";
+		java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( format );
+		java.util.Date dateActuelle = new java.util.Date();
+		this.date = formater.format( dateActuelle ); 
 	}
 
 	public Messages() {

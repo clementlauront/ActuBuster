@@ -20,7 +20,7 @@
 	</aside>
 
 
-<p> Votre article a bien été crée ! </p>
+<p> Votre article a bien été modifié ! </p>
 
 <a href="/ActuBuster/Accueil">Revenir à l'accueil</a>
 

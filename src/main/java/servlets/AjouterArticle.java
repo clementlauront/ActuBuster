@@ -85,7 +85,7 @@ public class AjouterArticle extends HttpServlet {
 
 		// comparer à la liste des articles si le titre est déjà utilisé
 		for (Articles a : articles) {
-			if (a.getTitre()==titre) {
+			if (a.getTitre().equalsIgnoreCase(titre)) {
 				creationPossible = false;
 				messageErreur = "Ce titre est déjà utilisé par un autre article, veuillez en choisir un autre.";
 				break;

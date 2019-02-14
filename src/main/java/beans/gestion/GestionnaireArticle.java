@@ -41,14 +41,13 @@ public class GestionnaireArticle {
 		return true;
 	}
 	
-	public boolean updateArticle(int id) {
+	public boolean updateArticle(Articles article) {
 		// TODO prévoir si id de l'article n'existe pas
 		Session session = this.sessionFactory.openSession();
 		session.beginTransaction();
-		Articles art = (Articles) session.get(Articles.class, id);
 		session.getTransaction().commit();
 		session.beginTransaction();
-		session.update(art);
+		session.update(article);
 		session.getTransaction().commit();
 		session.close();
 		return true;
