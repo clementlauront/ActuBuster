@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import beans.Articles;
 import beans.Membres;
+import beans.Tags;
 import beans.gestion.GestionnaireArticle;
 
 /**
@@ -44,21 +45,14 @@ public class Accueil extends HttpServlet {
 		List<Tags> liste2 = article2.getTags();
 		
 		request.setAttribute("TitreArticle1", article1);
-<<<<<<< HEAD
 		request.setAttribute("Liste1", article1.getTags());
 		request.setAttribute("id1", article1.getId());
 		
 		
 		request.setAttribute("TitreArticle2", article2);
 		request.setAttribute("Liste2", article2.getTags());
+		request.setAttribute("id2", article1.getId());
 
-		
-=======
-		request.setAttribute("Liste1", liste1);
-		request.setAttribute("TitreArticle2", article2);
-		request.setAttribute("Liste2", liste2);
->>>>>>> db4865bc86bdf2952dfb7461b7ca34ebcb481d88
-		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageAccueil/index.jsp").forward(request, response);
 	}
 

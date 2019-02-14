@@ -35,9 +35,15 @@
 						value="${sessionScope.ARTICLE.categorie}" /></a>
 			</p>
 			
-			<p>
-				Tags : <a href="#"><c:out value="${sessionScope.ARTICLE.tags}" /></a>
-			</p>
+			<p>Tags :
+				
+			<c:forEach items="${Liste1}" var="tag">
+						<p>
+							<c:out value="${tag.tags}" />
+						</p>
+					</c:forEach>
+				
+				</p>
 			
 			<div class="head_box">
 				<a href="#"> <img src="article1.jpg" alt="???">
