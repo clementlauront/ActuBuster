@@ -33,15 +33,15 @@
                 <div class="texte">
                     <h1><c:out value="${TitreArticle1.titre}"/></h1>
                     <p>Catégorie : <a href="#"><c:out value="${TitreArticle1.categorie}"/></a></p>
-		<%-- 		<p>Tags :
+			<p>Tags :
 				
-			<c:forEach items="${Liste1}" var="blabla">
-						<ul>
-							<c:out value="${blabla}" />
-						</ul>
+			<c:forEach items="${Liste1}" var="tag">
+						<p>
+							<c:out value="${tag.tags}" />
+						</p>
 					</c:forEach>
 				
-				</p> --%>
+				</p>
 				<p><c:out value="${TitreArticle1.chapeau}" />
                     </p>
                     <div class="signature">
@@ -63,14 +63,14 @@
                     <h1><c:out value="${TitreArticle2.titre}" /></h1>
                     <p>Catégorie : <a href="#"><c:out value="${TitreArticle2.categorie}" /></a></p>
                
-                  <%--  <p>Tags :
-				<c:forEach items="${Liste2}" var="blabla">
-						<ul>
-							<c:out value="${blabla}" />
-						</ul>
+                   <p>Tags :
+				<c:forEach items="${Liste2}" var="tag">
+						<p>
+							<c:out value="${tag.tags}" />
+						</p>
 					</c:forEach>
 				
-				</p> --%>
+				</p> 
                     <p><c:out value="${TitreArticle2.chapeau}" />
                     </p>
                     <div class="signature">

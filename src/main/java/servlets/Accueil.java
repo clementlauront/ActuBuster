@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.Articles;
+import beans.Tags;
 import beans.gestion.GestionnaireArticle;
 
 /**
@@ -37,11 +38,13 @@ public class Accueil extends HttpServlet {
 		
 		Articles article1 = listArticles.get(rand);
 		Articles article2 = listArticles.get(rand2);
+		List<Tags> liste1 = article1.getTags();
+		List<Tags> liste2 = article2.getTags();
 		
 		request.setAttribute("TitreArticle1", article1);
-		request.setAttribute("Liste1", article1.getTags());
+		request.setAttribute("Liste1", liste1);
 		request.setAttribute("TitreArticle2", article2);
-		request.setAttribute("Liste2", article2.getTags());
+		request.setAttribute("Liste2", liste2);
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageAccueil/index.jsp").forward(request, response);
 	}
