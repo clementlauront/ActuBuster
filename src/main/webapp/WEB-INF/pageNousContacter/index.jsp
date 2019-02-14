@@ -4,16 +4,16 @@
 <html lang="fr">
 
 <head>
-    <%@include file="../jsptoinclude/Head.jsp"%>
+    <%@include file="../../jsptoinclude/Head.jsp"%>
 </head>
 
 <body>
     <header>
-        <%@include file="../jsptoinclude/Header.jsp"%>
+        <%@include file="../../jsptoinclude/Header.jsp"%>
     </header>
  <aside>
             <nav>
-               <%@include file="../jsptoinclude/Menu.jsp" %>
+               <%@include file="../../jsptoinclude/Menu.jsp" %>
             </nav>
         </aside>
 
@@ -86,7 +86,7 @@
     </main>
 
     <footer>
-            <%@include file="../jsptoinclude/Footer.jsp"%>
+            <%@include file="../../jsptoinclude/Footer.jsp"%>
         </footer>
 
 

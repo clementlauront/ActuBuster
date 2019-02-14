@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body{
+   background-color: white;
+    position: relative;
+}
+
+ul{
+    display: block;
+    left: 100px;
+    list-style: none;
+    padding :60px 0;
+    position: relative;
+    top: 100;
+    width: 200px;
+}
+
+li {
+    margin: 5px 0 0 0;
+}
+
+ul li a {
+    background: red;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 2px 2px 4x #888;
+    color : #ffffff;
+    display: block;
+    padding : 7px 15px;
+    text-decoration:none;
+    transition: all 0.3s ease-out 0s;
+    width: 100px;
+}
+
+ul li a:hover{
+    background:black ;
+    padding : 7px 15px 7px 30px;
+    color : #ffffff;
+}
