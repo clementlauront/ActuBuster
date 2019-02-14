@@ -26,9 +26,9 @@
 		<h2>Mes infos</h2>
 
 		<p>
-			Nom : <c:out value="${nom}"/> <br /> Prénom : <c:out value="${prenom}"/> <br /> Pseudo :
-			<c:out value="${pseudo}"/> <br /> E-mail : <c:out value="${email}"/> <br /> Mot de passe :
-			<c:out value="${motdepasse}"/>
+			Nom : <c:out value="${sessionScope.LOGGEUR.nom}"/> <br /> Prénom : <c:out value="${sessionScope.LOGGEUR.prenom}"/> <br /> Pseudo :
+			<c:out value="${sessionScope.LOGGEUR.pseudo}"/> <br /> E-mail : <c:out value="${sessionScope.LOGGEUR.email}"/> <br /> Mot de passe :
+			<c:out value="${sessionScope.LOGGEUR.password}"/>
 		</p>
 
 	</section>
@@ -36,27 +36,29 @@
 	<input type="button" onClick="bascule('boite');"
 		value="Modifier les infos">
 	<div name="boite" id="boite" style="visibility: hidden">
-		<form>
+		<form method="post">
 			<div class="container-modification">
 				<fieldset>
+				
+		<input type="hidden" id="id" name="id" value=<c:out value="${sessionScope.LOGGEUR.id}"/> />
 
 					<p>
 						<label for="nom">Nom :</label> <input type="text" id="nom"
-							name="nom" placeholder=<c:out placeholder="${nom}"/> />
+							name="nom" placeholder=<c:out value="${sessionScope.LOGGEUR.nom}"/> />
 					</p>
 
 					<p>
 						<label for="nom">Prénom :</label> <input type="text" id="prenom"
-							name="prenom" placeholder=<c:out value="${prenom}"/> />
+							name="prenom" placeholder=<c:out value="${sessionScope.LOGGEUR.prenom}"/> />
 					</p>
 
 					<p>
 						<label for="pseudo">Pseudo :</label> <input type="text"
-							id="pseudo" name="pseudo" placeholder=<c:out value="${pseudo}"/> />
+							id="pseudo" name="pseudo" placeholder=<c:out value="${sessionScope.LOGGEUR.pseudo}"/> />
 					</p>
 					<p>
 						<label for="email">E-mail :</label> <input type="email" id="email"
-							name="email" placeholder=<c:out value="${email}"/> />
+							name="email" placeholder=<c:out value="${sessionScope.LOGGEUR.email}"/> />
 					</p>
 
 					<p>

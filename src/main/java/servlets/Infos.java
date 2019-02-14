@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.Membres;
+import beans.gestion.GestionnaireMembres;
 import enumerations.Niveaux;
 
 /**
@@ -39,14 +40,12 @@ public class Infos extends HttpServlet {
 		// si getSession(true), si pas de session active, session est crée et donc !=
 		// null
 
-		
 		if (session != null) {
 			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
-			if (loggeur.getNiveaux() == Niveaux.ADMIN
-					|| loggeur.getNiveaux() == Niveaux.JOURNALISTE
+			if (loggeur.getNiveaux() == Niveaux.ADMIN || loggeur.getNiveaux() == Niveaux.JOURNALISTE
 					|| loggeur.getNiveaux() == Niveaux.CLIENT) {
 				// Si une session admin/journaliste/client existe, on donne accès à la page
-				
+
 				this.getServletContext().getRequestDispatcher("/WEB-INF/pageInfos/index.jsp").forward(request,
 						response);
 				request.setAttribute("nom", loggeur.getNom());
@@ -54,7 +53,7 @@ public class Infos extends HttpServlet {
 				request.setAttribute("pseudo", loggeur.getPseudo());
 				request.setAttribute("email", loggeur.getEmail());
 				request.setAttribute("motdepasse", loggeur.getPassword());
-				
+
 			} else { // Sinon, on affiche la page d'acceuil
 				response.sendRedirect("/Accueil");
 			}
@@ -70,8 +69,34 @@ public class Infos extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		//instancier les variables temporaires
+		GestionnaireMembres gestM = new GestionnaireMembres();
+
+		// récupérer le forumulaire
+		String pseudo = request.getParameter("pseudo");
+		String nom = request.getParameter("nom");
+		String prenom = request.getParameter("prenom");
+		String email = request.getParameter("email");
+		String password = request.getParameter("mdp");
+		String passwordConf = request.getParameter("mdp2");
+		int id = Integer.parseInt(request.getParameter("id"));
+
+		
+		if (!pseudo.equals("")) {
+			System.out.println("pseudo rempli");
+			
+			HttpSession session = request.getSession(false);
+			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
+			
+
+			loggeur.setPseudo(pseudo);
+			gestM.updateMembre(loggeur);
+			
+		} else {
+			System.out.println("pseudo vide");
+		}
+		
 	}
 
 }
