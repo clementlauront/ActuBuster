@@ -67,14 +67,16 @@ public class AfficherMessages extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		GestionnaireMessages gestMes = new GestionnaireMessages();
-
+		 
 		String[] idMessagesASupprimer = request.getParameterValues("messagesASupprimer");
 
-		// supprimer les messages à supprimer
-		for (int i = 0; i < idMessagesASupprimer.length; i++) {
-			gestMes.deleteMessageById(Integer.parseInt(idMessagesASupprimer[i]));
+		if (idMessagesASupprimer!=null) {
+			// supprimer les messages à supprimer
+			for (int i = 0; i < idMessagesASupprimer.length; i++) {
+				gestMes.deleteMessageById(Integer.parseInt(idMessagesASupprimer[i]));
+			}
 		}
-
+		
 		doGet(request, response);
 	}
 

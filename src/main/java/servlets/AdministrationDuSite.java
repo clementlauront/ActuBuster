@@ -91,9 +91,11 @@ public class AdministrationDuSite extends HttpServlet {
 			// récupérer le formulaire
 			String[] idMembresASupprimer = request.getParameterValues("membresASupprimer");
 			
+			if (idMembresASupprimer!=null) {
 			// supprimer les membres à supprimer
 			for (int i = 0; i < idMembresASupprimer.length; i++) {
 				gestM.deleteMembreById(Integer.parseInt(idMembresASupprimer[i]));
+			}
 			}
 			
 		} else if (request.getParameter("supprimer").equals("supprimerArticles")) { // si form supprimer articles a été cliqué
@@ -104,10 +106,11 @@ public class AdministrationDuSite extends HttpServlet {
 
 			String[] idArticlesASupprimer = request.getParameterValues("articlesASupprimer");
 
-
+			if (idArticlesASupprimer!=null) {
 			// supprimer les articles à supprimer
 			for (int i = 0; i < idArticlesASupprimer.length; i++) {
 				gestA.deleteArticleById(Integer.parseInt(idArticlesASupprimer[i]));
+			}
 			}
 			
 		}

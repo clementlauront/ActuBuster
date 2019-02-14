@@ -45,22 +45,22 @@
 
         <section id="box_message" class="contact">
             <h2>Nous envoyer un message</h2>
-            <form method="post" action="/ActuBuster/AfficherMessages">
+            <form method="post" action="/ActuBuster/NousContacter">
                 <div id="container-message">
                     <fieldset>
                         <p>
                             <label for="nom">Nom :</label>
-                            <input type="text" id="nom" name="nom" placeholder="Nom" required="required" value=<c:out value="${sessionScope.LOGGEUR.nom}"/>/>
+                            <input type="text" id="nom" name="nom" placeholder="Nom" required="required" value=<c:out value="${sessionScope.LOGGEUR.nom}"/> >
                         </p>
 
                         <p>
                             <label for="nom">Prénom :</label>
-                            <input type="text" id="prenom" name="prenom" placeholder="Prénom" required="required" value=<c:out value="${sessionScope.LOGGEUR.prenom}"/>/>
+                            <input type="text" id="prenom" name="prenom" placeholder="Prénom" required="required" value=<c:out value="${sessionScope.LOGGEUR.prenom}"/> >
                         </p>
 
                         <p>
                             <label for="email">E-mail :</label>
-                            <input type="email" id="email" name="email" placeholder="e-mail" required="required" value=<c:out value="${sessionScope.LOGGEUR.email}"/>/>
+                            <input type="email" id="email" name="email" placeholder="e-mail" required="required" value=<c:out value="${sessionScope.LOGGEUR.email}"/> >
                         </p>
 
                     </fieldset>
@@ -68,7 +68,7 @@
                     <fieldset>
                         <p>
                             <label for="objet">Objet :</label>
-                            <input type="text" id="objet" name="objet" placeholder="Objet" required="required" />
+                            <input type="text" id="objet" name="objet" placeholder="Objet" required="required" >
                         </p>
 
                         <p>

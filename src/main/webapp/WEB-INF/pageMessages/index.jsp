@@ -23,6 +23,10 @@
 	<section>
 		<form action="/ActuBuster/AfficherMessages" method="post">
 			<captation>Liste des messages</captation>
+			<div>
+			<p>Affichage du message : </p>
+			<p id="messageAffiche"></p>
+			</div>
 			<table>
 				<thead>
 					<th></th>
@@ -43,12 +47,9 @@
 							<td><c:out value="${message.email}" /></td>
 							<td><c:out value="${message.objet}" /></td>
 							<td><c:out value="${message.date}" /></td>
-						</tr>
-						<input type="button" onClick="bascule('contenuMessage');"
-							value="Afficher le message">
-						<div id="contenuMessage" style="visibility: hidden">
-							<c:out value="${message.id}"/>
-						</div>
+							<td><input type="button" onClick="afficherMessage('<c:out value="${message.contenu}" />')"
+		value="Afficher le message"></td>
+							</tr>
 					</c:forEach>
 				</tbody>
 			</table>
@@ -57,15 +58,9 @@
 	</section>
 
 	<script language="Javascript">
-		function bascule(elem) {
-			// Quel est l'état actuel ? 
-			etat = document.getElementById(elem).style.visibility;
-			if (etat == "hidden") {
-				document.getElementById(elem).style.visibility = "visible";
-			} else {
-				document.getElementById(elem).style.visibility = "hidden";
-			}
-		}
+		function afficherMessage(messageAAfficher) {            
+            document.getElementById('messageAffiche').innerHTML = messageAAfficher;
+            }
 	</script> </main>
 
 	<footer>
