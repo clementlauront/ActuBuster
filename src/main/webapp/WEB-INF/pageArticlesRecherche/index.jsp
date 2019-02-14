@@ -22,7 +22,7 @@
 
 	<section id="lesarticles">
 		<h2>Les articles</h2>
-		<form action="" class="formulaire">
+		<form action="" class="formulaire" method="POST">
 			Barre de recherche : <input class="champ" type="text"
 				value="Search..." /><input class="bouton" type="button" value="OK" />
 		</form>

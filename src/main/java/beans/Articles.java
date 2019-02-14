@@ -8,8 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import enumerations.Categories;
 
@@ -28,10 +28,10 @@ public class Articles {
 	@Column
 	private Categories categorie;
 	
-	@Column(name="CONTENUE")
+	@Column(name="CONTENUE", columnDefinition="TEXT")
 	private String contenue;
 	
-	@OneToMany(cascade= {CascadeType.ALL}, orphanRemoval=true)
+	@ManyToMany(cascade= {CascadeType.ALL})
 	private List<Tags> tags;
 	
 	@Column(name="NOMBREVUES")

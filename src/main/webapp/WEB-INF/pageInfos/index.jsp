@@ -47,7 +47,7 @@
 					</p>
 
 					<p>
-						<label for="nom">Prï¿½nom :</label> <input type="text" id="prenom"
+						<label for="nom">Prénom :</label> <input type="text" id="prenom"
 							name="prenom" placeholder=<c:out value="${sessionScope.LOGGEUR.prenom}"/> />
 					</p>
 

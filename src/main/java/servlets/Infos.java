@@ -88,7 +88,6 @@ public class Infos extends HttpServlet {
 			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
 			loggeur.setNom(nom);
 			gestM.updateMembre(loggeur);
-			response.sendRedirect("Infos");
 		} else {
 			System.out.println("nom vide");
 		}
@@ -99,7 +98,6 @@ public class Infos extends HttpServlet {
 			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
 			loggeur.setPrenom(prenom);
 			gestM.updateMembre(loggeur);
-			response.sendRedirect("Infos");
 		} else {
 			System.out.println("prenom vide");
 		}
@@ -110,7 +108,6 @@ public class Infos extends HttpServlet {
 			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
 			loggeur.setPseudo(pseudo);
 			gestM.updateMembre(loggeur);
-			response.sendRedirect("Infos");
 		} else {
 			System.out.println("pseudo vide");
 		}
@@ -121,7 +118,6 @@ public class Infos extends HttpServlet {
 			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
 			loggeur.setEmail(email);
 			gestM.updateMembre(loggeur);
-			response.sendRedirect("Infos");
 		} else {
 			System.out.println("email vide");
 		}
@@ -135,7 +131,6 @@ public class Infos extends HttpServlet {
 					Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
 					loggeur.setPassword(password);
 					gestM.updateMembre(loggeur);
-					response.sendRedirect("Infos");
 				} else {
 					System.out.println("passwords diff�rents");
 				}
@@ -143,7 +138,8 @@ public class Infos extends HttpServlet {
 				System.out.println("password vide");
 			}
 
-		}
+		} response.sendRedirect("Infos");
+
 
 	}
 
