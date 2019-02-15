@@ -87,12 +87,7 @@ public class ArticlesRecherche extends HttpServlet {
 				
 				//Rechercher par le contenu
 			}else if (articleRecherche.getContenu().contains(text)) {
-<<<<<<< HEAD
 				articleResultat.add(articleRecherche);
-=======
-				List<Articles> article = gArt.getArticlesByContenu(text);
-				request.setAttribute("listeArticle", article);
->>>>>>> 619617a6df2409a27f8f5bde1087a78163f13944
 				research = true;
 	
 			
@@ -107,12 +102,7 @@ public class ArticlesRecherche extends HttpServlet {
 //			}else if (text.equals(tagRecherche.getTags())) {
 //				
 			}else {
-<<<<<<< HEAD
-				messageRecherche = "Aucun rï¿½sultat correspond ï¿½ votre recherche";
-		
-=======
-				messageRecherche = "Aucun rï¿½sultat correspond ï¿½ votre recherche";
->>>>>>> 619617a6df2409a27f8f5bde1087a78163f13944
+				messageRecherche="Aucun résultat correspond à votre recherche";
 			}
 		}
 
