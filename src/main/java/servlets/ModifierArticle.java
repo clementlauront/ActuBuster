@@ -61,7 +61,7 @@ public class ModifierArticle extends HttpServlet {
 		}
 		}
 		// Sinon, on affiche la page d'acceuil
-		response.sendRedirect("/Accueil");
+		response.sendRedirect("/ActuBuster/Accueil");
 	}
 
 	/**

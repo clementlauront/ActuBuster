@@ -55,10 +55,10 @@ public class Infos extends HttpServlet {
 				request.setAttribute("motdepasse", loggeur.getPassword());
 
 			} else { // Sinon, on affiche la page d'acceuil
-				response.sendRedirect("/Accueil");
+				response.sendRedirect("/ActuBuster/Accueil");
 			}
 		} else {
-			response.sendRedirect("/Accueil");
+			response.sendRedirect("/ActuBuster/Accueil");
 		}
 
 	}

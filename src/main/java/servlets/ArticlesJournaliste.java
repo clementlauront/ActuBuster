@@ -38,7 +38,7 @@ public class ArticlesJournaliste extends HttpServlet {
 		// si getSession(true), si pas de session active, session est crée et donc != null
 		
 		if (session != null) {
-			Membres loggeur = (Membres) session.getAttribute("LOGGEUR");
+			Membres loggeur = (Membres) session.getAttribute("LOG+      GEUR");
 			if (loggeur.getNiveaux() == Niveaux.JOURNALISTE) { // Si une session journaliste existe, on donne accès à la page
 				
 				// récupérer tous les articles
@@ -48,7 +48,7 @@ public class ArticlesJournaliste extends HttpServlet {
 				
 				// recenser les articles qui appartiennent au loggeur
 				for (Articles art : articles) {
-					if (art.getAuteur()==loggeur) {
+					if (art.getAuteur().getPseudo().equals(loggeur.getPseudo())) {
 						articlesDuLoggeur.add(art);
 					}
 				}
@@ -58,10 +58,10 @@ public class ArticlesJournaliste extends HttpServlet {
 				
 				this.getServletContext().getRequestDispatcher("/WEB-INF/pageArticlesJournaliste/index.jsp").forward(request, response);
 			} else { // Sinon, on affiche la page d'acceuil
-				response.sendRedirect("/Accueil");
+				response.sendRedirect("/ActuBuster/Accueil");
 			}
 		} else {
-			response.sendRedirect("/Accueil");
+			response.sendRedirect("/ActuBuster/Accueil");
 		}
 	}
 

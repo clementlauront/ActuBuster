@@ -46,10 +46,10 @@ public class AjouterArticle extends HttpServlet {
 				
 				this.getServletContext().getRequestDispatcher("/WEB-INF/pageAjouterArticle/index.jsp").forward(request, response);
 			} else { // Sinon, on affiche la page d'acceuil
-				response.sendRedirect("/Accueil");
+				response.sendRedirect("/ActuBuster/Accueil");
 			}
 		} else {
-			response.sendRedirect("/Accueil");
+			response.sendRedirect("/ActuBuster/Accueil");
 		}
 	}
 

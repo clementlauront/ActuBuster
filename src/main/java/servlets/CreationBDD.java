@@ -57,6 +57,8 @@ public class CreationBDD extends HttpServlet {
 		Membres adminClement = new Membres("Clément", "LAURONT", "BobleBoss", "BobLeponge", "bobleponge@gmail.com", Niveaux.ADMIN);
 		Membres adminAlexandre = new Membres("Alexandre", "GRONDIN", "FatSushi", "oldot@ku974", "a.grondin@gmail.com", Niveaux.ADMIN);
 		Membres adminAndrea = new Membres("Andrea", "FONTENEAU", "LaDocDu44", "ILOVEMEDECINE", "andrea.fonteneau@gmail.com", Niveaux.ADMIN);
+		
+		Membres paulin = new Membres("Paulin", "Nosveautnhix", "InfographeurDeLombre", "notresitemoche","paulinlegaulois@gmail.com", Niveaux.CLIENT);
 
 		// Creation Articles
 		Articles article = new Articles("Yoyo",bob, Categories.FINANCE,"Yo man je fais de la finance yo yo", "Yo finance", tags,2);
@@ -96,6 +98,7 @@ public class CreationBDD extends HttpServlet {
 		gMembre.addMembre(boa);
 		gMembre.addMembre(bod);
 		gMembre.addMembre(boe);
+		gMembre.addMembre(paulin);
 		
 		// Ajout d'articles dans la BDD
 		gArt.addArticle(article);

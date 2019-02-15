@@ -102,7 +102,7 @@ public class ArticlesRecherche extends HttpServlet {
 //			}else if (text.equals(tagRecherche.getTags())) {
 //				
 			}else {
-				messageRecherche = "Aucun rÃ©sultat correspond Ã  votre recherche";
+				messageRecherche = "Aucun résultat correspond à votre recherche";
 			}
 		}
 
@@ -110,10 +110,6 @@ public class ArticlesRecherche extends HttpServlet {
 			messageRecherche="";
 			request.setAttribute("listeArticle", articleResultat);
 
-		}
-		if(research == false ) {
-			messageRecherche="";
-			request.setAttribute("listeArticle", listArticles);
 		}
 		request.setAttribute("listeArticle", articleResultat);
 		request.setAttribute("noFound", messageRecherche);
