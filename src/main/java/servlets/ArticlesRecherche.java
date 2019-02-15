@@ -52,7 +52,7 @@ public class ArticlesRecherche extends HttpServlet {
 		String messageRecherche ="";
 		boolean research = false;
 		
-		//rï¿½cupï¿½rer le forumulaire
+		//récupérer le forumulaire
 		String text = (String) request.getParameter("search");
 		System.out.println(text);
 		//Instanciation des iterators pour lire les listes
@@ -102,7 +102,7 @@ public class ArticlesRecherche extends HttpServlet {
 //			}else if (text.equals(tagRecherche.getTags())) {
 //				
 			}else {
-				messageRecherche = "Aucun rï¿½sultat correspond ï¿½ votre recherche";
+				messageRecherche = "Aucun résultat correspond à votre recherche";
 			}
 		}
 
