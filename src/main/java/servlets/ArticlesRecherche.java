@@ -36,7 +36,6 @@ public class ArticlesRecherche extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageArticlesRecherche/index.jsp").forward(request, response);
 	}
 
@@ -50,7 +49,7 @@ public class ArticlesRecherche extends HttpServlet {
 		GestionnaireTags gTags= new GestionnaireTags();
 		String messageRecherche ="";
 		boolean research = false;
-		boolean defaut = true;
+
 		
 		//récupérer le forumulaire
 		String text = (String) request.getParameter("search");
@@ -79,19 +78,19 @@ public class ArticlesRecherche extends HttpServlet {
 			if(articleRecherche.getTitre().contains(text)) {
 				articleResultat.add(articleRecherche);
 				research = true;
-				defaut = false;
+
 				
 				//Rechercher par le chapeau	
 			}else if (articleRecherche.getChapeau().contains(text)) {
 				articleResultat.add(articleRecherche);
 				research = true;
-				defaut = false;
+			
 				
 				//Rechercher par le contenu
 			}else if (articleRecherche.getContenu().contains(text)) {
 				articleResultat.add(articleRecherche);
 				research = true;
-				defaut = false;
+	
 			
 				//Rechercher par auteur
 			}else if (text.equalsIgnoreCase(articleRecherche.getAuteur().getPseudo())
@@ -99,23 +98,22 @@ public class ArticlesRecherche extends HttpServlet {
 					||text.equalsIgnoreCase(articleRecherche.getAuteur().getPrenom()))  {
 				articleResultat.add(articleRecherche);
 				research = true;
-				defaut = false;
-
+			
 				//Rechercher par tags
 //			}else if (text.equals(tagRecherche.getTags())) {
 //				
 			}else {
 				messageRecherche = "Aucun résultat correspond à votre recherche";
-				defaut = false;
+		
 			}
 		}
 
-		if(research == true && defaut ==false) {
+		if(research == true ) {
 			messageRecherche="";
 			request.setAttribute("listeArticle", articleResultat);
 
 		}
-		if(research == false && defaut == true) {
+		if(research == false ) {
 			messageRecherche="";
 			request.setAttribute("listeArticle", listArticles);
 		}
