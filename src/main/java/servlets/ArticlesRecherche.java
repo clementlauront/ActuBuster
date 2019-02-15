@@ -35,7 +35,6 @@ public class ArticlesRecherche extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageArticlesRecherche/index.jsp").forward(request, response);
 	}
 
@@ -51,7 +50,7 @@ public class ArticlesRecherche extends HttpServlet {
 		boolean research = false;
 
 		
-		//récupérer le forumulaire
+		//rï¿½cupï¿½rer le forumulaire
 		String text = (String) request.getParameter("search");
 		System.out.println(text);
 		//Instanciation des iterators pour lire les listes
@@ -88,7 +87,12 @@ public class ArticlesRecherche extends HttpServlet {
 				
 				//Rechercher par le contenu
 			}else if (articleRecherche.getContenu().contains(text)) {
+<<<<<<< HEAD
 				articleResultat.add(articleRecherche);
+=======
+				List<Articles> article = gArt.getArticlesByContenu(text);
+				request.setAttribute("listeArticle", article);
+>>>>>>> 619617a6df2409a27f8f5bde1087a78163f13944
 				research = true;
 	
 			
@@ -103,8 +107,12 @@ public class ArticlesRecherche extends HttpServlet {
 //			}else if (text.equals(tagRecherche.getTags())) {
 //				
 			}else {
-				messageRecherche = "Aucun résultat correspond à votre recherche";
+<<<<<<< HEAD
+				messageRecherche = "Aucun rï¿½sultat correspond ï¿½ votre recherche";
 		
+=======
+				messageRecherche = "Aucun rï¿½sultat correspond ï¿½ votre recherche";
+>>>>>>> 619617a6df2409a27f8f5bde1087a78163f13944
 			}
 		}
 
