@@ -35,9 +35,6 @@ public class ArticlesRecherche extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//rï¿½cupï¿½rer les infos de log et afficher les infos du loggï¿½ (si non loggï¿½, afficher un truc du genre "invitï¿½").
-		//rï¿½cupï¿½rer la liste des articles et l'afficher
-		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/pageArticlesRecherche/index.jsp").forward(request, response);
 	}
 
@@ -51,8 +48,9 @@ public class ArticlesRecherche extends HttpServlet {
 		GestionnaireTags gTags= new GestionnaireTags();
 		String messageRecherche ="";
 		boolean research = false;
+
 		
-		//récupérer le forumulaire
+		//rï¿½cupï¿½rer le forumulaire
 		String text = (String) request.getParameter("search");
 		System.out.println(text);
 		//Instanciation des iterators pour lire les listes
@@ -79,17 +77,19 @@ public class ArticlesRecherche extends HttpServlet {
 			if(articleRecherche.getTitre().contains(text)) {
 				articleResultat.add(articleRecherche);
 				research = true;
+
 				
 				//Rechercher par le chapeau	
 			}else if (articleRecherche.getChapeau().contains(text)) {
 				articleResultat.add(articleRecherche);
 				research = true;
+			
 				
 				//Rechercher par le contenu
 			}else if (articleRecherche.getContenu().contains(text)) {
-				List<Articles> article = gArt.getArticlesByContenu(text);
-				request.setAttribute("listeArticle", article);
+				articleResultat.add(articleRecherche);
 				research = true;
+	
 			
 				//Rechercher par auteur
 			}else if (text.equalsIgnoreCase(articleRecherche.getAuteur().getPseudo())
@@ -97,17 +97,32 @@ public class ArticlesRecherche extends HttpServlet {
 					||text.equalsIgnoreCase(articleRecherche.getAuteur().getPrenom()))  {
 				articleResultat.add(articleRecherche);
 				research = true;
-
+			
 				//Rechercher par tags
 //			}else if (text.equals(tagRecherche.getTags())) {
 //				
 			}else {
-				messageRecherche = "Aucun résultat correspond à votre recherche";
+<<<<<<< HEAD
+				messageRecherche = "Aucun rï¿½sultat correspond ï¿½ votre recherche";
+=======
+<<<<<<< HEAD
+				messageRecherche = "Aucun rï¿½sultat correspond ï¿½ votre recherche";
+		
+=======
+				messageRecherche = "Aucun rï¿½sultat correspond ï¿½ votre recherche";
+>>>>>>> 619617a6df2409a27f8f5bde1087a78163f13944
+>>>>>>> 1374a99ca84ddf1dc6fcbe474205ed15a04a2d5c
 			}
 		}
 
-		if(research) {
+		if(research == true ) {
 			messageRecherche="";
+			request.setAttribute("listeArticle", articleResultat);
+
+		}
+		if(research == false ) {
+			messageRecherche="";
+			request.setAttribute("listeArticle", listArticles);
 		}
 		request.setAttribute("listeArticle", articleResultat);
 		request.setAttribute("noFound", messageRecherche);
