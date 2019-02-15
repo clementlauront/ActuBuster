@@ -102,16 +102,7 @@ public class ArticlesRecherche extends HttpServlet {
 //			}else if (text.equals(tagRecherche.getTags())) {
 //				
 			}else {
-<<<<<<< HEAD
-				messageRecherche = "Aucun r�sultat correspond � votre recherche";
-=======
-<<<<<<< HEAD
-				messageRecherche = "Aucun r�sultat correspond � votre recherche";
-		
-=======
-				messageRecherche = "Aucun r�sultat correspond � votre recherche";
->>>>>>> 619617a6df2409a27f8f5bde1087a78163f13944
->>>>>>> 1374a99ca84ddf1dc6fcbe474205ed15a04a2d5c
+				messageRecherche = "Aucun résultat correspond à votre recherche";
 			}
 		}
 
